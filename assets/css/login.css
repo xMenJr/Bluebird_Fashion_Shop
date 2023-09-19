@@ -1,0 +1,64 @@
+.login_form{
+    text-align: center;
+    margin-top: 50px;
+    border: 2px solid #000;
+    height: 550px;
+}
+.login_form--userName,
+.login_form--passWord{
+    position: relative;
+    margin: 20px 0;
+}
+.login_form--passWord input,
+.login_form--userName input{
+    width: 70%;
+    height: 25px;
+    padding-left: 50px;
+}
+.login_showPass--icon,
+.login_passWord--icon,
+.login_userName--icon {
+    position: absolute;  
+}
+.login_passWord--icon,
+.login_userName--icon {
+    top: 20%;
+    left: 12%;
+}
+.login_showPass--icon{
+    top: 20%;
+    right: 12%;
+}
+.login_form--forgetPass{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.login_form--forgetPass a{
+    text-decoration: none;
+    color: #000;
+}
+.login_form--button{
+    margin-top: 250px;
+    margin-bottom: 50px;
+}
+.login_form--button a{
+    width: 60%;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 80px;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+.sign_form a {
+    text-decoration: none;
+    color: #000;
+}
+
+.login_showPass--icon {
+    cursor: pointer;
+}
