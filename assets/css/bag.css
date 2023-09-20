@@ -116,13 +116,16 @@
 }
 
 .product {
-    margin: 20px 40px;
+    margin: 20px 20px;
+    cursor: pointer;
 }
 
 .product__bags {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
+
 
 .product__bags img {
    width: 215px;
@@ -137,6 +140,10 @@
 
 .product p {
     font-weight: bold;
+}
+
+.product__one--name {
+    width: 96%;
 }
 
 .product span {

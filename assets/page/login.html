@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js"></script>
+    <script src="../js/CallApi.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -24,7 +26,8 @@
                         <div class="login_form--passWord">
                             <i class="fa-solid fa-lock login_passWord--icon"></i>
                             <input type="password" name="passWord" id="passWord">
-                            <i class="fa-solid fa-eye-slash login_showPass--icon"></i>
+                            <i class="fa-solid fa-eye-slash login_showPass--icon" id="login_showPass--icon" onclick="ShowHidenPass()"></i>
+                            <i class="fa-sharp fa-solid fa-eye login_showPass--icon" id="login_hidenPass--icon" style="display: none;" onclick="ShowHidenPass()"></i>
                         </div>
                         <div class="login_form--forgetPass">
                             <a href="#">Forget password</a>
@@ -32,7 +35,7 @@
                                 <input type="checkbox">Remember me
                             </span>
                         </div>
-                        <div class="login_form--button">
+                        <div class="login_form--button" onclick="Login()"> 
                             <a href="#">LOGIN</a>
                         </div>
                         <div class="sign_form">
@@ -43,6 +46,5 @@
             </div>
         </div>
     </div>
-    <script src="../js/login.js"></script>
 </body>
 </html>
