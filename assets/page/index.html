@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/CallApi.js"></script>
     <!-- <script src="../js/main.js"></script> -->
     <title>BleuBird Fashion</title>
 </head>
@@ -82,7 +83,7 @@
                                     <a class="nav_item--contact" href="#">Contact</a>
                                 </li>
                                 <li class="nav_item">
-                                    <a class="nav_item--login" href="./login.html">Login</a>
+                                    <a class="nav_item--login" id="nav_item--login" href="./login.html">Login</a>
                                 </li>
                             </ul>
                         </div>
@@ -142,13 +143,13 @@
                 <div class="content_product">
                     <div class="grid wide">
                         <div class="content_product--bag">
-                            <div class="row">
-                                <div class="col l-12">
+                            <div class="row" id="bagProduct">
+                                <!-- <div class="col l-12">
                                     <div class="product_bag--heading">
                                         <h2>BAG</h2>
                                     </div>
-                                </div>
-                                <div class="col l-2-4">
+                                </div> -->
+                                <!-- <div class="col l-2-4">
                                     <div class="product_bag--item">
                                         <div class="bag_item--img">
                                             <i class="fa-sharp fa-solid fa-bookmark bag_item--icon"></i>
@@ -243,7 +244,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="see_more">
                             <div class="row">
@@ -255,13 +256,13 @@
                             </div>
                         </div>
                         <div class="content_product--shoe">
-                            <div class="row">
-                                <div class="col l-12">
+                            <div class="row" id="shoeProduct" >
+                                <!-- <div class="col l-12">
                                     <div class="product_shoe--heading">
                                         <h2>SHOE</h2>
                                     </div>
-                                </div>
-                                <div class="col l-2-4">
+                                </div> -->
+                                <!-- <div class="col l-2-4">
                                     <div class="product_shoe--item">
                                         <div class="shoe_item--img">
                                             <i class="fa-sharp fa-solid fa-bookmark shoe_item--icon"></i>
@@ -355,7 +356,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="see_more">
@@ -368,8 +369,8 @@
                             </div>
                         </div>
                         <div class="content_product--campaign">
-                            <div class="row">
-                                <div class="col l-12">
+                            <div class="row" id="campaignProduct">
+                                <!-- <div class="col l-12">
                                     <div class="product_campaign--heading">
                                         <h2>CAMPAIGN</h2>
                                     </div>
@@ -468,7 +469,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         <div class="see_more">
                             <div class="row">
@@ -480,8 +481,8 @@
                             </div>
                         </div>
                         <div class="content_product--vest">
-                            <div class="row">
-                                <div class="col l-12">
+                            <div class="row" id="vestProduct">
+                                <!-- <div class="col l-12">
                                     <div class="product_vest--heading">
                                         <h2>VEST</h2>
                                     </div>
@@ -580,7 +581,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="see_more">
@@ -685,5 +686,14 @@
         </div>
     </div>
     <script src="../js/main.js"></script>
+    <script>
+        var fullname = localStorage.getItem("fullname");
+        var loginName = document.getElementById("nav_item--login");
+        loginName.innerHTML = fullname;
+        displayProductByProductType(1, 'Bag', 'bagProduct', 'BAG');
+        displayProductByProductType(1, 'Shoe', 'shoeProduct','SHOE');
+        displayProductByProductType(1, 'CAMPAIGN', 'campaignProduct','CAMPAIGN');
+        displayProductByProductType(1, 'VEST', 'vestProduct','VEST');
+    </script>
 </body>
 </html>
