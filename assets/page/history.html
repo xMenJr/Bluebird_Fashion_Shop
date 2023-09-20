@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address</title>
+    <title>History</title>
     <link rel="stylesheet" href="../css/grid.css">
-    <link rel="stylesheet" href="../css/address.css">
+    <link rel="stylesheet" href="../css/history.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -17,7 +17,9 @@
                     <div class="row">
                         <div class="col l-2 l-o-5">
                             <div class="header__logo">
-                                <img src="../img/Logo/imglogo.png" alt="logo">
+                                <a href="./index.html">
+                                    <img src="../img/Logo/imglogo.png" alt="logo">
+                                </a>
                             </div>
                         </div>
                         <div class="col l-3 ">
@@ -89,7 +91,6 @@
             </div>
             <!-- / navigation / -->
             <!-- content -->
-            <div class="overlay"></div>
             <div class="content">
                 <div class="function">
                     <ul class="function__list">
@@ -132,49 +133,46 @@
                         </li>
                     </ul>
                 </div>
-                <div class="my_address">
-                    <div class="address">
-                        <div class="address_heading">
-                            <h1>My Address</h1>
-                        </div>
-                        <div class="address_body">
-                            <div class="body__address">
-                                <div class="left">
-                                    <h4>Username | Phone number</h4>
-                                    <h4>Số nhà 10, ngõ 7, Hai Bà Trưng, Hà Nội</h4>
-                                </div>
-                                <div class="right">
-                                    <h4 class="update">Update</h4>
-                                    <h4 class="default">Default</h4>
-                                </div>
+                <div class="my_history">
+                    <div class="history">
+                        <div class="shop">
+                            <div class="check">
+                                <p class="real">Mall</p>
                             </div>
-                            <div class="body body__save">
-                                <button class="add_newaddress"> + Add a new address</button>
+                            <div class="shop_name">
+                                <p>BlueBird</p>
+                            </div>
+                            <div class="viewstore">
+                                <i class="fa-solid fa-shop"></i>
+                                <a href="">View store</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="add_update_newaddress">
-                    <div class="add_update">
-                        <div class="update_heading">
-                            <h1 class="update_address">Update address</h1>
-                            <i class="fa-solid fa-x exit"></i>
+                        <div class="product_information">
+                            <div class="product_information--img">
+                                <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                            </div>
+                            <div class="product_information--info">
+                                <p class="product_name">The Sale Bag in Black</p>
+                                <p class="product_color">Color: Black</p>
+                                <p class="product_quantity">Quantity: 1</p>
+                                <p class="product_size">Size: L</p>
+                            </div>
+                            <div class="product_information--price">
+                                <p class="product_price">Price: 3,200</p>
+                                <p class="product_ship">Ship: 10</p>
+                                <p class="product_total">Total: 3,210</p>
+                            </div>
                         </div>
-                        <div class="update_body">
-                            <div class="body_name">
-                                <label class="username_label" for="username">Username</label>
-                                <input class="username_input" type="text">
+                        <div class="status">
+                            <i class="fa-solid fa-truck"></i>
+                            <span>Order has been delivered successfully</span>
+                        </div>
+                        <div class="option">
+                            <div class="feedback">
+                                <button>Feedback</button>
                             </div>
-                            <div class="body_phonenumber">
-                                <label class="phonenumber_label" for="phonumber">Phone number</label>
-                                <input class="phonenumber_input" type="text">
-                            </div>
-                            <div class="body_specific">
-                                <label class="specific_label" for="specific">Specific address</label>
-                                <textarea name="" id="textarea" cols="30" rows="10"></textarea>
-                            </div>
-                            <div class="body_update">
-                                <button class="address_update">Update</button>
+                            <div class="buyback">
+                                <button>Buy back</button>
                             </div>
                         </div>
                     </div>
@@ -270,6 +268,5 @@
             <!-- footer -->
         </div>
     </div>
-    <script src="../js/address.js"></script>
 </body>
 </html>

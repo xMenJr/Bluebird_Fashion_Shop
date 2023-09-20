@@ -1,3 +1,4 @@
+
 /* header */
 .header__logo{
     text-align: center;
@@ -154,185 +155,72 @@
     color: red;
 }
 
-.function__item--address a {
+.function__item--change a {
     color: red;
 }
-
 /* / function / */
 
-/* my_address */
-.address {
+/* my_changepass */
+.changepass {
     border: 1px solid gray;
     width: 1000px;
     margin-left: 80px;
     margin-top: 30px;
 }
 
-.address_heading {
+.changepass_heading {
     text-align: center;
 }
 
-.address_body {
+.changepass_body {
     margin-left: 100px;
 }
 
-h4 {
-    font-weight: 100;
+.body__oldpass,
+.body__newpass,
+.body__enternewpass {
+    padding: 20px 0;
 }
 
-.body__address {
-    border: 1px solid gray;
-    margin-right: 90px;
+.body {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 200px;
 }
 
-.left {
-    margin-left: 20px;
+.oldpass_input,
+.newpass_input,
+.enternewpass_input {
+    height: 25px;
+    width: 620px;
 }
 
-.right {
-    margin-right: 20px;
+.changepass_body label {
+    min-width: 160px;
 }
 
-.update {
-    color: rgb(29, 94, 245)
+#female, #other {
+    margin-left: 50px;
 }
 
-.update:hover {
-    cursor: pointer;
-    color: rgb(61, 50, 184);
-}
-
-.default:hover {
-    cursor: pointer;
-}
-
-.default {
-    color: red;
-    padding: 0 10px;
-    border: 1px solid red;
+#male {
+    margin-left: 0;
 }
 
 .body__save button{
-    width: 200px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
     border: 0;
     background-color: red;
     border-radius: 3px;
     color: white;
     cursor: pointer;
-    margin-left: 610px;
+    margin-left: 705px;
     margin-bottom: 20px;
 }
 
 .body__save button:hover {
     background-color: rgb(209, 30, 30);
 }
-/* / my_address / */
-
-/* add_update */
-
-.add_update {
-    border: 1px solid white;
-    position: absolute;
-    left: 27%;
-    background-color: white;
-    width: 45%;
-    top: 15%;
-    display: none;
-    border-radius: 3px;
-    animation: fade linear 0.2s;
-}
-
-.update_address {
-    text-align: center;
-    position: relative;
-}
-
-.update_heading i {
-    position: absolute;
-    top: 7%;
-    right: 3%;
-    font-size: 20px;
-}
-
-.update_heading i:hover {
-    cursor: pointer;
-}
-
-.body_name,
-.body_phonenumber,
-.body_specific {
-    display: flex;
-    padding: 12px 0;
-}
-
-.username_input,
-.phonenumber_input {
-    flex: 1;
-    border-radius: 5px;
-    height: 25px;
-    width: 100px;
-    margin-right: 40px;
-}
-
-
-.username_label,
-.phonenumber_label,
-.specific_label {
-    min-width: 150px;
-    margin-left: 30px;
-}
-
-#textarea {
-    resize: none;
-    border: 2px solid black;
-    border-radius: 3px;
-    width: 456px;
-}
-
-
-.body_update button{
-    background-color: red;
-    color: white;
-    border: 0;
-    border-radius: 3px;
-    font-size: 15px;
-    margin: 30px 0 20px 553px;
-    height: 40px;
-    width: 90px;
-}
-
-.body_update button:hover {
-    background-color: rgb(209, 30, 30);
-    cursor: pointer;
-}
-
-
-/* / add_update / */
-
-.overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: none;
-}
-
-@keyframes fade {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* / content / */
+/* / my_changepass / */
 
 /* footer */
 .footer{
@@ -389,11 +277,9 @@ h4 {
 .footer_follow--container{
     padding-left: 23%;
 }
-
 .footer_follow--container li:hover {
     cursor: pointer;
 }
-
 .footer_follow--item i{
     margin-left: 10px;
     padding-right: 15px;

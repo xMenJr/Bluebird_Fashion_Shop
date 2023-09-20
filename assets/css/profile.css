@@ -132,6 +132,10 @@
     padding-left: 30px;
 }
 
+.profile_text {
+    color: red;
+}
+
 .function__list li {
     margin: 15px 0;
     cursor: pointer;

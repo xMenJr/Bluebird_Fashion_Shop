@@ -61,4 +61,26 @@
 
 .login_showPass--icon {
     cursor: pointer;
+    display: block;
+}
+
+.login_hidePass--icon {
+    position: absolute;
+    top: 6px;
+    left: 337.5px;
+    cursor: pointer;
+    display: none;
+}
+
+.login_form--heading {
+    position: relative;
+}
+
+.prev {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
 }

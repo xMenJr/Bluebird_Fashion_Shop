@@ -38,9 +38,12 @@ button {
     color: white;
     margin-bottom: 20px;
     cursor: pointer;
-    width: 40%;
-    height: 40px;
     border-radius: 5px;
+    padding: 10px 50px;
+}
+
+button span {
+    text-align: center;
 }
 
 .register_shop--img p {
@@ -51,10 +54,14 @@ button {
     display: none;
 }
 
+.register_form--heading {
+    position: relative;
+}
+
 .prev {
     position: absolute;
-    top: 11%;
-    left: 36%;
+    top: 0;
+    left: 5%;
     font-size: 20px;
     text-decoration: none;
     color: black;
