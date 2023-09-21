@@ -163,10 +163,10 @@
 /* my_history */
 
 .history {
-    border: 1px solid black;
     width: 1000px;
     margin-left: 80px;
     margin-top: 30px;
+    
 }
 
 .history img {
@@ -184,9 +184,15 @@
     font-size: 15px;
 }
 
+.history__product {
+    border:  1px solid #000;
+    margin: 20px 0;
+}
+
 .shop {
     display: flex;
     border-bottom: 1px solid black;
+    margin: 10px 0;
 }
 
 .shop_name p {
@@ -223,6 +229,7 @@
     display: flex;
     margin-top: 20px;
     margin-left: 30px;
+    position: relative;
 }
 
 .product_information--info {
@@ -230,7 +237,9 @@
 }
 
 .product_information--price {
-    margin-left: 550px;
+    position: absolute;
+    margin-left: 400px;
+    right: 4%;
 }
 
 .product_name, .product_price {
