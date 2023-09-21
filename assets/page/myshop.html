@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>My shop</title>
     <link rel="stylesheet" href="../css/grid.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/myshop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -124,7 +124,7 @@
                         </li>
                         <li class="function__item--shop">
                             <i class="fa-solid fa-shop"></i>
-                            <a>My shop</a>
+                            <a class="myshop_text">My shop</a>
                             <ul class="function__shop">
                                 <li class="function__shop--add">
                                     <a href="">Add product</a>
@@ -133,63 +133,47 @@
                         </li>
                     </ul>
                 </div>
-                <div class="my_cart">
-                    <div class="cart">
-                        <div class="shop">
-                            <div class="check">
-                                <p class="real">Mall</p>
-                            </div>
-                            <div class="shop_name">
-                                <p>BlueBird</p>
-                            </div>
-                            <div class="viewstore">
-                                <i class="fa-solid fa-shop"></i>
-                                <a href="">View store</a>
-                            </div>
-                            <div class="select">
-                                <input class="select_check" type="checkbox">
+                <div class="my_shop">
+                    <div class="shop_manager">
+                        <div class="shop_manager--heading">
+                            <h1>My shop</h1>
+                            <div class="shop_manager--search">
+                                <input type="text">
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                         </div>
-                        <div class="product_information">
-                            <div class="product_information--img">
-                                <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                        <div class="shop_manager--body">
+                            <div class="product_manager">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product's name</th>
+                                        <th>Caregory</th>
+                                        <th>Quantity</th>
+                                        <th>Sold</th>
+                                        <th>Action</th>
+                                        <th>Option</th>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="td_img" src="../img/Bag/Bag1/bag1.1.jpg" alt=""></td>
+                                        <td class="product_name">The Seag Bag</td>
+                                        <td>Shirt</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td class="product_details">
+                                            <a href="">Details</a>
+                                        </td>
+                                        <td class="option">
+                                            <div class="select_option">
+                                                <i class="fa-regular fa-trash-can delete--icon"></i>
+                                                <a href="">
+                                                    <i class="fa-solid fa-screwdriver-wrench" style="color: black;"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="product_information--info">
-                                <p class="product_name">The Sale Bag in Black</p>
-                                <p class="product_color">Color: Black</p>
-                                <p class="product_size">Size: L</p>
-                                <span>Price:</span>
-                                <span class="product_price">820</span>
-                            </div>
-                            <div class="product_information--price">
-                                <div class="product_quantity">
-                                    <span>Quantity</span>
-                                    <button class="minus"><i class="fa-solid fa-minus"></i></button>
-                                    <input class="quantity" type="text" value="1">
-                                    <button class="plus"><i class="fa-solid fa-plus"></i></button>
-                                </div>
-                                <div class="product_price">
-                                    <span class="product_total">Total:</span>
-                                    <span class="price_total">820</span>
-                                </div>
-                                <div class="product_delete">
-                                    <button>DELETE</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="select_all">
-                            <div>
-                                <input type="checkbox">
-                                <span>Select all</span>
-                            </div>
-                            <span>Delete</span>
-                            <div>
-                                <span>Total payment: </span>
-                                <span class="total_payment">0</span>
-                            </div>
-                            <button>BUY NOW</button>
                         </div>
                     </div>
                 </div>

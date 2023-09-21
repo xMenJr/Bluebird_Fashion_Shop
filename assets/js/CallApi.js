@@ -153,13 +153,13 @@ async function displayProductByProductType(pageIndex, productType, IdClass, Name
             productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
         } else {
             const productTitle = document.createElement('div');
-            productTitle.className = 'col l-12'
-            productTitle.innerHTML = `
-                <div class="product_bag--heading">
-                    <h2>${NameProduct}</h2>
-                </div>
-            `;
-            productContainer.appendChild(productTitle);
+                productTitle.className = 'col l-12'
+                productTitle.innerHTML = `
+                    <div class="product_bag--heading">
+                        <h2>${NameProduct}</h2>
+                    </div>
+                `;
+                productContainer.appendChild(productTitle);
             data.result.forEach(product => {
 
                 
@@ -365,6 +365,9 @@ function ChangePassWord() {
   });
 }
 
+
+
+//  Test push Cu Quân
 
 
 
