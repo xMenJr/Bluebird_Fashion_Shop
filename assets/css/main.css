@@ -48,10 +48,21 @@
     justify-content: left; 
     align-items: center;
 }
+
+.header__login a{
+    color: #000;
+    text-decoration: none;
+}
+
+.header__login {
+    margin-top: 30px;
+}
+
 /* Navigation */
 .nav_list{
     display: flex;
     justify-content: space-evenly;
+    padding-right: 73px;
 }
 .nav_item{
     list-style: none;
@@ -64,8 +75,7 @@
 .nav_item--home:hover,
 .nav_item--service:hover,
 .nav_item--product:hover,
-.nav_item--contact:hover,
-.nav_item--login:hover {
+.nav_item--contact:hover {
     box-shadow: 0px 2px 0px red;
     font-weight: bold;
 }

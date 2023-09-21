@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change password</title>
+    <title>My shop</title>
     <link rel="stylesheet" href="../css/grid.css">
-    <link rel="stylesheet" href="../css/changepass.css">
+    <link rel="stylesheet" href="../css/myshop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="../js/CallApi.js"></script>
-    <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
     <div class="bluebird_fashion">
@@ -19,7 +17,9 @@
                     <div class="row">
                         <div class="col l-2 l-o-5">
                             <div class="header__logo">
-                                <img src="../img/Logo/imglogo.png" alt="logo">
+                                <a href="./index.html">
+                                    <img src="../img/Logo/imglogo.png" alt="logo">
+                                </a>
                             </div>
                         </div>
                         <div class="col l-3 ">
@@ -124,7 +124,7 @@
                         </li>
                         <li class="function__item--shop">
                             <i class="fa-solid fa-shop"></i>
-                            <a>My shop</a>
+                            <a class="myshop_text">My shop</a>
                             <ul class="function__shop">
                                 <li class="function__shop--add">
                                     <a href="">Add product</a>
@@ -133,26 +133,46 @@
                         </li>
                     </ul>
                 </div>
-                <div class="my_changepass">
-                    <div class="changepass">
-                        <div class="changepass_heading">
-                            <h1>Change password</h1>
+                <div class="my_shop">
+                    <div class="shop_manager">
+                        <div class="shop_manager--heading">
+                            <h1>My shop</h1>
+                            <div class="shop_manager--search">
+                                <input type="text">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
                         </div>
-                        <div class="changepass_body">
-                            <div class="body body__oldpass">
-                                <label for="oldpass" class="oldpass_label">Old password</label>
-                                <input type="password" class="oldpass_input">
-                            </div>
-                            <div class="body body__newpass">
-                                <label for="newpass" class="newpass_lable">New password</label>
-                                <input type="password" class="newpass_input">
-                            </div>
-                            <div class="body body__enternewpass">
-                                <label for="enternewpass" class="enternewpass_label">Enter newpassword</label>
-                                <input type="password" class="enternewpass_input">
-                            </div>
-                            <div class="body body__save">
-                                <button>SAVE</button>
+                        <div class="shop_manager--body">
+                            <div class="product_manager">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product's name</th>
+                                        <th>Caregory</th>
+                                        <th>Quantity</th>
+                                        <th>Sold</th>
+                                        <th>Action</th>
+                                        <th>Option</th>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="td_img" src="../img/Bag/Bag1/bag1.1.jpg" alt=""></td>
+                                        <td class="product_name">The Seag Bag</td>
+                                        <td>Shirt</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td class="product_details">
+                                            <a href="">Details</a>
+                                        </td>
+                                        <td class="option">
+                                            <div class="select_option">
+                                                <i class="fa-regular fa-trash-can delete--icon"></i>
+                                                <a href="">
+                                                    <i class="fa-solid fa-screwdriver-wrench" style="color: black;"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -184,7 +204,6 @@
                                         <a href="#"> Anti Counterfeiting</a>
                                     </li>
                                 </ul>
-
                             </div>  
                         </div>
                         <div class="col l-3">
@@ -248,5 +267,6 @@
             <!-- footer -->
         </div>
     </div>
+    <script src="../js/cart.js"></script>
 </body>
 </html>

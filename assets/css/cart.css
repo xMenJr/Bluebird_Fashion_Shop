@@ -231,8 +231,7 @@
 
 .product_information {
     display: flex;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin: 20px 0 20px 35px;
 }
 
 .product_information--info {
@@ -243,10 +242,96 @@
     margin-top: 0;
 }
 
-.product_total {
+.product_total, .price_total {
     color: red;
 }
 
+.product_information--price {
+    margin-left: 485px;
+}
+
+.product_quantity {
+    display: flex;
+}
+
+.product_quantity button {
+    background-color: white;
+    border: 1px solid gray;
+    width: 25px;
+    height: 25px;
+}
+
+.product_quantity button:hover {
+    cursor: pointer;
+}
+
+.product_quantity span {
+    margin-right: 10px;
+}
+
+.quantity {
+    width: 30px;
+    border: 1px solid gray;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+}
+
+.product_price {
+    margin-top: 20px;
+}
+
+.product_delete {
+    margin-top: 33px;
+    margin-left: 70px;
+}
+
+.product_delete button {
+    padding: 10px 15px;
+    background-color: red;
+    color: white;
+    border: 0;
+    border-radius: 3px;
+}
+
+.product_delete button:hover {
+    cursor: pointer;
+    background-color: rgb(209, 30, 30);
+}
+
+.select_all {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+}
+
+.select_all span {
+    line-height: 50px;
+}
+
+.select_all button {
+    color: white;
+    background-color: red;
+    border: 0;
+    border-radius: 3px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.select_all span:hover {
+    cursor: pointer;
+}
+
+.select_all button:hover {
+    cursor: pointer;
+    background-color: rgb(209, 30, 30);
+}
+
+.option {
+    border: 1px solid black;
+    margin-top: 300px;
+    margin-left: 80px;
+}
 
 /* / my_cart / */
 

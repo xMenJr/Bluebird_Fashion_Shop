@@ -148,7 +148,7 @@
                                 <a href="">View store</a>
                             </div>
                             <div class="select">
-                                <input type="checkbox">
+                                <input class="select_check" type="checkbox">
                             </div>
                         </div>
                         <div class="product_information">
@@ -159,13 +159,39 @@
                                 <p class="product_name">The Sale Bag in Black</p>
                                 <p class="product_color">Color: Black</p>
                                 <p class="product_size">Size: L</p>
+                                <span>Price:</span>
+                                <span class="product_price">820</span>
                             </div>
                             <div class="product_information--price">
-                                
-                                <p class="product_total">Total: 3,210</p>
+                                <div class="product_quantity">
+                                    <span>Quantity</span>
+                                    <button class="minus"><i class="fa-solid fa-minus"></i></button>
+                                    <input class="quantity" type="text" value="1">
+                                    <button class="plus"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                                <div class="product_price">
+                                    <span class="product_total">Total:</span>
+                                    <span class="price_total">820</span>
+                                </div>
+                                <div class="product_delete">
+                                    <button>DELETE</button>
+                                </div>
                             </div>
                         </div>
-                        
+                    </div>
+                    <div class="option">
+                        <div class="select_all">
+                            <div>
+                                <input type="checkbox">
+                                <span>Select all</span>
+                            </div>
+                            <span>Delete</span>
+                            <div>
+                                <span>Total payment: </span>
+                                <span class="total_payment">0</span>
+                            </div>
+                            <button>BUY NOW</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,7 +221,6 @@
                                         <a href="#"> Anti Counterfeiting</a>
                                     </li>
                                 </ul>
-
                             </div>  
                         </div>
                         <div class="col l-3">
@@ -259,5 +284,6 @@
             <!-- footer -->
         </div>
     </div>
+    <script src="../js/cart.js"></script>
 </body>
 </html>
