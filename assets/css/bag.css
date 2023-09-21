@@ -116,14 +116,13 @@
 }
 
 .product {
-    margin: 20px 20px;
+    margin: 20px 40px;
     cursor: pointer;
 }
 
 .product__bags {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 

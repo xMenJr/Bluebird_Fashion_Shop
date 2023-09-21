@@ -16,11 +16,21 @@ function previewImage() {
 
 const check = document.querySelector('.register_form--shop')
 
-document.getElementById('action').onclick = function(e){
-    if (this.checked){
+// document.getElementById('action').onclick = function(e){
+//     if (this.checked){
+//         check.style.display = 'block'
+//     }
+//     else{
+//         check.style.display = 'none'
+//     }
+// };
+
+const action = document.querySelector('#action')
+action.addEventListener('click', function() {
+    if (action.checked){
         check.style.display = 'block'
     }
     else{
         check.style.display = 'none'
     }
-};
+})
