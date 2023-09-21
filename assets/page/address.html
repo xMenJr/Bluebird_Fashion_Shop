@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/address.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/CallApi.js"></script>
+    <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
     <div class="bluebird_fashion">
@@ -138,8 +140,8 @@
                             <h1>My Address</h1>
                         </div>
                         <div class="address_body">
-                            <div class="body__address">
-                                <div class="left">
+                            <div class="body__address" id="body__address">
+                                <div class="left" id="left">
                                     <h4>Username | Phone number</h4>
                                     <h4>Số nhà 10, ngõ 7, Hai Bà Trưng, Hà Nội</h4>
                                 </div>
@@ -162,19 +164,23 @@
                         </div>
                         <div class="update_body">
                             <div class="body_name">
-                                <label class="username_label" for="username">Username</label>
-                                <input class="username_input" type="text">
+                                <label class="username_label" for="username">First Name</label>
+                                <input class="username_input" type="text" id="FirstName">
+                            </div>
+                            <div class="body_name">
+                                <label class="username_label" for="username">Last Name</label>
+                                <input class="username_input" type="text" id="LastName">
                             </div>
                             <div class="body_phonenumber">
                                 <label class="phonenumber_label" for="phonumber">Phone number</label>
-                                <input class="phonenumber_input" type="text">
+                                <input class="phonenumber_input" type="text" id="Phone">
                             </div>
                             <div class="body_specific">
                                 <label class="specific_label" for="specific">Specific address</label>
-                                <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+                                <textarea name="" id="textarea" cols="30" rows="10" ></textarea>
                             </div>
                             <div class="body_update">
-                                <button class="address_update">Update</button>
+                                <button class="address_update" id="address_update" onclick="ChangeAddress()">Update</button>
                             </div>
                         </div>
                     </div>
@@ -271,5 +277,8 @@
         </div>
     </div>
     <script src="../js/address.js"></script>
+    <script>
+        GetAddress();
+    </script>
 </body>
 </html>

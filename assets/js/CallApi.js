@@ -365,8 +365,74 @@ function ChangePassWord() {
   });
 }
 
+// Get Address
+
+async function GetAddress() {
+    try {
+        var token = localStorage.getItem("login");
+        const getClassUrl = `https://localhost:7029/api/ChangeAddress?token=${token}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById("left");
+        productContainer.innerHTML = '';
+
+        if (data.statusCode === 400) {
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            var productDiv = document.createElement('div');
+            productDiv.className = 'left_test';
+
+            productDiv.innerHTML = `
+                <h4>${data.result.firstName + " " + data.result.lastName} | 0${data.result.phoneNumber}</h4>
+                <h4>${data.result.address}</h4>
+            `;
+
+            productContainer.appendChild(productDiv);
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
 
 
+// Update Address
+function ChangeAddress() {
+    const token = localStorage.getItem("login");
+    const fistname = document.getElementById("FirstName").value;
+    const lastname = document.getElementById("LastName").value;
+    const phone = document.getElementById("Phone").value;
+    const address = document.getElementById("textarea").value;
+    const loginUrl = `https://localhost:7029/api/ChangeAddress?token=${token}`;
+    fetch(loginUrl, {
+        method: "PUT",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            firstName: fistname,
+            lastName: lastname,
+            phoneNumber: phone,
+            address: address
+        }),
+    })
+    .then((response) => {
+        if (!response.ok) {
+          alert("Sửa địa chỉ không thành công");
+        throw new Error("Sửa địa chỉ không thành công");
+        }
+        return response.json();
+    })
+    .then((data) => {
+          alert(data.result);
+          location.reload(true);
+    })
+    .catch((error) => {
+        // Xử lý lỗi
+        console.error(error);
+    });
+  }
 
 
   
