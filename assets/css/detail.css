@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .product_imgs{
     width: 100%;
 }
@@ -268,3 +272,53 @@ th {
 .close_icon{
     text-align: right;
 }
+
+/* drd */
+
+.header__login a{
+    color: #000;
+    text-decoration: none;
+}
+
+.header__login {
+    margin-top: 30px;
+}
+
+.header__login li {
+    padding-bottom: 10px;
+    list-style: none;
+}
+
+.select_option a{
+    list-style: none;
+    color: #000;
+}
+
+.select_option {
+    position: absolute;
+    background-color: white;
+    border: 1px solid lightgray;
+    margin-top: 5px;
+    padding: 0;
+    display: none;
+}
+
+.header__login li:hover ul.select_option {
+    display: block;
+}
+
+
+.select_option > a {
+    padding-bottom: 5px;
+}
+
+.select_option li {
+    padding: 5px 0px 5px 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.select_option li:hover {
+    background-color: lightgray;
+}
+
+/* / drd / */
