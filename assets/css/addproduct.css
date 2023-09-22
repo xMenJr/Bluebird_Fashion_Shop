@@ -1,3 +1,6 @@
+body {
+    margin: 0;
+}
 
 /* header */
 .header__logo{
@@ -25,13 +28,14 @@
 }
 .header__cart{
     display: flex;
-    justify-content: right; 
-    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    margin-top: 30px;
 }
 .header__search{
     display: flex;
     justify-content: right; 
-    align-items: center;
+    margin-top: 20px;
 }
 
 .header__search input{
@@ -41,18 +45,69 @@
 }
 .header__search i{
     position: absolute;
-    top: 5.5%;
-    right: 15%;
+    top: 4%;
+    right: 18%;
 }
-.header__cart{
-    display: flex;
-    justify-content: left; 
-    align-items: center;
+
+.header__search i:hover, .header__cart:hover {
+    cursor: pointer;
 }
+
+/* drd */
+
+.header__login a{
+    color: #000;
+    text-decoration: none;
+}
+
+.header__login {
+    margin-top: 30px;
+}
+
+.header__login li {
+    padding-bottom: 10px;
+    list-style: none;
+}
+
+.select_option a{
+    list-style: none;
+    color: #000;
+}
+
+.select_option {
+    position: absolute;
+    background-color: white;
+    border: 1px solid lightgray;
+    margin-top: 5px;
+    padding: 0;
+    display: none;
+}
+
+.header__login li:hover ul.select_option {
+    display: block;
+}
+
+
+.select_option > a {
+    padding-bottom: 5px;
+}
+
+.select_option li {
+    padding: 5px 0px 5px 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.select_option li:hover {
+    background-color: lightgray;
+}
+
+/* / drd / */
+
 /* Navigation */
 .nav_list{
     display: flex;
     justify-content: space-evenly;
+    padding-right: 90px;
 }
 .nav_item{
     list-style: none;
@@ -155,39 +210,108 @@
     color: red;
 }
 
-.function__item--bank a {
+.function__shop--add a {
     color: red;
 }
-
 /* / function / */
 
-/* my_bank */
-.bank {
+/* my_product */
+.product {
     border: 1px solid gray;
     width: 1000px;
     margin-left: 80px;
     margin-top: 30px;
-    height: 500px;
 }
 
-.bank_heading{
+.product_heading {
     text-align: center;
 }
 
-.bank_account h3 {
-    font-weight: 100;
-    font-size: 15px;
-    margin-left: 50px;
+.product_body {
+    margin-left: 100px;
 }
 
-.bank_account img {
+.body__productname,
+.body__productimg,
+.body__productprice,
+.body__productmaterial,
+.body__productsize,
+.body__productparameter,
+.body__productinfo,
+.body__productdetails,
+.body__productcategory {
+    padding: 20px 0;
+}
+
+.body {
+    display: flex;
+}
+
+.productname_input,
+.productimg_input,
+.productprice_input,
+.productmaterial_input {
+    height: 25px;
+    width: 620px;
+}
+
+.product_body label {
+    min-width: 160px;
+}
+
+.body__confirm button{
+    width: 80px;
+    height: 30px;
+    border: 0;
+    background-color: red;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    margin-left: 705px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    resize: none;
+    width: 620px;
+}
+
+table, th, td {
     border: 1px solid black;
-    height: 120px;
-    width: 240px;
-    margin-left: 50px;
+    height: 40px;
+    border-collapse: collapse;
+    text-align: center;
 }
 
-/* / my_bank / */
+select {
+    width: 150px;
+    height: 30px;
+}
+
+td {
+    cursor: pointer;
+    width: 100px;
+}
+
+.body__confirm button:hover {
+    background-color: rgb(209, 30, 30);
+}
+
+.plus, .minus {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.plus, .minus:hover {
+    cursor: pointer;
+}
+
+.plus {
+    border-left: none;
+    border-right: none;
+}
+
+/* / my_product / */
 
 /* footer */
 .footer{

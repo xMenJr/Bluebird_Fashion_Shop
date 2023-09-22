@@ -61,7 +61,7 @@
 
 .login_showPass--icon {
     cursor: pointer;
-    display: block;
+    display: none;
 }
 
 .login_hidePass--icon {
@@ -69,7 +69,7 @@
     top: 6px;
     left: 337.5px;
     cursor: pointer;
-    display: none;
+    display: block;
 }
 
 .login_form--heading {
