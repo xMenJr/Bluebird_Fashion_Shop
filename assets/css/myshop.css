@@ -339,3 +339,9 @@ table, th, td {
     width: 14.28%; /* 100% chia đều cho 7 cột */
     height: 100%;
 }
+
+
+#input__search {
+    padding-left: 10px;
+    width: 25%;
+}

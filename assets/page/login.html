@@ -28,8 +28,8 @@
                         <div class="login_form--passWord">
                             <i class="fa-solid fa-lock login_passWord--icon"></i>
                             <input type="password" name="passWord" id="passWord">
-                            <i class="fa-solid fa-eye-slash login_hidePass--icon"></i>
-                            <i class="fa-solid fa-eye login_showPass--icon"></i>
+                            <i class="fa-solid fa-eye-slash login_hidePass--icon" id="login_showPass--icon" onclick="ShowHidenPass()" style="display: block;"></i>
+                            <i class="fa-solid fa-eye login_showPass--icon" id="login_hidenPass--icon" style="display: none;" onclick="ShowHidenPass()"></i>
                         </div>
                         <div class="login_form--forgetPass">
                             <a href="#">Forget password</a>

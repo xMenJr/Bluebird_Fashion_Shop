@@ -1,7 +1,5 @@
-function Login() {
+function Login(username, password) {
     const loginUrl = "https://localhost:7029/api/Users/SignIn";
-  const username = document.getElementById("userName").value;
-  const password = document.getElementById("passWord").value;
   fetch(loginUrl, {
       method: "POST",
       headers: {
@@ -50,6 +48,12 @@ function Login() {
   });
 }
 
+function loginPage() {
+    const username = document.getElementById("userName").value;
+    const password = document.getElementById("passWord").value;
+    Login(username,password);
+}
+
 function SignIn() {
     
   const email = document.getElementById("email").value;
@@ -73,9 +77,9 @@ function SignIn() {
         first_Name :firstname,
         last_Name:lastname,
         email: email,
-        password: NumberPhone,
-        confirmPassword: password,
-        phone: confirmpassword,
+        password: password,
+        confirmPassword: confirmpassword,
+        phone: NumberPhone,
         address: Address,
         brandName: BrandName,
         avata: avataShop
@@ -90,9 +94,10 @@ function SignIn() {
     })
     .then((data) => {
         // Xử lý dữ liệu trả về từ API
-        alert(data.status);
-        // window,location.href = "index.html";
-        // alert(data.result);
+        alert(data.result);
+        if(data.statusCode === 200) {
+            Login(email, password);
+        }
 
     })
     .catch((error) => {
@@ -126,9 +131,10 @@ function SignIn() {
         })
         .then((data) => {
             // Xử lý dữ liệu trả về từ API
-            alert(data.status);
-            // window,location.href = "index.html";
-            // alert(data.result);
+            alert(data.result);
+            if(data.statusCode === 200) {
+                Login(email, password);
+            }
     
         })
         .catch((error) => {
@@ -254,12 +260,19 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
         } else {
             data.result.forEach(product => {
                 let ShipStatus = product.usedStatus ;
-                if(ShipStatus == 0) {
+                if(ShipStatus == 3) {
                     ShipStatus = "Waiting for confirmation from the shop"
                 }
-                if(ShipStatus == 3) {
+                else if(ShipStatus == 4) {
+                    ShipStatus = "Delivered to the carrier";
+                }
+                else if(ShipStatus == 5) {
+                    ShipStatus = "Delivering to you";
+                }
+                else if (ShipStatus == 6) {
                     ShipStatus = "Order has been delivered successfully";
                 }
+                
                 // Phân định dạng tiền
                 var totalPrice = product.totalPrice.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                 var price = product.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -274,13 +287,42 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
 
                 var productDiv = document.createElement('div');
                 productDiv.className = 'history__product';
+                let colorMax = "";
+                if(product.color.length > 50) {
+                    colorMax = product.color.substring(0, 50) + "...";
+                }
+                else {
+                    colorMax = product.color;
+                }
+
+                let sizeMax = "";
+                if(product.size.length > 50) {
+                    sizeMax = product.size.substring(0, 50) + "...";
+                }
+                else {
+                    sizeMax = product.size;
+                }
+
+                let nameMax = "";
+                if(product.name.length > 50) {
+                    nameMax = product.name.substring(0, 50) + "...";
+                }   
+                else {
+                    nameMax = product.name;
+                }
+
+                let BrandType;
+                if(product.brandName == "BleuBird") {
+                    BrandType = "Mall";
+                }
+                else BrandType = "Yêu thích"
 
                 productDiv.innerHTML = `
 
 
                         <div class="shop">
                             <div class="check">
-                                <p class="real">Mall</p>
+                                <p class="real">${BrandType}</p>
                             </div>
                             <div class="shop_name">
                                 <p> ${product.brandName} </p>
@@ -295,10 +337,10 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
                                 <img src="${product.img}" alt="">
                             </div>
                             <div class="product_information--info">
-                                <p class="product_name">${product.name}</p>
-                                <p class="product_color">Color: ${product.color}</p>
+                                <p class="product_name"  style="font-weight: 600">${nameMax}</p>
+                                <p class="product_color">Color: ${colorMax}</p>
                                 <p class="product_quantity">Quantity: ${product.number}</p>
-                                <p class="product_size">Size: ${product.size}</p>
+                                <p class="product_size">Size: ${sizeMax}</p>
                             </div>
                             <div class="product_information--price">
                                 <p class="product_price">Price: ${formatPrice(price)}</p>
