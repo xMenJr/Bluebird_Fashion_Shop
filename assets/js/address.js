@@ -18,6 +18,11 @@ exit.addEventListener('click', function() {
     overlay.style.display = 'none'
 })
 
+var exitDonw = document.querySelector("#address_update");
+exitDonw.addEventListener('click', function() {
+    show.style.display = 'none'
+    overlay.style.display = 'none'
+})
 
 // Add_newaddress
 const addnewAddress = document.querySelector('.add_newaddress')

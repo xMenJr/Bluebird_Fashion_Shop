@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="product_detail">
+        <div class="container_product_detail">
+            <div class="grid ">
+                <div class="row ">
+                    <div class="col l-2">
+                        <div class="product_imgs">
+                            <ul class="list_product--img">
+                                <li class="product_img--item">
+                                    <img src="../img/Bag/Bag1/bag1.2.jpg" alt="">
+                                </li>
+                                <li class="product_img--item">
+                                    <img src="../img/Bag/Bag1/bag1.2.jpg" alt="">
+                                </li>
+                                <li class="product_img--item">
+                                    <img src="../img/Bag/Bag1/bag1.3.jpg" alt="">
+                                </li>
+                                <li class="product_img--item">
+                                    <img src="../img/Bag/Bag1/bag1.3.jpg" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col l-5">
+                        <div class="product_img--main">
+                            <div class="main_img">
+                                <img src="../img/Bag/Bag1/bag1.4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-4">
+                        <div class="product_infor">
+                            <div class="product_infor--heading">
+                                <h2>The Seal Bag in Black</h2>
+                            </div>
+                            <div class="product_infor--price">
+                                <p>$ 3,200</p>
+                            </div>
+                            <div class="product_infor--color">
+                                <p>Color: Black</p>
+                            </div>
+                            <div class="product_infor--button">
+                                <div class="product_button--buy">BUY NOW</div>
+                                <div class="product_button--add">ADD TO BAG</div>
+                            </div>
+                            <div class="product_infor--size">
+                                <table>
+                                    <tr>
+                                      <th></th>
+                                      <th>M</th>
+                                      <th>L</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Heigh</td>
+                                      <td>30</td>
+                                      <td>36</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Long</td>
+                                      <td>25</td>
+                                      <td>30</td>
+                                    </tr>
+                                  </table>
+                            </div>
+                            <div class="choose_size"  onclick="showInfor('detail_size')">
+                                <div class="choose_size--text">Select Size</div>
+                                <div class="choose_size--icon"><i class="fa-solid fa-chevron-down"></i></div>
+                            </div>
+                            <div class="detail_size" id="detail_size">
+                                <ul class="list_size">
+                                    <li class="size_item">S</li>
+                                    <li class="size_item">M</li>
+                                    <li class="size_item">L</li>
+                                    <li class="size_item">XL</li>
+                                </ul>
+                            </div>
+
+                            <div class="choose_color"  onclick="showInfor('detail_color')">
+                                <div class="choose_color--text">Select color</div>
+                                <div class="choose_color--icon"><i class="fa-solid fa-chevron-down"></i></div>
+                            </div>
+                            <div class="detail_color" id="detail_color">
+                                <ul class="list_color">
+                                    <li class="color_item">Đen</li>
+                                    <li class="color_item">Đỏ</li>
+                                    <li class="color_item">Vàng</li>
+                                    <li class="color_item">Trắng</li>
+                                </ul>
+                            </div>
+                            <div class="product_infor--quantity">
+                                <div class="product_infor--text">Quantity</div>
+                                <div class="product_infor--action">
+                                    <div id="decrease">-</div>
+                                    <span id="quantity">1</span>
+                                    <div id="increment">+</div>
+                                </div>
+                                <div class="product_infor--total">10 Available</div>
+                            </div>
+                            <div class="choose_payment_method"  onclick="showInfor('payment_method')">
+                                <div class="choose_payment_method--text">Select payment_method</div>
+                                <div class="choose_payment_method--icon"><i class="fa-solid fa-chevron-down"></i></div>
+                            </div>
+                            <div class="payment_method" id="payment_method">
+                                <ul class="list_color">
+                                    <li class="cash_method">Tiền mặt</li>
+                                    <li class="credit_card_method" onclick="showPayment()">Thẻ tín dụng</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container_product_desc">
+            <div class="grid ">
+                <div class="row">
+                    <div class="col l-12">
+                        <div class="product_desc--logo">
+                            <div class="product_logo">
+                                <div class="product_logo--img">
+                                    <img src="../img/Logo/imglogo.png" alt="logo">
+                                </div>
+                                <div class="product_logo--shop">
+                                    <p>BleuBird</p>
+                                    <a href="#">
+                                        <i class="fa-solid fa-shop"></i>
+                                        See shop
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product_about">
+                                <div class="product_about--rate">Đánh giá: 15k</div>
+                                <div class="product_about--total">Sản phẩm: 72</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-12">
+                        <div class="product_desc--text">
+                            <h2>Product Description</h2>
+                            <p>Black Seal bag handcrafted from padded lambskin leather, featuring an exploded Seal logo and a gold-finished cut out metal Seal closure. The Seal bag plays with curves and rounded edges. This bag can be worn over the shoulder using its woven metal chain strap.</p>
+                            <p>Product Details:</p>
+                            <p>• Dimensions: 30 x 20 x 9 cm / 11.8 x 7.8 x 3.5 inches</p>
+                            <p>• Strap drop: 30cm / 11.8 inches</p>
+                            <p>• Metal Seal fastening</p>
+                            <p>• One central compartment and one card slot</p>
+                            <p>• One internal zipped pocket</p>
+                            <p>• One flat pocket at the back</p>
+                            <p>• Tonal leather lining</p>
+                            <p>• Antique gold-finished chain strap</p>
+                            <p> Material: 100% Lambskin</p>
+                        </div>
+                    </div>
+                    <div class="col l-12">
+                        <div class="product_desc--review">
+                            <h2>Product Review</h2>
+                            <div class="grid wide">
+                                <div class="row">
+                                    <div class="col l-12">
+                                        <div class="product_review--item current_comment">
+                                            <div class="product_review--avata">
+                                                <div class="review_item--img">
+                                                    <img src="../img/avata/bmw_i8.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="review_item--text">
+                                                <div class="review_text">
+                                                    <input type="text" placeholder="Write your comment">
+                                                    <div class="review_post">
+                                                        <a href="#">POST</a>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col l-12">
+                                        <div class="product_review--item">
+                                            <div class="product_review--avata">
+                                                <div class="review_item--img">
+                                                    <img src="../img/avata/ronadol.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="review_item--text">
+                                                <div class="review_item--comment">
+                                                    <p>Ronaldo Ả Rập</p>
+                                                    <p>Hàng đẹp quá Xốp ! Bên Ả Rập không có bán nhưng mà hên quá vì đã gặp được Xốp, mãi ủng hộ Siuuuuuuu</p>
+                                                </div>                                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col l-12">
+                                        <div class="product_review--item">
+                                            <div class="product_review--avata">
+                                                <div class="review_item--img">
+                                                    <img src="../img/avata/messi.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="review_item--text">
+                                                <div class="review_item--comment">
+                                                    <p>Messi A me ri cần</p>
+                                                    <p>Bên Mỹ toàn bán hàng fake thôi, bà An lướt thấy shop này hàng real múc luôn 5 đôi cho cả nhà, bữa sau đi nhận Quả Bóng Vàng phải flex giày mới được</p>
+                                                </div>   
+    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_product_payment">
+            <div class="overlay" id="overlay">
+                <div class="product_payment--form" id="product_payment--form">
+                    <div class="close_icon" onclick="showPayment()">
+                        <i class="fa-solid fa-xmark "></i>
+                    </div>
+                    <div class="payment_form--heading">Enter Information</div>
+                    <div class="payment_form--infor" id="payment_form--infor">
+                        <div class="payment_infor--card_number">
+                            <span>Card number</span>
+                            <input type="text">
+                        </div>
+                        <div class="payment_infor--time">
+                            <span>Experied time</span>
+                            <input type="date">
+                        </div>
+                        <div class="payment_infor--cvc_number">
+                            <span>CVC number</span>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="payment_infor--bank">
+                        <div class="gird">
+                            <div class="row no-gutters">
+                                <div class="col l-4">
+                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
+                                </div>
+                                <div class="col l-4">
+                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
+                                </div>
+                                <div class="col l-4">
+                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
+                                </div>
+                                <div class="col l-4">
+                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
+                                </div>
+                                <div class="col l-4">
+                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
+                                </div>
+                                <div class="col l-4">
+                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
+                                </div>
+                                <div class="col l-12">
+                                    <div class="payment_bank--confirm"  onclick="showPaymentInfor()">
+                                        <a href="#">CONFIRM</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment_bank--item"></div>
+                        <!-- <div class="payment_bank--item"></div>
+                        <div class="payment_bank--item"></div>
+                        <div class="payment_bank--item"></div>
+                        <div class="payment_bank--item"></div>
+                        <div class="payment_bank--item"></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="grid wide">
+            <div class="row no-gutters">
+                <div class="col l-3">
+                    <div class="footer_about">
+                        <h2>Abour Us</h2>
+                        <ul class="footer_about--container">
+                            <li class="footer_about--item ">
+                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                <a href="#">Introduce</a>
+                            </li>
+                            <li class="footer_about--item ">
+                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                <a href="#">Product</a>
+                            </li>
+                            <li class="footer_about--item ">
+                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                <a href="#">Service</a>
+                            </li>
+                            <li class="footer_about--item ">
+                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                <a href="#"> Anti Counterfeiting</a>
+                            </li>
+                        </ul>
+
+                    </div>  
+                </div>
+                <div class="col l-3">
+                    <div class="footer_contact">
+                        <h2>Contact</h2>
+                        <ul class="footer_contact--container">
+                            <li class="footer_contact--item">
+                                <i class="fa-sharp fa-solid fa-location-dot footer_icon--address"></i>
+                                <span>Address:Bellevue,  Washington, United States</span>
+                            </li>
+                            <li class="footer_contact--item">
+                                <i class="fa-solid fa-phone footer_icon--phone"></i>
+                                <span>Phone number: 0123456789</span>
+                            </li>
+                            <li class="footer_contact--item">
+                                <i class="fa-solid fa-envelope footer_icon--email"></i>
+                                <span>Email: bluebird@gmail.com</span> 
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="col l-3">
+                    <div class="footer_office">
+                        <h2>Office Hours</h2>
+                        <div class="time_open">
+                            <span>Monday - Friday </span><br>
+                            <span>8:00 - 17:30</span>
+                        </div>
+                        <div class="time_open">
+                            <span>Saturday - Sunday </span><br>
+                            <span>8:30 - 17:00</span>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col l-3">
+                    <div class="footer_follow">
+                        <h2>Follow Us</h2>
+                        <ul class="footer_follow--container">
+                            <li class="footer_follow--item">
+                                <i class="fa-brands fa-facebook"></i>
+                                <span>Facebook</span>
+                            </li>
+                            <li class="footer_follow--item">
+                                <i class="fa-brands fa-square-instagram"></i>
+                                <span>Instagram</span>
+                            </li>
+                            <li class="footer_follow--item">
+                                <i class="fa-brands fa-youtube"></i>
+                                <span>Youtube</span>
+                            </li>
+                            <li class="footer_follow--item">
+                                <i class="fa-brands fa-twitter"></i>
+                                <span>Twitter</span>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/detail.js"></script>
+</html>

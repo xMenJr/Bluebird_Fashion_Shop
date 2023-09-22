@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/myshop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/CallApi.js"></script>
 </head>
 <body>
     <div class="bluebird_fashion">
@@ -150,11 +151,12 @@
                         <div class="shop_manager--heading">
                             <h1>My shop</h1>
                             <div class="shop_manager--search">
-                                <input type="text">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="input__search">
+                                <i class="fa-solid fa-magnifying-glass" id="search" onclick="search()"></i>
                             </div>
                         </div>
                         <div class="shop_manager--body">
+<<<<<<< HEAD
                             <div class="product_manager">
                                 <table style="width: 100%;">
                                     <tr>
@@ -185,6 +187,10 @@
                                         </td>
                                     </tr>
                                 </table>
+=======
+                            <div class="product_manager" id="product_manager">
+                                
+>>>>>>> 4048a8514d66269df7015f54b3e5da324ee72454
                             </div>
                         </div>
                     </div>
@@ -280,5 +286,12 @@
         </div>
     </div>
     <script src="../js/cart.js"></script>
+    <script>
+        GetAllProductMyShop(" ");
+        function search() {
+            const search = document.getElementById("input__search").value;
+            GetAllProductMyShop(search);
+        }
+    </script>
 </body>
 </html>

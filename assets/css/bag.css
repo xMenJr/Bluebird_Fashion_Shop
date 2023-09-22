@@ -198,8 +198,9 @@ body {
 }
 
 .product__one--name {
-    width: 96%;
+    width: 80%;
 }
+
 
 .product span {
     font-weight: bold;

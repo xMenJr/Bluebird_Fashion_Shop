@@ -294,6 +294,10 @@
     color: red;
 }
 
+.shoe_item--img {
+    height: 295px;
+}
+
 .content_img img{
     width: 100%;
     height: 700px;
@@ -319,6 +323,7 @@
 
 .product__item {
     list-style: none;
+    z-index: 2;
 }
 
 .product_vest--item:hover,
