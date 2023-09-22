@@ -163,7 +163,6 @@
 /* my_history */
 
 .history {
-    border: 1px solid black;
     width: 1000px;
     margin-left: 80px;
     margin-top: 30px;
@@ -184,9 +183,17 @@
     font-size: 15px;
 }
 
+.history__product {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin: 20px 0;
+}
+
 .shop {
     display: flex;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }
 
 .shop_name p {

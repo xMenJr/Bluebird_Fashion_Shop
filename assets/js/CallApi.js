@@ -433,5 +433,70 @@ function ChangeAddress() {
     });
   }
 
+//   Call api Get All My Shop
+
+async function GetAllProductMyShop(search) {
+    try {
+        var token = localStorage.getItem("login");
+        const getClassUrl = `https://localhost:7029/api/GetProductMyShop?token=${token}&search=${search}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById("product_manager");
+        productContainer.innerHTML = '';
+
+        if (!Array.isArray(data.result) || data.result.length === 0) {
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            const table = document.createElement('table');
+                table.id = "product__myshop"
+                table.innerHTML = `
+                    <thead id="product__myshop--title">
+                        <tr>
+                            <th>Image</th>
+                            <th>Product's name</th>
+                            <th>Caregory</th>
+                            <th>Quantity</th>
+                            <th>Sold</th>
+                            <th>Action</th>
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                `;
+                productContainer.appendChild(table);
+            data.result.forEach(product => {
+                var productDiv = document.createElement('tr');
+                productDiv.className = 'product__myshop--body';
+
+                productDiv.innerHTML = `
+                <td><img class="td_img" src="${product.img}" alt=""></td>
+                <td class="product_name">${product.nameProduct}</td>
+                <td>${product.category}</td>
+                <td>${product.quantity}</td>
+                <td>${product.sold}</td>
+                <td class="product_details">
+                    <a href="">Details</a>
+                </td>
+                <td class="option">
+                    <div class="select_option">
+                        <i class="fa-regular fa-trash-can delete--icon"></i>
+                        <a href="">
+                            <i class="fa-solid fa-screwdriver-wrench" style="color: black;"></i>
+                        </a>
+                    </div>
+                </td>
+                `;
+
+                productContainer.appendChild(productDiv);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
 
   
