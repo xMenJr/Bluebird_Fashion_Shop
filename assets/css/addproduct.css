@@ -387,3 +387,27 @@ td {
 .fa-square-instagram {
     margin-right: 2px;
 }
+
+
+/*  */
+
+.productimg_input--img__main {
+    height: 100px;
+}
+
+.body__productimg input {
+    margin: 10px 10px;
+    width: 200px;
+
+}
+
+.body__productimg div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+}
+
+.body__productimg div div {
+    flex-direction: column;
+}

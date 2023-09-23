@@ -35,20 +35,8 @@
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                         </div>
-                        <div class="col l-1">
-                            <div class="header__login">
-                                <li>
-                                    <a href="./login.html">Login</a>
-                                    <ul class="select_option">
-                                        <a href="./profile.html">
-                                            <li class="account_management">Account management</li>
-                                        </a>
-                                        <a href="./login.html">
-                                            <li class="log_out">Log out</li>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </div>
+                        <div class="col l-1" id="div__login">
+                            
                         </div>
                     </div>
                 </div>
@@ -259,8 +247,34 @@
     <script>
         //Đổi tên 
         var fullname = localStorage.getItem("fullname");
-        var loginName = document.getElementById("nav_item--login"); 
-        loginName.innerHTML = fullname;
+            if(fullname != null) {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <li>
+                        <a href="#" id="fullName">${fullname}</a>
+                        <ul class="select_option">
+                            <a href="./profile.html">
+                                <li class="account_management">Account management</li>
+                            </a>
+                            <a href="./login.html">
+                                <li class="log_out">Log out</li>
+                            </a>
+                        </ul>
+                    </li>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+            else {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <a href="./login.html" id="fullName">Login</a>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
         // Hiển thị Bags
         displayPageBagByProductType(1, 'Shoe', 'shoeProduct', 'SHOE');
     </script>

@@ -3,7 +3,7 @@
 
 // const pass = document.querySelector('#passWord')
 
-const show = document.querySelector('.login_showPass--icon')
+// const show = document.querySelector('.login_showPass--icon')
 
 // show.addEventListener('click', function() {
 //     if(pass.type == 'text') {
@@ -18,7 +18,6 @@ const show = document.querySelector('.login_showPass--icon')
 //     }
 // })
 
-<<<<<<< HEAD
 // hide.addEventListener('click', function() {
 //     if(pass.type == 'password') {
 //         pass.type = 'text'
@@ -41,14 +40,13 @@ function ShowHidenPass() {
         show.style.display = "block";
     }
 }
-=======
-hide.addEventListener('click', function() {
-    if(pass.type == 'password') {
-        pass.type = 'text'
-        show.style.display = 'block'
-        hide.style.display = 'none'
-    }
-})
+// hide.addEventListener('click', function() {
+//     if(pass.type == 'password') {
+//         pass.type = 'text'
+//         show.style.display = 'block'
+//         hide.style.display = 'none'
+//     }
+// })
 
 // function ShowHidenPass() {
 //     const show = document.getElementById('login_showPass--icon')
@@ -65,4 +63,3 @@ hide.addEventListener('click', function() {
 //         show.style.display = "block";
 //     }
 // }
->>>>>>> fa136fb35d6cc9ffc48da0a78b8a4ad0c14b2493

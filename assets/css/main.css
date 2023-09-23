@@ -71,8 +71,27 @@
     display: none;
 }
 
-.header__login a:hover ul.select_option {
+/* .select_option::before {
+    position: absolute;
+    left: 0;
+    top: -13px;
+    width: 100%;
+    height: 20px;
+    content: "";
     display: block;
+} */
+
+.div__login .header__login a:hover .select_option {
+    display: block ;
+}
+
+li:hover .select_option {
+    display: block; /* Hiển thị khi hover vào li */
+}
+
+.header__login li {
+    padding-bottom: 10px;
+    list-style: none;
 }
 
 .select_option > a {

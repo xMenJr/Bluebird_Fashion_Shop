@@ -34,20 +34,8 @@
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                         </div>
-                        <div class="col l-1">
-                            <div class="header__login">
-                                <li>
-                                    <a href="./login.html">Login</a>
-                                    <ul class="select_option">
-                                        <a href="./profile.html">
-                                            <li class="account_management">Account management</li>
-                                        </a>
-                                        <a href="./login.html">
-                                            <li class="log_out">Log out</li>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </div>
+                        <div class="col l-1" id="div__login">
+                            
                         </div>
                     </div>
                 </div>
@@ -156,9 +144,8 @@
                             </div>
                         </div>
                         <div class="shop_manager--body">
-<<<<<<< HEAD
-                            <div class="product_manager">
-                                <table style="width: 100%;">
+                            <div class="product_manager" id="product_manager">
+                                <!-- <table style="width: 100%;">
                                     <tr>
                                         <th>Image</th>
                                         <th>Product's name</th>
@@ -186,11 +173,8 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </table>
-=======
-                            <div class="product_manager" id="product_manager">
+                                </table> -->
                                 
->>>>>>> 4048a8514d66269df7015f54b3e5da324ee72454
                             </div>
                         </div>
                     </div>
@@ -287,6 +271,35 @@
     </div>
     <script src="../js/cart.js"></script>
     <script>
+        var fullname = localStorage.getItem("fullname");
+            if(fullname != null) {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <li>
+                        <a href="#" id="fullName">${fullname}</a>
+                        <ul class="select_option">
+                            <a href="./profile.html">
+                                <li class="account_management">Account management</li>
+                            </a>
+                            <a href="./login.html">
+                                <li class="log_out">Log out</li>
+                            </a>
+                        </ul>
+                    </li>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+            else {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <a href="./login.html" id="fullName">Login</a>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
         GetAllProductMyShop(" ");
         function search() {
             const search = document.getElementById("input__search").value;

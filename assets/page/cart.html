@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/CallApi.js"></script>
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
@@ -34,20 +35,8 @@
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                         </div>
-                        <div class="col l-1">
-                            <div class="header__login">
-                                <li>
-                                    <a href="./login.html">Login</a>
-                                    <ul class="select_option">
-                                        <a href="./profile.html">
-                                            <li class="account_management">Account management</li>
-                                        </a>
-                                        <a href="./login.html">
-                                            <li class="log_out">Log out</li>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </div>
+                        <div class="col l-1" id="div__login">
+                            
                         </div>
                     </div>
                 </div>
@@ -143,8 +132,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="my_cart">
-                    <div class="cart">
+                <div class="my_cart" id="my_cart">
+                    <div class="cart" id="cart">
                         <div class="shop">
                             <div class="check">
                                 <p class="real">Mall</p>
@@ -294,5 +283,38 @@
         </div>
     </div>
     <script src="../js/cart.js"></script>
+    <script>
+        var fullname = localStorage.getItem("fullname");
+            if(fullname != null) {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <li>
+                        <a href="#" id="fullName">${fullname}</a>
+                        <ul class="select_option">
+                            <a href="./profile.html">
+                                <li class="account_management">Account management</li>
+                            </a>
+                            <a href="./login.html">
+                                <li class="log_out">Log out</li>
+                            </a>
+                        </ul>
+                    </li>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+            else {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <a href="./login.html" id="fullName">Login</a>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+            GetAllCart(1, 100," ");  
+            UpdatePriceCart()
+    </script>
 </body>
 </html>
