@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank</title>
+    <title>Add product</title>
     <link rel="stylesheet" href="../css/grid.css">
-    <link rel="stylesheet" href="../css/bank.css">
+    <link rel="stylesheet" href="../css/addproduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
@@ -15,7 +15,7 @@
             <!-- header -->
             <div class="header">
                 <div class="gird wide">
-                    <div class="row">
+                    <div class="row no-gutters">
                         <div class="col l-2 l-o-5">
                             <div class="header__logo">
                                 <img src="../img/Logo/imglogo.png" alt="logo">
@@ -30,6 +30,21 @@
                         <div class="col l-1 ">
                             <div class="header__cart">
                                 <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                        </div>
+                        <div class="col l-1">
+                            <div class="header__login">
+                                <li>
+                                    <a href="./login.html">Login</a>
+                                    <ul class="select_option">
+                                        <a href="./profile.html">
+                                            <li class="account_management">Account management</li>
+                                        </a>
+                                        <a href="./login.html">
+                                            <li class="log_out">Log out</li>
+                                        </a>
+                                    </ul>
+                                </li>
                             </div>
                         </div>
                     </div>
@@ -79,9 +94,6 @@
                                 <li class="nav_item">
                                     <a class="nav_item--contact" href="#">Contact</a>
                                 </li>
-                                <li class="nav_item">
-                                    <a class="nav_item--login" href="./login.html">Login</a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -101,9 +113,6 @@
                             <ul class="function__item">
                                 <li class="function__item--profile">
                                     <a href="./profile.html">Profile</a>
-                                </li>
-                                <li class="function__item--bank">
-                                    <a href="./bank.html">Bank</a>
                                 </li>
                                 <li class="function__item--address">
                                     <a href="./address.html">Address</a>
@@ -132,16 +141,92 @@
                         </li>
                     </ul>
                 </div>
-                <div class="my_bank">
-                    <div class="bank">
-                        <div class="bank_heading">
-                            <h1>My bank</h1>
+                <div class="my_product">
+                    <div class="product">
+                        <div class="product_heading">
+                            <h1>Add product</h1>
                         </div>
-                        <div class="bank_body">
-                           <div class="bank_account">
-                                <h3>My bank account</h3>
-                                <img src="../img/Bank/mbbank.jpg" alt="">
-                           </div>
+                        <div class="product_body">
+                            <div class="body body__productname">
+                                <label for="productname" class="productname_label">Product's name</label>
+                                <input type="text" class="productname_input">
+                            </div>
+                            <div class="body body__productimg">
+                                <label for="productimg" class="productimg_label">Image product</label>
+                                <input type="text" class="productimg_input">
+                            </div>
+                            <div class="body body__productinfo">
+                                <label for="productinfo" class="productinfo_label">Product infomation</label>
+                                <textarea name="" class="productinfo_input" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="body body__productdetails">
+                                <label for="productdetails" class="productdetails_label">Product details</label>
+                                <textarea name="" class="productdetails_input" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="body body__productprice">
+                                <label for="productprice" class="productprice_label">Price</label>
+                                <input type="text" class="productprice_input">
+                            </div>
+                            <div class="body body__productmaterial">
+                                <label for="productmaterial" class="productmaterial_label">Material</label>
+                                <input type="text" class="productmaterial_input">
+                            </div>
+                            <div class="body body__productsize">
+                                <label for="productsize" class="productsize_label">Product size</label>
+                                <table id="table_size">
+                                    <tr id="header_size">
+                                        <th>Size</th>
+                                        <th onclick="editCell(this)">M</th>
+                                        <th onclick="editCell(this)">L</th>
+                                    </tr>
+                                    <tr id="header_long">
+                                        <td>Long</td>
+                                        <td onclick="editCell(this)"></td>
+                                        <td onclick="editCell(this)"></td>
+                                    </tr>
+                                    <tr id="header_height">
+                                        <td>Height</td>
+                                        <td onclick="editCell(this)"></td>
+                                        <td onclick="editCell(this)"></td>
+                                    </tr>
+                                </table>
+                                <span><button class="plus size_plus"><i class="fa-solid fa-plus"></i></button></span>
+                                <span><button class="minus size_minus"><i class="fa-solid fa-minus"></i></button></span>
+                            </div>
+                            <div class="body body__productparameter">
+                                <label for="productparameter" class="productparameter_label">Product parameter</label>
+                                <table id="table_parameter">
+                                    <tr id="header_parameter">
+                                        <th >Size</th>
+                                        <th onclick="editCell(this)">M</th>
+                                        <th onclick="editCell(this)">L</th>
+                                    </tr>
+                                    <tr id="header_color">
+                                        <td>Color</td>
+                                        <td onclick="editCell(this)"></td>
+                                        <td onclick="editCell(this)"></td>
+                                    </tr>
+                                    <tr id="header_quantity">
+                                        <td>Quantity</td>
+                                        <td onclick="editCell(this)"></td>
+                                        <td onclick="editCell(this)"></td>
+                                    </tr>
+                                </table>
+                                <span><button class="plus parameter_plus"><i class="fa-solid fa-plus"></i></button></span>
+                                <span><button class="minus parameter_minus"><i class="fa-solid fa-minus"></i></button></span>
+                            </div>
+                            <div class="body body__productcategory">
+                                <label for="productcategory" class="productcategory_label">Category</label>
+                                <select name="" id="">
+                                    <option value="">Vest</option>
+                                    <option value="">Campaign</option>
+                                    <option value="">Bag</option>
+                                    <option value="">Shoe</option>
+                                </select>
+                            </div>
+                            <div class="body body__confirm">
+                                <button>CONFIRM</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -236,5 +321,6 @@
             <!-- footer -->
         </div>
     </div>
+    <script src="../js/addproduct.js"></script>
 </body>
 </html>
