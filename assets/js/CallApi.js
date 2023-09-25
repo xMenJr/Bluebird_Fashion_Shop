@@ -777,7 +777,7 @@ async function GetAllCart(pageIndex, pageSize,search) {
                                 <span class="product_total">Total:</span>
                                 <span class="price_total" id="price_total">${product.totalPrice}</span>
                             </div>
-                            <div class="product_delete">
+                            <div class="product_delete" onclick="DeleteCart('${product.id}')">
                                 <button>DELETE</button>
                             </div>
                         </div>
@@ -823,32 +823,69 @@ function ChangeNumber() {
         var quantityInput = control.querySelector('.quantity');
         minusButton.onclick = function() {
             changeQuantity("minus", quantityInput);
+            var price = document.getElementById("product_price").textContent;
+            var number = document.getElementById("quantityInput").value;
+            var totalPrice = document.getElementById("price_total");
+            const PriceTotal = price * number ;
+            totalPrice.textContent = PriceTotal
         };
 
         plusButton.onclick = function() {
             changeQuantity("plus", quantityInput);
+            var price = document.getElementById("product_price").textContent;
+            var number = document.getElementById("quantityInput").value;
+            var totalPrice = document.getElementById("price_total");
+            const PriceTotal = price * number ;
+            totalPrice.textContent = PriceTotal
         };
     });
 }
 
 function changeQuantity(action, quantityInput) {
-    var currentQuantity = parseInt(quantityInput.value, 10);
+    var currentQuantity = parseInt(quantityInput.value, 100);
 
     if (action === "minus" && currentQuantity > 1) {
         currentQuantity--;
-        UpdatePriceCart()
     } else if (action === "plus") {
         currentQuantity++;
-        UpdatePriceCart()
     }
 }
 
 function UpdatePriceCart() {
-    var price = document.getElementById("product_price").value;
+    var price = document.getElementById("product_price").textContent;
     var number = document.getElementById("quantityInput").value;
     var totalPrice = document.getElementById("price_total");
     const PriceTotal = price * number ;
-    totalPrice.innerHTML = PriceTotal
+    totalPrice.textContent = PriceTotal
+}
+
+// Xóa Cart 
+function DeleteCart(Id) {
+    if(confirm("Bạn có chắc muốn xóa đơn hàng này?")) {
+        const loginUrl = `https://localhost:7029/api/Cart?Id=${Id}`;
+        fetch(loginUrl, {
+            method: "DELETE",
+            headers: {
+            "Content-Type": "application/json",
+            },
+        })
+        .then((response) => {
+            if (!response.ok) {
+            alert("Xóa đơn hàng không thành công");
+            throw new Error("Xóa đơn hàng không thành công");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            alert(data.result);
+            location.reload(true);
+        })
+        .catch((error) => {
+            // Xử lý lỗi
+            console.error(error);
+        });
+    }
+    else alert("Xóa đơn hàng thất bại");
 }
 
 
