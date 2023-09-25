@@ -1,5 +1,7 @@
-function Login(username, password) {
+function Login() {
     const loginUrl = "https://localhost:7029/api/Users/SignIn";
+  const username = document.getElementById("userName").value;
+  const password = document.getElementById("passWord").value;
   fetch(loginUrl, {
       method: "POST",
       headers: {
@@ -48,12 +50,6 @@ function Login(username, password) {
   });
 }
 
-function loginPage() {
-    const username = document.getElementById("userName").value;
-    const password = document.getElementById("passWord").value;
-    Login(username,password);
-}
-
 function SignIn() {
     
   const email = document.getElementById("email").value;
@@ -77,9 +73,9 @@ function SignIn() {
         first_Name :firstname,
         last_Name:lastname,
         email: email,
-        password: password,
-        confirmPassword: confirmpassword,
-        phone: NumberPhone,
+        password: NumberPhone,
+        confirmPassword: password,
+        phone: confirmpassword,
         address: Address,
         brandName: BrandName,
         avata: avataShop
@@ -94,10 +90,9 @@ function SignIn() {
     })
     .then((data) => {
         // Xử lý dữ liệu trả về từ API
-        alert(data.result);
-        if(data.statusCode === 200) {
-            Login(email, password);
-        }
+        alert(data.status);
+        // window,location.href = "index.html";
+        // alert(data.result);
 
     })
     .catch((error) => {
@@ -131,10 +126,9 @@ function SignIn() {
         })
         .then((data) => {
             // Xử lý dữ liệu trả về từ API
-            alert(data.result);
-            if(data.statusCode === 200) {
-                Login(email, password);
-            }
+            alert(data.status);
+            // window,location.href = "index.html";
+            // alert(data.result);
     
         })
         .catch((error) => {
@@ -260,19 +254,12 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
         } else {
             data.result.forEach(product => {
                 let ShipStatus = product.usedStatus ;
-                if(ShipStatus == 3) {
+                if(ShipStatus == 0) {
                     ShipStatus = "Waiting for confirmation from the shop"
                 }
-                else if(ShipStatus == 4) {
-                    ShipStatus = "Delivered to the carrier";
-                }
-                else if(ShipStatus == 5) {
-                    ShipStatus = "Delivering to you";
-                }
-                else if (ShipStatus == 6) {
+                if(ShipStatus == 3) {
                     ShipStatus = "Order has been delivered successfully";
                 }
-                
                 // Phân định dạng tiền
                 var totalPrice = product.totalPrice.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                 var price = product.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -287,42 +274,13 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
 
                 var productDiv = document.createElement('div');
                 productDiv.className = 'history__product';
-                let colorMax = "";
-                if(product.color.length > 50) {
-                    colorMax = product.color.substring(0, 50) + "...";
-                }
-                else {
-                    colorMax = product.color;
-                }
-
-                let sizeMax = "";
-                if(product.size.length > 50) {
-                    sizeMax = product.size.substring(0, 50) + "...";
-                }
-                else {
-                    sizeMax = product.size;
-                }
-
-                let nameMax = "";
-                if(product.name.length > 50) {
-                    nameMax = product.name.substring(0, 50) + "...";
-                }   
-                else {
-                    nameMax = product.name;
-                }
-
-                let BrandType;
-                if(product.brandName == "BleuBird") {
-                    BrandType = "Mall";
-                }
-                else BrandType = "Yêu thích"
 
                 productDiv.innerHTML = `
 
 
                         <div class="shop">
                             <div class="check">
-                                <p class="real">${BrandType}</p>
+                                <p class="real">Mall</p>
                             </div>
                             <div class="shop_name">
                                 <p> ${product.brandName} </p>
@@ -337,10 +295,10 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
                                 <img src="${product.img}" alt="">
                             </div>
                             <div class="product_information--info">
-                                <p class="product_name"  style="font-weight: 600">${nameMax}</p>
-                                <p class="product_color">Color: ${colorMax}</p>
+                                <p class="product_name">${product.name}</p>
+                                <p class="product_color">Color: ${product.color}</p>
                                 <p class="product_quantity">Quantity: ${product.number}</p>
-                                <p class="product_size">Size: ${sizeMax}</p>
+                                <p class="product_size">Size: ${product.size}</p>
                             </div>
                             <div class="product_information--price">
                                 <p class="product_price">Price: ${formatPrice(price)}</p>
@@ -495,7 +453,6 @@ async function GetAllProductMyShop(search) {
                 table.innerHTML = `
                     <thead id="product__myshop--title">
                         <tr>
-                            <th>STT</th>
                             <th>Image</th>
                             <th>Product's name</th>
                             <th>Caregory</th>
@@ -508,14 +465,12 @@ async function GetAllProductMyShop(search) {
                     <tbody>
                     </tbody>
                 `;
-            productContainer.appendChild(table);
-            let i = 1;
+                productContainer.appendChild(table);
             data.result.forEach(product => {
                 var productDiv = document.createElement('tr');
                 productDiv.className = 'product__myshop--body';
 
                 productDiv.innerHTML = `
-                <td>${i}</td>
                 <td><img class="td_img" src="${product.img}" alt=""></td>
                 <td class="product_name">${product.nameProduct}</td>
                 <td>${product.category}</td>
@@ -535,7 +490,6 @@ async function GetAllProductMyShop(search) {
                 `;
 
                 productContainer.appendChild(productDiv);
-                i++;
             });
         }
     } catch (error) {
@@ -543,314 +497,6 @@ async function GetAllProductMyShop(search) {
         alert(error);
     }
 }
-
-// Add product
-async function GetCategory() {
-    try {
-        const getClassUrl = `https://localhost:7029/api/ProductType?pageIndex=1&pageSize=100`;
-        const response = await fetch(getClassUrl);
-        const data = await response.json();
-
-        const productContainer = document.getElementById("body__productcategory");
-        productContainer.innerHTML = '';
-
-        if (!Array.isArray(data.result) || data.result.length === 0) {
-            productContainer.innerHTML = '<p id="Data__null">Không có dữ liệu</p>';
-        } else {
-            var productSelect__title = document.createElement("label");
-            productSelect__title.className = "productcategory_label"
-            productSelect__title.textContent = "Category";
-            productContainer.appendChild(productSelect__title)
-            var productSelect = document.createElement('select');
-            productSelect.id = "select__type"
-            data.result.forEach(product => {
-                var option = document.createElement('option');
-                option.value = product.id;
-                option.textContent = product.name;
-                productSelect.appendChild(option);
-            });
-            productContainer.appendChild(productSelect);
-        }
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        alert(error);
-    }
-}
-
-function AddProduct() {
-    const token = localStorage.getItem("login");
-    const name_product = document.getElementById("productname_input").value;
-    const img_main = document.getElementById("productimg_input--img__main").value;
-    const img_1 = document.getElementById("productimg_input--img__1").value;
-    const img_2 = document.getElementById("productimg_input--img__2").value;
-    const img_3 = document.getElementById("productimg_input--img__3").value;
-    const img_4 = document.getElementById("productimg_input--img__4").value;
-    const product_information = document.getElementById("productinfo_input").value;
-    const product_detail = document.getElementById("productdetails_input").value;
-    const price = document.getElementById("productprice_input").value;
-    const Material = document.getElementById("productmaterial_input").value;
-    const type = document.getElementById("select__type").value;
-    const colors = getTableData().color;
-    const sizes = getTableData().size;
-    const numbers = getTableData().number;
-
-    const loginUrl = `https://localhost:7029/api/Product?token=${token}`;
-    fetch(loginUrl, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            name: name_product,
-            idProducer: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-            idProductType: type,
-            material: Material,
-            price: price,
-            description: product_information,
-            idDiscount: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-            images: [
-                {
-                    img: img_main,
-                    usedStatus: 1
-                },
-                {
-                    img: img_1,
-                    usedStatus: 2
-                },
-                {
-                    img: img_2,
-                    usedStatus: 2
-                },
-                {
-                    img: img_3,
-                    usedStatus: 2
-                },
-                {
-                    img: img_4,
-                    usedStatus: 2
-                }
-            ],
-            product_Detail: generateProductDetail(colors, sizes, product_detail,numbers ),
-        }),
-    })
-    .then((response) => {
-        if (!response.ok) {
-          alert("Thêm sản phẩm không thành công");
-        throw new Error("Thêm sản phẩm không thành công");
-        }
-        return response.json();
-    })
-    .then((data) => {
-          alert(data.result);
-          location.reload(true);
-    })
-    .catch((error) => {
-        // Xử lý lỗi
-        console.error(error);
-    });
-}
-
-function generateProductDetail(colors, sizes, productDetail, numbers) {
-    const productDetailArray = [];
-
-    for (let i = 0; i < sizes.length; i++) {
-        const size = sizes[i];
-        const color = colors[i % colors.length]; // Lấy màu tương ứng với kích thước hiện tại
-        const number = numbers[i % numbers.length]; 
-
-        productDetailArray.push({
-            number: number,
-            description: productDetail,
-            color: color,
-            size: size,
-        });
-    }
-
-    return productDetailArray;
-}
-
-
-
-function getTableData() {
-    const table = document.getElementById("table_size");
-    const sizeRow = table.querySelector("#header_size + #header_long");
-    const colorRow = table.querySelector("#header_long + #header_height");
-    const numberRow = table.querySelector("#header_height");
-
-    const sizeData = getSizeData(sizeRow);
-    const colorData = getColorData(colorRow);
-    const numberData = getNumberData(numberRow);
-    return {
-        size: sizeData,
-        color: colorData,
-        number: numberData
-    };
-    }
-
-    function getSizeData(row) {
-        const cells = row.getElementsByTagName("td");
-        const sizeData = [];
-
-        for (let i = 1; i < cells.length; i++) {
-            sizeData.push(cells[i].textContent);
-        }
-
-        return sizeData;
-    }
-
-    function getColorData(row) {
-        const cells = row.getElementsByTagName("td");
-        const colorData = [];
-
-        for (let i = 1; i < cells.length; i++) {
-            colorData.push(cells[i].textContent);
-        }
-
-        return colorData;
-    }
-
-    function getNumberData(row) {
-        const cells = row.getElementsByTagName("td");
-        const numberData = [];
-
-        for (let i = 1; i < cells.length; i++) {
-            numberData.push(cells[i].textContent);
-        }
-
-        return numberData;
-    }
-
-async function GetAllCart(pageIndex, pageSize,search) {
-    try {
-        var token = localStorage.getItem("login");
-        const getClassUrl = `https://localhost:7029/api/Cart?pageIndex=${pageIndex}&pageSize=${pageSize}&token=${token}&search=${search}`;
-        const response = await fetch(getClassUrl);
-        const data = await response.json();
-
-        const productContainer = document.getElementById("my_cart");
-        productContainer.innerHTML = '';
-
-        if (!Array.isArray(data.result) || data.result.length === 0) {
-            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
-        } else {
-            data.result.forEach(product => {
-                var productDiv = document.createElement('div');
-                productDiv.className = 'cart';
-                let BrandType = product.brandName
-                if(product.brandName == "BleuBird") BrandType = "Mall";
-                else BrandType = "Yêu thích";
-                productDiv.innerHTML = `
-                    <div class="shop">
-                        <div class="check">
-                            <p class="real">${BrandType}</p>
-                        </div>
-                        <div class="shop_name">
-                            <p>${product.brandName}</p>
-                        </div>
-                        <div class="viewstore">
-                            <i class="fa-solid fa-shop"></i>
-                            <a href="">View store</a>
-                        </div>
-                        <div class="select">
-                            <input class="select_check" type="checkbox">
-                        </div>
-                    </div>
-                    <div class="product_information">
-                        <div class="product_information--img">
-                            <img src="${product.img}" alt="">
-                        </div>
-                        <div class="product_information--info">
-                            <p class="product_name">${product.nameProduct}</p>
-                            <p class="product_color">Color: ${product.color}</p>
-                            <p class="product_size">Size: ${product.size}</p>
-                            <span>Price:</span>
-                            <span class="product_price" id="product_price">${product.totalPrice}</span>
-                        </div>
-                        <div class="product_information--price">
-                            <div class="product_quantity">
-                                <span>Quantity</span>
-                                <button class="minus" id="minus" onclick="ChangeNumber()"><i class="fa-solid fa-minus"></i></button>
-                                <input class="quantity" id="quantityInput" type="text" value="${product.number}">
-                                <button class="plus" id="plus" onclick="ChangeNumber()"><i class="fa-solid fa-plus"></i></button>
-                            </div>
-                            <div class="product_price">
-                                <span class="product_total">Total:</span>
-                                <span class="price_total" id="price_total">${product.totalPrice}</span>
-                            </div>
-                            <div class="product_delete">
-                                <button>DELETE</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                productContainer.appendChild(productDiv);
-            });
-
-            const table = document.createElement('div');
-                table.id = "option",
-                table.className = "option";
-                table.innerHTML = `
-                <div class="select_all">
-                    <div>
-                        <input type="checkbox">
-                        <span>Select all</span>
-                    </div>
-                    <span>Delete</span>
-                    <div>
-                        <span>Total payment: </span>
-                        <span class="total_payment">0</span>
-                    </div>
-                    <button>BUY NOW</button>
-                    </div>
-                `;
-            productContainer.appendChild(table);
-        }
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        alert(error);
-    }
-}
-
-
-function ChangeNumber() {
-    var quantityControls = document.querySelectorAll('.cart');
-
-    // Lặp qua từng phần tử và gán sự kiện onclick
-    quantityControls.forEach(function(control) {
-        var minusButton = control.querySelector('.minus');
-        var plusButton = control.querySelector('.plus');
-        var quantityInput = control.querySelector('.quantity');
-        minusButton.onclick = function() {
-            changeQuantity("minus", quantityInput);
-        };
-
-        plusButton.onclick = function() {
-            changeQuantity("plus", quantityInput);
-        };
-    });
-}
-
-function changeQuantity(action, quantityInput) {
-    var currentQuantity = parseInt(quantityInput.value, 10);
-
-    if (action === "minus" && currentQuantity > 1) {
-        currentQuantity--;
-        UpdatePriceCart()
-    } else if (action === "plus") {
-        currentQuantity++;
-        UpdatePriceCart()
-    }
-}
-
-function UpdatePriceCart() {
-    var price = document.getElementById("product_price").value;
-    var number = document.getElementById("quantityInput").value;
-    var totalPrice = document.getElementById("price_total");
-    const PriceTotal = price * number ;
-    totalPrice.innerHTML = PriceTotal
-}
-
 
 
   

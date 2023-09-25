@@ -241,52 +241,70 @@ body {
 /* ------- */
 
 /* Content */
-.content-container {
-    display: flex;
-    flex-wrap: wrap
+
+h1 {
+    font-size: 50px;
+    padding: 0 10%;
 }
 
-.content__heading h1{
-    text-align: center;
-    margin-top: 40px;
+h3 {
+    color: gray;
+    font-weight: 100;
+    font-size: 15px;
+    padding: 0 10%;
 }
 
-.product {
-    margin: 20px 40px;
-    cursor: pointer;
-}
-
-.product__bags {
+.content__body--blog {
     display: flex;
     flex-wrap: wrap;
 }
 
-
-.product__bags img {
-   width: 215px;
-   height: 300px;
-   border: 2px solid #000;
+.body__blog {
+    border: 1px solid gray;
+    padding: 3%;
+    width: 10%;
+    margin: 4% 0 4% 8%;
 }
 
-.product img:hover {
-    transform: scale(1.01);
-    transition: 0.5s;
+.body__blog p {
+    text-align: center;
 }
 
-.product p {
-    font-weight: bold;
+.body__blog i {
+    font-size: 30px;
+    margin-left: 38%;
 }
 
-.product__one--name {
+.content__body--limited {
+    display: flex;
+    justify-content: space-around;
+}
+
+.body__limited {
+    padding: 3%;
     width: 80%;
+    margin-left: 10%;
 }
 
+.body__limited i {
+    font-size: 30px;
+    margin-left: 30%;
+}
 
-.product span {
+.shipping {
+    margin-left: 20%;
+}
+
+.nav_item--blog {
     font-weight: bold;
-    color: red;
+    box-shadow: 0px 2px 0px red;
 }
-/* ------- */
+
+.body__blog:hover {
+    cursor: pointer;
+}
+
+/* / Content / */
 
 /* footer */
 .footer{
@@ -361,13 +379,4 @@ body {
 
 .fa-square-instagram {
     margin-right: 2px;
-}
-
-@keyframes modaAppear{
-    from{
-        transform: translateX(-50%);
-    }
-    to{
-        transform: translateX(0%);
-    }
 }

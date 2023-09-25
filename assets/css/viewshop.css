@@ -241,52 +241,127 @@ body {
 /* ------- */
 
 /* Content */
-.content-container {
+
+.shop_information {
     display: flex;
-    flex-wrap: wrap
+    border: 1px solid black;
+    width: 80%;
+    margin: 50px 10% 30px 10%;
+    justify-content: space-between;
 }
 
-.content__heading h1{
-    text-align: center;
-    margin-top: 40px;
+.shop_info--image {
+    width: 80px;
+    height: 80px;
+    border: 5px solid lightgray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 10px 20px;
+    position: relative;
+    background-color: white;
 }
 
-.product {
-    margin: 20px 40px;
-    cursor: pointer;
+.shop_info--image img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.product__bags {
+.shop_info--left {
+    display: flex;
+}
+
+.information-left {
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-image: url(../img/background/backgroundviewshop.jpg);
+    background-size: 100% auto;
+    margin: 10px;
+}
+
+.shop_info--name{
+    margin: 30px 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    position: relative;
+}
+
+#shop_info--follow button {
+    width: 90%;
+    margin: 3% 5%;
+    height: 25px;
+    position: relative;
+    font-size: 15px;
+}
+
+.shop_info--favourtite {
+    position: absolute;
+    top: 46%;
+    left: 13%;
+}
+
+.shop_info--favourtite button {
+    background-color: #d0011b;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin-left: 13px;
+    font-size: 15px;
+    border: none;
+}
+
+.information-right {
+    margin: 10px;
+}
+
+.shop_info--right div{
+    padding: 0 20px 20px 0;
+}
+
+/*  */
+
+.viewshop_product {
     display: flex;
     flex-wrap: wrap;
 }
 
-
-.product__bags img {
-   width: 215px;
-   height: 300px;
-   border: 2px solid #000;
+.product {
+    text-decoration: none;
 }
 
-.product img:hover {
-    transform: scale(1.01);
-    transition: 0.5s;
+.all_product {
+    margin: 20px 40px;
+    cursor: pointer;
 }
 
-.product p {
+.all_product img {
+    width: 215px;
+    height: 300px;
+    border: 2px solid #000;
+}
+
+.all_product p {
+    color: #000;
     font-weight: bold;
 }
 
-.product__one--name {
-    width: 80%;
-}
-
-
-.product span {
-    font-weight: bold;
+.all_product span{
     color: red;
+    font-weight: bold;
 }
-/* ------- */
+
+h1 {
+    margin: 40px;
+    text-align: center;
+}
+
+/*  */
+
+/* / Content / */
 
 /* footer */
 .footer{
@@ -361,13 +436,4 @@ body {
 
 .fa-square-instagram {
     margin-right: 2px;
-}
-
-@keyframes modaAppear{
-    from{
-        transform: translateX(-50%);
-    }
-    to{
-        transform: translateX(0%);
-    }
 }
