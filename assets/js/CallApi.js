@@ -481,7 +481,7 @@ async function GetAllProductMyShop(search) {
                 </td>
                 <td class="option">
                     <div class="select_option">
-                        <i class="fa-regular fa-trash-can delete--icon"></i>
+                        <i class="fa-regular fa-trash-can delete--icon" >Ok</i>
                         <a href="">
                             <i class="fa-solid fa-screwdriver-wrench" style="color: black;"></i>
                         </a>
