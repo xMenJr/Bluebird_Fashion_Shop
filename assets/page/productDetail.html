@@ -19,23 +19,73 @@
                     <div class="row no-gutters">
                         <div class="col l-2 l-o-5">
                             <div class="header__logo">
-                                <img src="../img/Logo/imglogo.png" alt="logo">
+                                <a href="./index.html">
+                                    <img src="../img/Logo/imglogo.png" alt="logo">
+                                </a>
                             </div>
                         </div>
                         <div class="col l-3 ">
                             <div class="header__search">
                                 <input type="text">
-                                <i style="top: 4%;" class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                         </div>
                         <div class="col l-1 ">
                             <div class="header__cart">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                <li>
+                                    <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <ul class="show_cart">
+                                        <a href="">
+                                            <li>
+                                                <div class="show_product">
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </a>
+                                        <a href="">
+                                            <li></li>
+                                        </a>
+                                    </ul>
+                                </li>
                             </div>
                         </div>
                         <div class="col l-1">
                             <div class="header__login">
-                                <li>
+                                <li class="login">
                                     <a href="./login.html">Login</a>
                                     <ul class="select_option">
                                         <a href="./profile.html">
@@ -59,13 +109,7 @@
                         <div class="col l-12">  
                             <ul class="nav_list">
                                 <li class="nav_item">
-                                    <a class="nav_item--intro" href="./myshop.html">Introduce</a>
-                                </li>
-                                <li class="nav_item">
                                     <a class="nav_item--home" href="./index.html">HomePage</a>
-                                </li>
-                                <li class="nav_item">
-                                    <a class="nav_item--service" href="./address.html">Service</a>
                                 </li>
                                 <li class="nav_item">
                                     <a class="nav_item--product" href="#">Product</a>
@@ -93,11 +137,14 @@
                                     </ul>
                                 </li>
                                 <li class="nav_item">
+                                    <a class="nav_item--service" href="#">Service</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--blog" href="#">Blog</a>
+                                </li>
+                                <li class="nav_item">
                                     <a class="nav_item--contact" href="#">Contact</a>
                                 </li>
-                                <!-- <li class="nav_item">
-                                    <a class="nav_item--login" id="nav_item--login" href="./login.html">Login</a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -388,11 +435,7 @@
                         <ul class="footer_about--container">
                             <li class="footer_about--item ">
                                 <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                <a href="#">Introduce</a>
-                            </li>
-                            <li class="footer_about--item ">
-                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                <a href="#">Product</a>
+                                <a href="#">HomePage</a>
                             </li>
                             <li class="footer_about--item ">
                                 <i class="fa-solid fa-chevron-right footer_icon--right"></i>
@@ -400,10 +443,13 @@
                             </li>
                             <li class="footer_about--item ">
                                 <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                <a href="#"> Anti Counterfeiting</a>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li class="footer_about--item ">
+                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                <a href="#">Contact</a>
                             </li>
                         </ul>
-
                     </div>  
                 </div>
                 <div class="col l-3">
@@ -466,35 +512,4 @@
     </div>
 </body>
 <script src="../js/detail.js"></script>
-<script>
-    var fullname = localStorage.getItem("fullname");
-            if(fullname != null) {
-                var dataContainer = document.getElementById("div__login");
-                var CreateLoutOut = document.createElement("div")
-                CreateLoutOut.className = "header__login";
-                CreateLoutOut.innerHTML = `
-                    <li>
-                        <a href="#" id="fullName">${fullname}</a>
-                        <ul class="select_option">
-                            <a href="./profile.html">
-                                <li class="account_management">Account management</li>
-                            </a>
-                            <a href="./login.html">
-                                <li class="log_out">Log out</li>
-                            </a>
-                        </ul>
-                    </li>
-                `;
-                dataContainer.appendChild(CreateLoutOut);
-            }
-            else {
-                var dataContainer = document.getElementById("div__login");
-                var CreateLoutOut = document.createElement("div")
-                CreateLoutOut.className = "header__login";
-                CreateLoutOut.innerHTML = `
-                    <a href="./login.html" id="fullName">Login</a>
-                `;
-                dataContainer.appendChild(CreateLoutOut);
-            }
-</script>
 </html>

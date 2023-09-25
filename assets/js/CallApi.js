@@ -1,5 +1,7 @@
-function Login(username, password) {
+function Login() {
     const loginUrl = "https://localhost:7029/api/Users/SignIn";
+  const username = document.getElementById("userName").value;
+  const password = document.getElementById("passWord").value;
   fetch(loginUrl, {
       method: "POST",
       headers: {
@@ -48,12 +50,6 @@ function Login(username, password) {
   });
 }
 
-function loginPage() {
-    const username = document.getElementById("userName").value;
-    const password = document.getElementById("passWord").value;
-    Login(username,password);
-}
-
 function SignIn() {
     
   const email = document.getElementById("email").value;
@@ -77,9 +73,9 @@ function SignIn() {
         first_Name :firstname,
         last_Name:lastname,
         email: email,
-        password: password,
-        confirmPassword: confirmpassword,
-        phone: NumberPhone,
+        password: NumberPhone,
+        confirmPassword: password,
+        phone: confirmpassword,
         address: Address,
         brandName: BrandName,
         avata: avataShop
@@ -94,10 +90,9 @@ function SignIn() {
     })
     .then((data) => {
         // Xử lý dữ liệu trả về từ API
-        alert(data.result);
-        if(data.statusCode === 200) {
-            Login(email, password);
-        }
+        alert(data.status);
+        // window,location.href = "index.html";
+        // alert(data.result);
 
     })
     .catch((error) => {
@@ -131,10 +126,9 @@ function SignIn() {
         })
         .then((data) => {
             // Xử lý dữ liệu trả về từ API
-            alert(data.result);
-            if(data.statusCode === 200) {
-                Login(email, password);
-            }
+            alert(data.status);
+            // window,location.href = "index.html";
+            // alert(data.result);
     
         })
         .catch((error) => {
@@ -260,19 +254,12 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
         } else {
             data.result.forEach(product => {
                 let ShipStatus = product.usedStatus ;
-                if(ShipStatus == 3) {
+                if(ShipStatus == 0) {
                     ShipStatus = "Waiting for confirmation from the shop"
                 }
-                else if(ShipStatus == 4) {
-                    ShipStatus = "Delivered to the carrier";
-                }
-                else if(ShipStatus == 5) {
-                    ShipStatus = "Delivering to you";
-                }
-                else if (ShipStatus == 6) {
+                if(ShipStatus == 3) {
                     ShipStatus = "Order has been delivered successfully";
                 }
-                
                 // Phân định dạng tiền
                 var totalPrice = product.totalPrice.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                 var price = product.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -287,42 +274,13 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
 
                 var productDiv = document.createElement('div');
                 productDiv.className = 'history__product';
-                let colorMax = "";
-                if(product.color.length > 50) {
-                    colorMax = product.color.substring(0, 50) + "...";
-                }
-                else {
-                    colorMax = product.color;
-                }
-
-                let sizeMax = "";
-                if(product.size.length > 50) {
-                    sizeMax = product.size.substring(0, 50) + "...";
-                }
-                else {
-                    sizeMax = product.size;
-                }
-
-                let nameMax = "";
-                if(product.name.length > 50) {
-                    nameMax = product.name.substring(0, 50) + "...";
-                }   
-                else {
-                    nameMax = product.name;
-                }
-
-                let BrandType;
-                if(product.brandName == "BleuBird") {
-                    BrandType = "Mall";
-                }
-                else BrandType = "Yêu thích"
 
                 productDiv.innerHTML = `
 
 
                         <div class="shop">
                             <div class="check">
-                                <p class="real">${BrandType}</p>
+                                <p class="real">Mall</p>
                             </div>
                             <div class="shop_name">
                                 <p> ${product.brandName} </p>
@@ -337,10 +295,10 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
                                 <img src="${product.img}" alt="">
                             </div>
                             <div class="product_information--info">
-                                <p class="product_name"  style="font-weight: 600">${nameMax}</p>
-                                <p class="product_color">Color: ${colorMax}</p>
+                                <p class="product_name">${product.name}</p>
+                                <p class="product_color">Color: ${product.color}</p>
                                 <p class="product_quantity">Quantity: ${product.number}</p>
-                                <p class="product_size">Size: ${sizeMax}</p>
+                                <p class="product_size">Size: ${product.size}</p>
                             </div>
                             <div class="product_information--price">
                                 <p class="product_price">Price: ${formatPrice(price)}</p>
@@ -495,7 +453,6 @@ async function GetAllProductMyShop(search) {
                 table.innerHTML = `
                     <thead id="product__myshop--title">
                         <tr>
-                            <th>STT</th>
                             <th>Image</th>
                             <th>Product's name</th>
                             <th>Caregory</th>
@@ -508,14 +465,12 @@ async function GetAllProductMyShop(search) {
                     <tbody>
                     </tbody>
                 `;
-            productContainer.appendChild(table);
-            let i = 1;
+                productContainer.appendChild(table);
             data.result.forEach(product => {
                 var productDiv = document.createElement('tr');
                 productDiv.className = 'product__myshop--body';
 
                 productDiv.innerHTML = `
-                <td>${i}</td>
                 <td><img class="td_img" src="${product.img}" alt=""></td>
                 <td class="product_name">${product.nameProduct}</td>
                 <td>${product.category}</td>
@@ -535,7 +490,6 @@ async function GetAllProductMyShop(search) {
                 `;
 
                 productContainer.appendChild(productDiv);
-                i++;
             });
         }
     } catch (error) {

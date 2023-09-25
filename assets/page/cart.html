@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="../js/CallApi.js"></script>
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
@@ -32,11 +31,71 @@
                         </div>
                         <div class="col l-1 ">
                             <div class="header__cart">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                <li>
+                                    <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <ul class="show_cart">
+                                        <a href="">
+                                            <li>
+                                                <div class="show_product">
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </a>
+                                        <a href="">
+                                            <li></li>
+                                        </a>
+                                    </ul>
+                                </li>
                             </div>
                         </div>
-                        <div class="col l-1" id="div__login">
-                            
+                        <div class="col l-1">
+                            <div class="header__login">
+                                <li class="login">
+                                    <a href="./login.html">Login</a>
+                                    <ul class="select_option">
+                                        <a href="./profile.html">
+                                            <li class="account_management">Account management</li>
+                                        </a>
+                                        <a href="./login.html">
+                                            <li class="log_out">Log out</li>
+                                        </a>
+                                    </ul>
+                                </li>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -49,13 +108,7 @@
                         <div class="col l-12">  
                             <ul class="nav_list">
                                 <li class="nav_item">
-                                    <a class="nav_item--intro" href="#">Introduce</a>
-                                </li>
-                                <li class="nav_item">
                                     <a class="nav_item--home" href="./index.html">HomePage</a>
-                                </li>
-                                <li class="nav_item">
-                                    <a class="nav_item--service" href="#">Service</a>
                                 </li>
                                 <li class="nav_item">
                                     <a class="nav_item--product" href="#">Product</a>
@@ -81,6 +134,12 @@
                                             </li>
                                         </a>
                                     </ul>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="./service.html">Service</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--blog" href="./blog.html">Blog</a>
                                 </li>
                                 <li class="nav_item">
                                     <a class="nav_item--contact" href="#">Contact</a>
@@ -115,25 +174,25 @@
                         </li>
                         <li class="function__item--history">
                             <i class="fa-regular fa-calendar-days"></i>
-                            <a>Purchase history</a>
+                            <a href="./history.html">Purchase history</a>
                         </li>
                         <li class="function__item--cart">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <a>Cart</a>
+                            <a href="./cart.html">Cart</a>
                         </li>
                         <li class="function__item--shop">
                             <i class="fa-solid fa-shop"></i>
-                            <a>My shop</a>
+                            <a href="./myshop.html">My shop</a>
                             <ul class="function__shop">
                                 <li class="function__shop--add">
-                                    <a href="">Add product</a>
+                                    <a href="./addproduct.html">Add product</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-                <div class="my_cart" id="my_cart">
-                    <div class="cart" id="cart">
+                <div class="my_cart">
+                    <div class="cart">
                         <div class="shop">
                             <div class="check">
                                 <p class="real">Mall</p>
@@ -202,21 +261,21 @@
                             <div class="footer_about">
                                 <h2>Abour Us</h2>
                                 <ul class="footer_about--container">
-                                    <li class="footer_about--item ">
+                                    <<li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="#">Introduce</a>
+                                        <a href="./index.html">HomePage</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="#">Product</a>
+                                        <a href="./service.html">Service</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="#">Service</a>
+                                        <a href="./blog.html">Blog</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="#"> Anti Counterfeiting</a>
+                                        <a href="#">Contact</a>
                                     </li>
                                 </ul>
                             </div>  

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add product</title>
     <link rel="stylesheet" href="../css/grid.css">
-    <link rel="stylesheet" href="../css/addproduct.css">
+    <link rel="stylesheet" href="../css/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
+    <title>BLOG</title>
 </head>
 <body>
     <div class="bluebird_fashion">
@@ -74,6 +73,9 @@
                                                     </a>
                                                 </div>
                                             </li>
+                                        </a>
+                                        <a href="">
+                                            <li></li>
                                         </a>
                                     </ul>
                                 </li>
@@ -150,135 +152,123 @@
             <!-- / navigation / -->
             <!-- content -->
             <div class="content">
-                <div class="function">
-                    <ul class="function__list">
-                        <li class="function__item--account">
-                            <i class="fa-regular fa-user"></i>
-                            <span>My account</span>
-                        </li>
-                        <li class="function__account-list">
-                            <ul class="function__item">
-                                <li class="function__item--profile">
-                                    <a href="./profile.html">Profile</a>
-                                </li>
-                                <li class="function__item--address">
-                                    <a href="./address.html">Address</a>
-                                </li>
-                                <li class="function__item--change">
-                                    <a href="./changepass.html">Change password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="function__item--history">
-                            <i class="fa-regular fa-calendar-days"></i>
-                            <a href="./history.html">Purchase history</a>
-                        </li>
-                        <li class="function__item--cart">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <a href="cart.html">Cart</a>
-                        </li>
-                        <li class="function__item--shop">
-                            <i class="fa-solid fa-shop"></i>
-                            <a href="./myshop.html">My shop</a>
-                            <ul class="function__shop">
-                                <li class="function__shop--add">
-                                    <a href="./addproduct.html">Add product</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="my_product">
-                    <div class="product">
-                        <div class="product_heading">
-                            <h1>Add product</h1>
+                <div class="grid wide">
+                    <div class="row">
+                        <div class="col l-12 m-12 c-12">
+                            <div class="background">
+                                <img src="../img/Blog/backgroundblog.jpg" alt="">
+                                <h1>Our Blog</h1>
+                            </div>
                         </div>
-                        <div class="product_body">
-                            <div class="body body__productname">
-                                <label for="productname" class="productname_label">Product's name</label>
-                                <input type="text" class="productname_input">
-                            </div>
-                            <div class="body body__productimg">
-                                <label for="productimg" class="productimg_label">Image product</label>
-                                <input type="text" class="productimg_input">
-                            </div>
-                            <div class="body body__productinfo">
-                                <label for="productinfo" class="productinfo_label">Product infomation</label>
-                                <textarea name="" class="productinfo_input" cols="30" rows="10"></textarea>
-                            </div>
-                            <div class="body body__productdetails">
-                                <label for="productdetails" class="productdetails_label">Product details</label>
-                                <textarea name="" class="productdetails_input" cols="30" rows="10"></textarea>
-                            </div>
-                            <div class="body body__productprice">
-                                <label for="productprice" class="productprice_label">Price</label>
-                                <input type="text" class="productprice_input">
-                            </div>
-                            <div class="body body__productmaterial">
-                                <label for="productmaterial" class="productmaterial_label">Material</label>
-                                <input type="text" class="productmaterial_input">
-                            </div>
-                            <div class="body body__productsize">
-                                <label for="productsize" class="productsize_label">Product size</label>
-                                <table id="table_size">
-                                    <tr id="header_size">
-                                        <th>Size</th>
-                                        <th onclick="editCell(this)">M</th>
-                                        <th onclick="editCell(this)">L</th>
-                                    </tr>
-                                    <tr id="header_long">
-                                        <td>Long</td>
-                                        <td onclick="editCell(this)"></td>
-                                        <td onclick="editCell(this)"></td>
-                                    </tr>
-                                    <tr id="header_height">
-                                        <td>Height</td>
-                                        <td onclick="editCell(this)"></td>
-                                        <td onclick="editCell(this)"></td>
-                                    </tr>
-                                </table>
-                                <span><button class="plus size_plus"><i class="fa-solid fa-plus"></i></button></span>
-                                <span><button class="minus size_minus"><i class="fa-solid fa-minus"></i></button></span>
-                            </div>
-                            <div class="body body__productparameter">
-                                <label for="productparameter" class="productparameter_label">Product parameter</label>
-                                <table id="table_parameter">
-                                    <tr id="header_parameter">
-                                        <th >Size</th>
-                                        <th onclick="editCell(this)">M</th>
-                                        <th onclick="editCell(this)">L</th>
-                                    </tr>
-                                    <tr id="header_color">
-                                        <td>Color</td>
-                                        <td onclick="editCell(this)"></td>
-                                        <td onclick="editCell(this)"></td>
-                                    </tr>
-                                    <tr id="header_quantity">
-                                        <td>Quantity</td>
-                                        <td onclick="editCell(this)"></td>
-                                        <td onclick="editCell(this)"></td>
-                                    </tr>
-                                </table>
-                                <span><button class="plus parameter_plus"><i class="fa-solid fa-plus"></i></button></span>
-                                <span><button class="minus parameter_minus"><i class="fa-solid fa-minus"></i></button></span>
-                            </div>
-                            <div class="body body__productcategory">
-                                <label for="productcategory" class="productcategory_label">Category</label>
-                                <select name="" id="">
-                                    <option value="">Vest</option>
-                                    <option value="">Campaign</option>
-                                    <option value="">Bag</option>
-                                    <option value="">Shoe</option>
-                                </select>
-                            </div>
-                            <div class="body body__confirm">
-                                <button>CONFIRM</button>
+                        <div class="col l-12">
+                            <div class="blog">
+                                <div class="row ">
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-1.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>16 February 2022</span>
+                                            <h3>Curling Irons Are The Best Ones</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-2.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>28 February 2022</span>
+                                            <h3>Eternity Bands Do Last Forever</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-3.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>5 January 2022</span>
+                                            <h3>The Health Benefits Of Sunglasses</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-4.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>19 May 2023</span>
+                                            <h3>Aiming For Higher The Mastopexy</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-5.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>22 Jun 2020</span>
+                                            <h3>Wedding Rings</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-6.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>24 October 2021</span>
+                                            <h3>The Different Methods</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-7.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>12 November 2022</span>
+                                            <h3>Hoop Earrings A Style From History</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-8.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>26 March 2022</span>
+                                            <h3>Favourite Your Fashion</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col l-4-5 m-6 c-12">
+                                        <div class="content_img">
+                                            <img src="../img/Blog/blog-9.jpg" alt="">
+                                        </div>
+                                        <div class="content_blog">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <span>6 December 2020</span>
+                                            <h3>Lasik Eye Surgery Are You Ready</h3>
+                                            <h2>READ MORE</h2>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- / content / -->
+            <!-- /content/ -->
             <!-- footer -->
             <div class="footer">
                 <div class="grid wide">
@@ -367,6 +357,5 @@
             <!-- footer -->
         </div>
     </div>
-    <script src="../js/addproduct.js"></script>
 </body>
 </html>

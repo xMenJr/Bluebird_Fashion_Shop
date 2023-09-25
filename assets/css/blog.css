@@ -240,53 +240,62 @@ body {
 
 /* ------- */
 
-/* Content */
-.content-container {
-    display: flex;
-    flex-wrap: wrap
+/* content */
+
+.background img{
+    width: 96.5%;
 }
 
-.content__heading h1{
-    text-align: center;
+.background {
+    position: relative;
+    z-index: -1;
+}
+
+h1 {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    color: #fff;
+    font-size: 50px;
+}
+
+.blog {
+    width: 100%;
     margin-top: 40px;
 }
 
-.product {
-    margin: 20px 40px;
+.content_blog {
+    border: 1px solid white;
+    background-color: white;
+    position: relative;
+    top: -15%;
+    margin: 0 15% 0 8%;
+    padding: 5%;
+}
+
+.content_blog i, .content_blog span {
+    color: gray;
+}
+
+.content_blog h2 {
+    font-size: 20px;
+}
+
+.content_blog h2:hover {
     cursor: pointer;
+    box-shadow: 0 2px 0 red ;
 }
 
-.product__bags {
-    display: flex;
-    flex-wrap: wrap;
+h3 {
+    font-size: 1em;
 }
 
-
-.product__bags img {
-   width: 215px;
-   height: 300px;
-   border: 2px solid #000;
-}
-
-.product img:hover {
-    transform: scale(1.01);
-    transition: 0.5s;
-}
-
-.product p {
+.nav_item--blog {
     font-weight: bold;
+    box-shadow: 0px 2px 0px red;
 }
 
-.product__one--name {
-    width: 80%;
-}
-
-
-.product span {
-    font-weight: bold;
-    color: red;
-}
-/* ------- */
+/* / content / */
 
 /* footer */
 .footer{
@@ -361,13 +370,4 @@ body {
 
 .fa-square-instagram {
     margin-right: 2px;
-}
-
-@keyframes modaAppear{
-    from{
-        transform: translateX(-50%);
-    }
-    to{
-        transform: translateX(0%);
-    }
 }
