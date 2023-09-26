@@ -1,13 +1,9 @@
 /* header */
-body {
-    margin: 0;
-}
-
 .header__logo{
     text-align: center;
 }
 .header__logo img{
-    width: 60%;
+    width: 42%;
     height: 40%;
     object-fit: cover;
     object-position: top center;
@@ -26,10 +22,16 @@ body {
     width: 100%;
     height: 100%;
 }
+.header__search--icon{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+}
 .header__cart{
     display: flex;
     justify-content: left;
-    padding-left: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
     margin-top: 30px;
 }
 .header__search{
@@ -45,11 +47,9 @@ body {
 }
 .header__search i{
     position: absolute;
-    top: 4%;
-    right: 18%;
+    top: 10%;
+    right: 10%;
 }
-
-
 
 /* drd */
 
@@ -77,8 +77,27 @@ body {
     display: none;
 }
 
-.header__login a:hover ul.select_option {
+/* .select_option::before {
+    position: absolute;
+    left: 0;
+    top: -13px;
+    width: 100%;
+    height: 20px;
+    content: "";
     display: block;
+} */
+
+.div__login .header__login a:hover .select_option {
+    display: block ;
+}
+
+li:hover .select_option {
+    display: block; /* Hiển thị khi hover vào li */
+}
+
+.header__login li {
+    padding-bottom: 10px;
+    list-style: none;
 }
 
 .select_option > a {
@@ -109,7 +128,7 @@ body {
     transition: box-shadow 0.3s ease;
     position: relative;
 }
-.nav_item--blog:hover,
+.nav_item--intro:hover,
 .nav_item--home:hover,
 .nav_item--service:hover,
 .nav_item--product:hover,
@@ -166,6 +185,9 @@ body {
 .content_img img{
     width: 100%;
 }
+.content_img{
+    position: relative;
+}
 .see_more {
     text-align: center;
     margin-top: 60px;
@@ -219,7 +241,7 @@ body {
 .shop_now--campaign,
 .shop_now--bag,
 .shop_now--shoe {
-    bottom: -27.6%;
+    bottom: 7.6%;
 }
 
 /* content */
@@ -228,6 +250,7 @@ body {
 .product_campaign--item,
 .product_vest--item {
     position: relative;
+    margin-bottom: 20%;
 }
 .bag_item--icon,
 .shoe_item--icon,
@@ -300,14 +323,13 @@ body {
     color: red;
 }
 
-.shoe_item--img {
-    height: 295px;
+.content_product--shoe{
+
+}
+.product_shoe--item {
+    width: 100%;
 }
 
-.content_img img{
-    width: 100%;
-    height: 700px;
-}
 
 .prev, .next {
     position: absolute;
@@ -429,9 +451,25 @@ body {
     }
 }
 
-/*  */
-
-.nav_item--home {
-    font-weight: bold;
-    box-shadow: 0px 2px 0px red;
+/* Table */
+@media (min-width: 740px) and (max-width: 1113px){
+    .header__logo{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header__logo img{
+        height: 60%;
+    }
+    .header__login{
+        margin-top: 40%;
+    }
+    #vestProduct,
+    #campaignProduct,
+    #shoeProduct,
+    #bagProduct{
+        padding-left: 8%;
+    }
 }

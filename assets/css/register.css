@@ -48,7 +48,8 @@ button span {
 }
 
 .register_shop--img p {
-    margin-right: 230px;
+    text-align: left;
+    padding-left: 8%;
 }
 
 .register_form--shop {
