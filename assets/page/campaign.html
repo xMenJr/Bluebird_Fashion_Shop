@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/campaign.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../js/CallApi.js"></script>
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
@@ -17,20 +18,21 @@
             <div class="header">
                 <div class="gird wide">
                     <div class="row no-gutters">
-                        <div class="col l-2 l-o-5">
+                        <div class="col l-2 l-o-5 m-2 m-o-5">
                             <div class="header__logo">
-                                <a href="./index.html">
-                                    <img src="../img/Logo/imglogo.png" alt="logo">
-                                </a>
+                                <img src="../img/Logo/imglogo.png" alt="logo">
                             </div>
                         </div>
-                        <div class="col l-3 ">
+                        <div class="col l-3 m-3 ">
                             <div class="header__search">
                                 <input type="text">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <div class="header__search--icon">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                                
                             </div>
                         </div>
-                        <div class="col l-1 ">
+                        <div class="col l-1 m-1">
                             <div class="header__cart">
                                 <li>
                                     <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -94,10 +96,16 @@
             <div class="navigation">
                 <div class="grid wide">
                     <div class="row">
-                        <div class="col l-12">  
+                        <div class="col l-12 m-12">  
                             <ul class="nav_list">
                                 <li class="nav_item">
+                                    <a class="nav_item--intro" href="./myshop.html">Introduce</a>
+                                </li>
+                                <li class="nav_item">
                                     <a class="nav_item--home" href="./index.html">HomePage</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="./address.html">Service</a>
                                 </li>
                                 <li class="nav_item">
                                     <a class="nav_item--product" href="#">Product</a>
@@ -125,14 +133,11 @@
                                     </ul>
                                 </li>
                                 <li class="nav_item">
-                                    <a class="nav_item--service" href="./service.html">Service</a>
-                                </li>
-                                <li class="nav_item">
-                                    <a class="nav_item--blog" href="./blog.html">Blog</a>
-                                </li>
-                                <li class="nav_item">
                                     <a class="nav_item--contact" href="#">Contact</a>
                                 </li>
+                                <!-- <li class="nav_item">
+                                    <a class="nav_item--login" id="nav_item--login" href="./login.html">Login</a>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -147,7 +152,9 @@
                 </div>
                 <div class="product__campaign" id="campaignProduct">
                     <div class="product product__one">
-                        <img src="../img/Campaign/Product1/product1.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Campaign/Product1/product1.1.jpg" alt="">
+                        </a>
                         <div class="product__one--name">
                             <p>Patchwork Denim Jacket</p>
                         </div>
@@ -156,7 +163,9 @@
                         </div>
                     </div>
                     <div class="product product__two">
-                        <img src="../img/Campaign/Product2/product2.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product2/product2.1.jpg" alt="">
+                        </a>
                         <div class="product__two--name">
                             <p>Hybrid Bomber Jacket</p>
                         </div>
@@ -165,7 +174,9 @@
                         </div>
                     </div>
                     <div class="product product__three">
-                        <img src="../img/Campaign/Product3/product3.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product3/product3.1.jpg" alt="">
+                        </a>
                         <div class="product__three--name">
                             <p>Orchid Bomber Jacket</p>
                         </div>
@@ -174,7 +185,9 @@
                         </div>
                     </div>
                     <div class="product product__four">
-                        <img src="../img/Campaign/Product4/product4.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product4/product4.1.jpg" alt="">
+                        </a>
                         <div class="product__four--name">
                             <p>Patchwork Workwear Jeans</p>
                         </div>
@@ -183,7 +196,9 @@
                         </div>
                     </div>
                     <div class="product product__five">
-                        <img src="../img/Campaign/Product5/product5.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product5/product5.1.jpg" alt="">
+                        </a>
                         <div class="product__five--name">
                             <p>Harness Shirt</p>
                         </div>
@@ -192,7 +207,9 @@
                         </div>
                     </div>
                     <div class="product product__six">
-                        <img src="../img/Campaign/Product6/product6.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product6/product6.1.jpg" alt="">
+                        </a>
                         <div class="product__six--name">
                             <p>Orchid Shirt</p>
                         </div>
@@ -201,7 +218,9 @@
                         </div>
                     </div>
                     <div class="product product__seven">
-                        <img src="../img/Campaign/Product7/product7.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product7/product7.1.jpg" alt="">
+                        </a>
                         <div class="product__seven--name">
                             <p>Varsity T-shirt</p>
                         </div>
@@ -210,7 +229,9 @@
                         </div>
                     </div>
                     <div class="product product__eight">
-                        <img src="../img/Campaign/Product8/product8.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product8/product8.1.jpg" alt="">
+                        </a>
                         <div class="product__eight--name">
                             <p>Solarised Skull T-shirt</p>
                         </div>
@@ -219,7 +240,9 @@
                         </div>
                     </div>
                     <div class="product product__nine">
-                        <img src="../img/Campaign/Product9/product9.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product9/product9.1.jpg" alt="">
+                        </a>
                         <div class="product__nine--name">
                             <p>Military Pocket Blouson</p>
                         </div>
@@ -227,7 +250,9 @@
                             <span>$1,690</span>
                         </div>
                     </div><div class="product product__ten">
-                        <img src="../img/Campaign/Product10/product10.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product10/product10.1.jpg" alt="">
+                        </a>
                         <div class="product__ten--name">
                             <p>Cotton Mesh Polo Shirt</p>
                         </div>
@@ -236,7 +261,9 @@
                         </div>
                     </div>
                     <div class="product product__eleven">
-                        <img src="../img/Campaign/Product11/product11.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product11/product11.1.jpg" alt="">
+                        </a>
                         <div class="product__eleven--name">
                             <p>Feather Jet Embroidery Tie</p>
                         </div>
@@ -245,7 +272,9 @@
                         </div>
                     </div>
                     <div class="product product__tweny">
-                        <img src="../img/Campaign/Product12/product12.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product12/product12.1.jpg" alt="">
+                        </a>
                         <div class="product__tweny--name">
                             <p>Graffiti Hawaiian Shirt</p>
                         </div>
@@ -254,7 +283,9 @@
                         </div>
                     </div>
                     <div class="product product__thirdteen">
-                        <img src="../img/Campaign/Product13/product13.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product13/product13.1.jpg" alt="">
+                        </a>
                         <div class="product__thirdteen--name">
                             <p>Graffiti Hooded Sweatshirt</p>
                         </div>
@@ -263,7 +294,9 @@
                         </div>
                     </div>
                     <div class="product product__fourteen">
-                        <img src="../img/Campaign/Product14/product14.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product14/product14.1.jpg" alt="">
+                        </a>
                         <div class="product__fourteen--name">
                             <p>Darted Jeans<p>
                         </div>
@@ -272,7 +305,9 @@
                         </div>
                     </div>
                     <div class="product product__fifteen">
-                        <img src="../img/Campaign/Product15/product15.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Campaign/Product15/product15.1.jpg" alt="">
+                        </a>    
                         <div class="product__fifteen--name">
                             <p>Solarised Flower Jumper</p>
                         </div>
@@ -287,30 +322,31 @@
             <div class="footer">
                 <div class="grid wide">
                     <div class="row no-gutters">
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_about">
                                 <h2>Abour Us</h2>
                                 <ul class="footer_about--container">
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="./index.html">HomePage</a>
+                                        <a href="#">Introduce</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="./service.html">Service</a>
+                                        <a href="#">Product</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="./blog.html">Blog</a>
+                                        <a href="#">Service</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="#">Contact</a>
+                                        <a href="#"> Anti Counterfeiting</a>
                                     </li>
                                 </ul>
+
                             </div>  
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_contact">
                                 <h2>Contact</h2>
                                 <ul class="footer_contact--container">
@@ -329,7 +365,7 @@
                                 </ul>
                             </div>  
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_office">
                                 <h2>Office Hours</h2>
                                 <div class="time_open">
@@ -342,7 +378,7 @@
                                 </div>
                             </div>  
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_follow">
                                 <h2>Follow Us</h2>
                                 <ul class="footer_follow--container">

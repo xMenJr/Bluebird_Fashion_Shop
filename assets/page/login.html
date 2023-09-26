@@ -13,7 +13,7 @@
     <div class="login">
         <div class="grid wide">
             <div class="row">
-                <div class="col l-4 l-o-4">
+                <div class="col l-4 l-o-4 m-6 m-o-3 c-8 c-o-2">
                     <div class="login_form">
                         <div class="login_form--heading">
                             <h2>LOGIN</h2>
@@ -27,8 +27,8 @@
                         <div class="login_form--passWord">
                             <i class="fa-solid fa-lock login_passWord--icon"></i>
                             <input type="password" name="passWord" id="passWord">
-                            <i class="fa-solid fa-eye-slash login_hidePass--icon"></i>
-                            <i class="fa-solid fa-eye login_showPass--icon"></i>
+                            <i class="fa-solid fa-eye-slash login_hidePass--icon" id="login_showPass--icon" onclick="ShowHidenPass()" style="display: block;"></i>
+                            <i class="fa-solid fa-eye login_showPass--icon" id="login_hidenPass--icon" style="display: none;" onclick="ShowHidenPass()"></i>
                         </div>
                         <div class="login_form--forgetPass">
                             <a href="#">Forget password</a>
@@ -36,7 +36,7 @@
                                 <input type="checkbox">Remember me
                             </span>
                         </div>
-                        <div class="login_form--button" onclick="Login()"> 
+                        <div class="login_form--button" onclick="loginPage()"> 
                             <a href="#">LOGIN</a>
                         </div>
                         <div class="sign_form">

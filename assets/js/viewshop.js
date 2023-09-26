@@ -1,4 +1,3 @@
-
 var check = 1;
 function follow() {
     const follow_text = document.getElementById('follow--text')

@@ -54,6 +54,56 @@
 //         totalPayment.innerHTML = 0
 //     }
 // })
+function increase() {
+    quantity++
+    render(quantity)
+    totalprice = price * quantity
+    total.innerHTML = totalprice
+    total.style.color = 'red'
+    if(check.checked) {
+        totalPayment.innerHTML = totalprice
+    }
+}
+
+function reduce() {
+    if(quantity > 1) {
+        quantity--
+        render(quantity)
+        totalprice = price * quantity
+        total.innerHTML = totalprice
+        total.style.color = 'red'
+        if(check.checked) {
+            totalPayment.innerHTML = totalprice
+        }
+    }
+}
+
+function selectOne() {
+    if (check.checked && amount === '1') {
+        totalPayment.innerHTML = total.innerHTML
+        console.log(total.innerHTML)
+    }
+    else if (check.checked) {
+        totalPayment.innerHTML = totalprice
+    }
+    else if (!check.check) {
+        totalPayment.innerHTML = 0
+    }
+    else {
+        totalPayment.innerHTML = 0
+    }
+}
+
+
+// function inputQuantity() {
+//     var tmp = amountElement.value
+//     quantity = parseInt(tmp)
+//     totalprice = price * quantity
+//     total.innerHTML = totalprice
+//     if(check.checked) {
+//         totalPayment.innerHTML = totalprice
+//     }
+// }
 
 
 // amountElement.addEventListener('input', () => {

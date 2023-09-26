@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/bag.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="../js/CallApi.js"></script>
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
@@ -17,20 +18,21 @@
             <div class="header">
                 <div class="gird wide">
                     <div class="row no-gutters">
-                        <div class="col l-2 l-o-5">
+                        <div class="col l-2 l-o-5 m-2 m-o-5">
                             <div class="header__logo">
-                                <a href="./index.html">
-                                    <img src="../img/Logo/imglogo.png" alt="logo">
-                                </a>
+                                <img src="../img/Logo/imglogo.png" alt="logo">
                             </div>
                         </div>
-                        <div class="col l-3 ">
+                        <div class="col l-3 m-3 ">
                             <div class="header__search">
                                 <input type="text">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <div class="header__search--icon">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                                
                             </div>
                         </div>
-                        <div class="col l-1 ">
+                        <div class="col l-1 m-1">
                             <div class="header__cart">
                                 <li>
                                     <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -103,10 +105,16 @@
             <div class="navigation">
                 <div class="grid wide">
                     <div class="row">
-                        <div class="col l-12">  
+                        <div class="col l-12 m-12">  
                             <ul class="nav_list">
                                 <li class="nav_item">
+                                    <a class="nav_item--intro" href="./myshop.html">Introduce</a>
+                                </li>
+                                <li class="nav_item">
                                     <a class="nav_item--home" href="./index.html">HomePage</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="./address.html">Service</a>
                                 </li>
                                 <li class="nav_item">
                                     <a class="nav_item--product" href="#">Product</a>
@@ -134,14 +142,11 @@
                                     </ul>
                                 </li>
                                 <li class="nav_item">
-                                    <a class="nav_item--service" href="./service.html">Service</a>
-                                </li>
-                                <li class="nav_item">
-                                    <a class="nav_item--blog" href="./blog.html">Blog</a>
-                                </li>
-                                <li class="nav_item">
                                     <a class="nav_item--contact" href="#">Contact</a>
                                 </li>
+                                <!-- <li class="nav_item">
+                                    <a class="nav_item--login" id="nav_item--login" href="./login.html">Login</a>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -156,16 +161,20 @@
                 </div>
                 <div class="product__bags" id="bagProduct">
                     <div class="product product__one">
-                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                        </a>
                         <div class="product__one--name">
-                            <p>The Seal Bag</p>
+                            <p>The Seal Bagk</p>
                         </div>
                         <div class="product__one--price">
                             <span>$3,200</span>
                         </div>
                     </div>
                     <div class="product product__two">
-                        <img src="../img/Bag/Bag2/bag2.1.jpg" alt="">
+                        <a href="#456">
+                            <img src="../img/Bag/Bag2/bag2.1.jpg" alt="">
+                        </a>
                         <div class="product__two--name">
                             <p>The Jewelled Hobo Bag</p>
                         </div>
@@ -174,7 +183,9 @@
                         </div>
                     </div>
                     <div class="product product__three">
-                        <img src="../img/Bag/Bag3/bag3.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag3/bag3.1.jpg" alt="">
+                        </a>
                         <div class="product__three--name">
                             <p>The Curve</p>
                         </div>
@@ -183,16 +194,20 @@
                         </div>
                     </div>
                     <div class="product product__four">
-                        <img src="../img/Bag/Bag4/bag4.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag4/bag4.1.jpg" alt="">
+                        </a>
                         <div class="product__four--name">
                             <p>Exploded Victorian Jewel</p>
                         </div>
                         <div class="product__four--price">
-                            <span>$6,490</span>
+                            <span>6,490</span>
                         </div>
                     </div>
                     <div class="product product__five">
-                        <img src="../img/Bag/Bag5/bag5.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag5/bag5.1.jpg" alt="">
+                        </a>
                         <div class="product__five--name">
                             <p>The Jewelled Hobo Bag</p>
                         </div>
@@ -201,7 +216,9 @@
                         </div>
                     </div>
                     <div class="product product__six">
-                        <img src="../img/Bag/Bag6/bag6.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag6/bag6.1.jpg" alt="">
+                        </a>
                         <div class="product__six--name">
                             <p>The Peak Bag Small</p>
                         </div>
@@ -210,7 +227,9 @@
                         </div>
                     </div>
                     <div class="product product__seven">
-                        <img src="../img/Bag/Bag7/bag7.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag7/bag7.1.jpg" alt="">
+                        </a>
                         <div class="product__seven--name">
                             <p>Bosch Knuckle Clutch</p>
                         </div>
@@ -219,7 +238,9 @@
                         </div>
                     </div>
                     <div class="product product__eight">
-                        <img src="../img/Bag/Bag8/bag8.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag8/bag8.1.jpg" alt="">
+                        </a>
                         <div class="product__eight--name">
                             <p>Jewelled Satchel</p>
                         </div>
@@ -228,7 +249,9 @@
                         </div>
                     </div>
                     <div class="product product__nine">
-                        <img src="../img/Bag/Bag9/bag9.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag9/bag9.1.jpg" alt="">
+                        </a>
                         <div class="product__nine--name">
                             <p>The Jewelled Hobo Bag</p>
                         </div>
@@ -237,7 +260,9 @@
                         </div>
                     </div>
                     <div class="product product__ten">
-                        <img src="../img/Bag/Bag10/bag10.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag10/bag10.1.jpg" alt="">
+                        </a>
                         <div class="product__ten--name">
                             <p>The Bow</p>
                         </div>
@@ -246,7 +271,9 @@
                         </div>
                     </div>
                     <div class="product product__eleven">
-                        <img src="../img/Bag/Bag11/bag11.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag11/bag11.1.jpg" alt="">
+                        </a>
                         <div class="product__eleven--name">
                             <p>Knuckle Clutch</p>
                         </div>
@@ -255,7 +282,9 @@
                         </div>
                     </div>
                     <div class="product product__twenty">
-                        <img src="../img/Bag/Bag12/bag12.1.jpg" alt="">
+                        <a href="#123">
+                            <img src="../img/Bag/Bag12/bag12.1.jpg" alt="">
+                        </a>
                         <div class="product__twenty--name">
                             <p>Mini Jewelled Satchel</p>
                         </div>
@@ -270,30 +299,30 @@
             <div class="footer">
                 <div class="grid wide">
                     <div class="row no-gutters">
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_about">
                                 <h2>Abour Us</h2>
                                 <ul class="footer_about--container">
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="./index.html">HomePage</a>
+                                        <a href="#">Introduce</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="./service.html">Service</a>
+                                        <a href="#">Product</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="./blog.html">Blog</a>
+                                        <a href="#">Service</a>
                                     </li>
                                     <li class="footer_about--item ">
                                         <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                        <a href="#">Contact</a>
+                                        <a href="#"> Anti Counterfeiting</a>
                                     </li>
                                 </ul>
                             </div>  
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_contact">
                                 <h2>Contact</h2>
                                 <ul class="footer_contact--container">
@@ -312,7 +341,7 @@
                                 </ul>
                             </div>  
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_office">
                                 <h2>Office Hours</h2>
                                 <div class="time_open">
@@ -325,7 +354,7 @@
                                 </div>
                             </div>  
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 m-5">
                             <div class="footer_follow">
                                 <h2>Follow Us</h2>
                                 <ul class="footer_follow--container">
