@@ -336,6 +336,8 @@ body {
 .all_product {
     margin: 20px 40px;
     cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .all_product img {
@@ -436,4 +438,14 @@ h1 {
 
 .fa-square-instagram {
     margin-right: 2px;
+}
+
+.container__product {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+.product__one--name  {
+    width: 215px;
 }

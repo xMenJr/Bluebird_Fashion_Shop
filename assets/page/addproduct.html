@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/addproduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/CallApi.js"></script>
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
@@ -32,12 +33,12 @@
                         <div class="col l-1 ">
                             <div class="header__cart">
                                 <li>
-                                    <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="./cart.html" class="cart__icon--title"><i class="fa-solid fa-cart-shopping cart__icon"></i></a>
                                     <ul class="show_cart">
                                         <a href="">
                                             <li>
-                                                <div class="show_product">
-                                                    <a href="#" class="product_cart">
+                                                <div class="show_product" id="show_product">
+                                                    <a href="#" class="product_cart" id="product_cart">
                                                         <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
                                                         <span>The Seag Bag</span>
                                                         <span>$3200</span>
@@ -79,20 +80,8 @@
                                 </li>
                             </div>
                         </div>
-                        <div class="col l-1">
-                            <div class="header__login">
-                                <li class="login">
-                                    <a href="./login.html">Login</a>
-                                    <ul class="select_option">
-                                        <a href="./profile.html">
-                                            <li class="account_management">Account management</li>
-                                        </a>
-                                        <a href="./login.html">
-                                            <li class="log_out">Log out</li>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </div>
+                        <div class="col l-1" id="div__login">
+                        
                         </div>
                     </div>
                 </div>
@@ -196,27 +185,37 @@
                         <div class="product_body">
                             <div class="body body__productname">
                                 <label for="productname" class="productname_label">Product's name</label>
-                                <input type="text" class="productname_input">
+                                <input type="text" class="productname_input" id="productname_input">
                             </div>
                             <div class="body body__productimg">
                                 <label for="productimg" class="productimg_label">Image product</label>
-                                <input type="text" class="productimg_input">
+                                <input type="text" class="productimg_input" id="productimg_input--img__main">
+                                <div class="Input__Img">
+                                    <div class="input__img--left">
+                                        <input type="text" class="productimg_input" id="productimg_input--img__1">
+                                        <input type="text" class="productimg_input" id="productimg_input--img__2">
+                                    </div>
+                                    <div class="input__img--right">
+                                        <input type="text" class="productimg_input" id="productimg_input--img__3">
+                                        <input type="text" class="productimg_input" id="productimg_input--img__4">
+                                    </div>
+                                </div>
                             </div>
                             <div class="body body__productinfo">
                                 <label for="productinfo" class="productinfo_label">Product infomation</label>
-                                <textarea name="" class="productinfo_input" cols="30" rows="10"></textarea>
+                                <textarea name="" class="productinfo_input" cols="30" rows="10" id="productinfo_input"></textarea>
                             </div>
                             <div class="body body__productdetails">
                                 <label for="productdetails" class="productdetails_label">Product details</label>
-                                <textarea name="" class="productdetails_input" cols="30" rows="10"></textarea>
+                                <textarea name="" class="productdetails_input" cols="30" rows="10" id="productdetails_input"></textarea>
                             </div>
                             <div class="body body__productprice">
                                 <label for="productprice" class="productprice_label">Price</label>
-                                <input type="text" class="productprice_input">
+                                <input type="text" class="productprice_input" id="productprice_input">
                             </div>
                             <div class="body body__productmaterial">
                                 <label for="productmaterial" class="productmaterial_label">Material</label>
-                                <input type="text" class="productmaterial_input">
+                                <input type="text" class="productmaterial_input" id="productmaterial_input">
                             </div>
                             <div class="body body__productsize">
                                 <label for="productsize" class="productsize_label">Product size</label>
@@ -227,12 +226,12 @@
                                         <th onclick="editCell(this)">L</th>
                                     </tr>
                                     <tr id="header_long">
-                                        <td>Long</td>
+                                        <td>Color</td>
                                         <td onclick="editCell(this)"></td>
                                         <td onclick="editCell(this)"></td>
                                     </tr>
                                     <tr id="header_height">
-                                        <td>Height</td>
+                                        <td>Quantity</td>
                                         <td onclick="editCell(this)"></td>
                                         <td onclick="editCell(this)"></td>
                                     </tr>
@@ -240,38 +239,17 @@
                                 <span><button class="plus size_plus"><i class="fa-solid fa-plus"></i></button></span>
                                 <span><button class="minus size_minus"><i class="fa-solid fa-minus"></i></button></span>
                             </div>
-                            <div class="body body__productparameter">
-                                <label for="productparameter" class="productparameter_label">Product parameter</label>
-                                <table id="table_parameter">
-                                    <tr id="header_parameter">
-                                        <th >Size</th>
-                                        <th onclick="editCell(this)">M</th>
-                                        <th onclick="editCell(this)">L</th>
-                                    </tr>
-                                    <tr id="header_color">
-                                        <td>Color</td>
-                                        <td onclick="editCell(this)"></td>
-                                        <td onclick="editCell(this)"></td>
-                                    </tr>
-                                    <tr id="header_quantity">
-                                        <td>Quantity</td>
-                                        <td onclick="editCell(this)"></td>
-                                        <td onclick="editCell(this)"></td>
-                                    </tr>
-                                </table>
-                                <span><button class="plus parameter_plus"><i class="fa-solid fa-plus"></i></button></span>
-                                <span><button class="minus parameter_minus"><i class="fa-solid fa-minus"></i></button></span>
-                            </div>
-                            <div class="body body__productcategory">
-                                <label for="productcategory" class="productcategory_label">Category</label>
-                                <select name="" id="">
+                            
+                            <div class="body body__productcategory" id="body__productcategory"> 
+                                <!-- <label for="productcategory" class="productcategory_label">Category</label>
+                                <select name="" id="select__type">
                                     <option value="">Vest</option>
                                     <option value="">Campaign</option>
                                     <option value="">Bag</option>
                                     <option value="">Shoe</option>
-                                </select>
+                                </select> -->
                             </div>
-                            <div class="body body__confirm">
+                            <div class="body body__confirm" onclick="AddProduct()">
                                 <button>CONFIRM</button>
                             </div>
                         </div>
@@ -368,5 +346,38 @@
         </div>
     </div>
     <script src="../js/addproduct.js"></script>
+    <script>
+        var fullname = localStorage.getItem("fullname");
+            if(fullname != null) {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <li>
+                        <a href="#" id="fullName">${fullname}</a>
+                        <ul class="select_option">
+                            <a href="./profile.html">
+                                <li class="account_management">Account management</li>
+                            </a>
+                            <a href="./login.html">
+                                <li class="log_out">Log out</li>
+                            </a>
+                        </ul>
+                    </li>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+            else {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <a href="./login.html" id="fullName">Login</a>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+        GetCategory();
+        GetAllCartHover(1, 100,' ')
+    </script>
 </body>
 </html>

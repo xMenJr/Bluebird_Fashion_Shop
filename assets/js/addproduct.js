@@ -59,40 +59,40 @@ sizeMinus.addEventListener('click', function() {
 })
 
 
-const parameterPlus = document.querySelector('.parameter_plus')
+// const parameterPlus = document.querySelector('.parameter_plus')
 
-parameterPlus.addEventListener('click', function() {
-    themCotParameter()
-})
+// parameterPlus.addEventListener('click', function() {
+//     themCotParameter()
+// })
 
-const table_parameter = document.getElementById("table_parameter");
+// const table_parameter = document.getElementById("table_parameter");
 
-function themCotParameter() {
-    var header_parameter = document.getElementById("header_parameter");
-    var header_color = document.getElementById("header_color");
-    var header_quantity = document.getElementById("header_quantity");
+// function themCotParameter() {
+//     var header_parameter = document.getElementById("header_parameter");
+//     var header_color = document.getElementById("header_color");
+//     var header_quantity = document.getElementById("header_quantity");
 
-    header_parameter.innerHTML += `
-        <th onclick="editCell(this)"></th>
-    `;
-    header_color.innerHTML += `
-        <td onclick="editCell(this)"></td>
-    `;
-    header_quantity.innerHTML += `
-        <td onclick="editCell(this)"></td>
-    `;
-}
+//     header_parameter.innerHTML += `
+//         <th onclick="editCell(this)"></th>
+//     `;
+//     header_color.innerHTML += `
+//         <td onclick="editCell(this)"></td>
+//     `;
+//     header_quantity.innerHTML += `
+//         <td onclick="editCell(this)"></td>
+//     `;
+// }
 
-const parameterMinus = document.querySelector('.parameter_minus')
+// const parameterMinus = document.querySelector('.parameter_minus')
 
-parameterMinus.addEventListener('click', function() {
+// parameterMinus.addEventListener('click', function() {
 
-    const columnCount = table_parameter.rows[0].cells.length;
+//     const columnCount = table_parameter.rows[0].cells.length;
 
-    if (columnCount >= 3) {
-      // Duyệt qua tất cả các hàng của bảng và xóa cột cuối cùng (thứ columnCount - 1)
-      for (let i = 0; i < table_parameter.rows.length; i++) {
-        table_parameter.rows[i].deleteCell(columnCount - 1);
-      }
-    }
-})
+//     if (columnCount >= 3) {
+//       // Duyệt qua tất cả các hàng của bảng và xóa cột cuối cùng (thứ columnCount - 1)
+//       for (let i = 0; i < table_parameter.rows.length; i++) {
+//         table_parameter.rows[i].deleteCell(columnCount - 1);
+//       }
+//     }
+// })

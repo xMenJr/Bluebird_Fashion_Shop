@@ -335,6 +335,11 @@ body {
     width: 620px;
 }
 
+.productimg_input {
+    width: 40%;
+    height: 80px;
+}
+
 .product_body label {
     min-width: 160px;
 }
@@ -467,3 +472,21 @@ td {
 .fa-square-instagram {
     margin-right: 2px;
 }
+
+/*  */
+.cart__icon {
+    color: red !important;
+}
+.Input__Img {
+    display: flex;
+    flex-direction: column;
+}
+
+.Input__Img div input {
+    width: 60px;
+}
+
+.input__img--left {
+    
+}
+

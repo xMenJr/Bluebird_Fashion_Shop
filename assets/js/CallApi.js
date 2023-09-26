@@ -161,11 +161,10 @@ async function displayProductByProductType(pageIndex, productType, IdClass, Name
                 `;
                 productContainer.appendChild(productTitle);
             data.result.forEach(product => {
-
                 
                 const productDiv = document.createElement('div');
                 productDiv.className = 'col l-2-4';
-
+                let sales = Math.floor(Math.random() * 50);
                 productDiv.innerHTML = `
                     <div class="product_shoe--item">
                         <div class="shoe_item--img">
@@ -174,7 +173,7 @@ async function displayProductByProductType(pageIndex, productType, IdClass, Name
                         </div>
                         <div class="shoe_item--content">
                             <div class="bag_content--discount">
-                                <p>Sale</p><span>10%</span>
+                                <p>Sale</p><span>${sales}%</span>
                             </div>
                             <div class="shoe_content--name">
                                 <span>${product.name}</span>
@@ -254,10 +253,16 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
         } else {
             data.result.forEach(product => {
                 let ShipStatus = product.usedStatus ;
-                if(ShipStatus == 0) {
+                if(ShipStatus == 3) {
                     ShipStatus = "Waiting for confirmation from the shop"
                 }
-                if(ShipStatus == 3) {
+                else if(ShipStatus == 4) {
+                    ShipStatus = "Delivered to the carrier";
+                }
+                else if(ShipStatus == 5) {
+                    ShipStatus = "Delivering to you";
+                }
+                else if(ShipStatus == 6) {
                     ShipStatus = "Order has been delivered successfully";
                 }
                 // Phân định dạng tiền
@@ -285,9 +290,9 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
                             <div class="shop_name">
                                 <p> ${product.brandName} </p>
                             </div>
-                            <div class="viewstore">
+                            <div class="viewstore" onclick="InsertIdProductLocal('${product.idProduct}')">
                                 <i class="fa-solid fa-shop"></i>
-                                <a href="">View store</a>
+                                <a href="#">View store</a>
                             </div>
                         </div>
                         <div class="product_information">
@@ -480,10 +485,10 @@ async function GetAllProductMyShop(search) {
                     <a href="">Details</a>
                 </td>
                 <td class="option">
-                    <div class="select_option">
-                        <i class="fa-regular fa-trash-can delete--icon" >Ok</i>
+                    <div class="select_option--detail">
+                        <i class="fa-regular fa-trash-can delete--icon" ></i>
                         <a href="">
-                            <i class="fa-solid fa-screwdriver-wrench" style="color: black;"></i>
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
                         </a>
                     </div>
                 </td>
@@ -530,6 +535,39 @@ async function GetCategory() {
         alert(error);
     }
 }
+
+
+// async function GetCategoryMain() {
+//     try {
+//         const getClassUrl = `https://localhost:7029/api/ProductType?pageIndex=1&pageSize=100`;
+//         const response = await fetch(getClassUrl);
+//         const data = await response.json();
+
+//         const productContainer = document.getElementById("body__productcategory");
+//         productContainer.innerHTML = '';
+
+//         if (!Array.isArray(data.result) || data.result.length === 0) {
+//             productContainer.innerHTML = '<p id="Data__null">Không có dữ liệu</p>';
+//         } else {
+//             var productSelect__title = document.createElement("label");
+//             productSelect__title.className = "productcategory_label"
+//             productSelect__title.textContent = "Category";
+//             productContainer.appendChild(productSelect__title)
+//             var productSelect = document.createElement('select');
+//             productSelect.id = "select__type"
+//             data.result.forEach(product => {
+//                 var option = document.createElement('option');
+//                 option.value = product.id;
+//                 option.textContent = product.name;
+//                 productSelect.appendChild(option);
+//             });
+//             productContainer.appendChild(productSelect);
+//         }
+//     } catch (error) {
+//         console.error('Error fetching data:', error);
+//         alert(error);
+//     }
+// }
 
 function AddProduct() {
     const token = localStorage.getItem("login");
@@ -701,9 +739,9 @@ async function GetAllCart(pageIndex, pageSize,search) {
                         <div class="shop_name">
                             <p>${product.brandName}</p>
                         </div>
-                        <div class="viewstore">
+                        <div class="viewstore" onclick="InsertIdProductLocal(${product.idProduct})">
                             <i class="fa-solid fa-shop"></i>
-                            <a href="">View store</a>
+                            <a href="#" >View store</a>
                         </div>
                         <div class="select">
                             <input class="select_check" type="checkbox">
@@ -759,6 +797,38 @@ async function GetAllCart(pageIndex, pageSize,search) {
                     </div>
                 `;
             productContainer.appendChild(table);
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+
+async function GetAllCartHover(pageIndex, pageSize,search) {
+    try {
+        var token = localStorage.getItem("login");
+        const getClassUrl = `https://localhost:7029/api/Cart?pageIndex=${pageIndex}&pageSize=${pageSize}&token=${token}&search=${search}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById("show_product");
+        productContainer.innerHTML = '';
+
+        if (!Array.isArray(data.result) || data.result.length === 0) {
+            productContainer.innerHTML = '<h3 id="Data__null">Không có dữ liệu</h3>';
+        } else {
+            data.result.forEach(product => {
+                var productDiv = document.createElement('a');
+                productDiv.className = 'product_cart';
+                productDiv.innerHTML = `
+                    <img src="${product.img}" alt="">
+                    <span>${product.nameProduct}</span>
+                    <span>${product.totalPrice}</span>
+                `;
+
+                productContainer.appendChild(productDiv);
+            });
         }
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -842,6 +912,107 @@ function DeleteCart(Id) {
     else alert("Xóa đơn hàng thất bại");
 }
 
+function InsertIdProductLocal(IdProduct) {
+    localStorage.setItem("IdProduct", IdProduct);
+    window.location.href = "viewshop.html";
+}
 
+// View Shop
+async function GetAllProductViewShop(IdProduct) {
+    try {
+        var token = localStorage.getItem("login");
+        const getClassUrl = `https://localhost:7029/api/Shop?IdProduct=${IdProduct}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById("content_shop");
+        productContainer.innerHTML = '';
+
+        if (!Array.isArray(data.result) || data.result.length === 0) {
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            const table = document.createElement('div');
+                table.id = "shop_information"
+                table.className = "shop_information";
+                let avataShop;
+                if(data.result[1].avata === "string") {
+                    avataShop = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+                }
+                else {
+                    avataShop = data.result[1].avata;
+                }
+                table.innerHTML = `
+                    <div class="information-left">
+                        <div class="shop_info--left">
+                            <div class="shop_info--image">
+                                <img src="${avataShop}" alt="">
+                            </div>
+                            <div class="shop_info--name">
+                                <span>${data.result[1].brandName}</span>
+                            </div>
+                            <div class="shop_info--favourtite">
+                                <button>Mall</button>
+                            </div>
+                        </div>
+                        <div id="shop_info--follow" onclick="follow()">
+                            <button id="follow--text">Follow</button>
+                        </div>
+                    </div>
+                    <div class="information-right">
+                        <div class="shop_info--right">
+                            <div class="shop_info--follower">
+                                <i class="fa-solid fa-user-group"></i>
+                                <span>Followers: <span id="product_follower">99</span></span>
+                            </div>
+                            <div class="shop_info--product">
+                                <i class="fa-solid fa-store"></i>
+                                <span>Products: <span id="product_quantity">7</span></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productContainer.appendChild(table);
+                const containerProduct = document.createElement("div");
+                containerProduct.innerHTML = '';
+                containerProduct.className = "shop_product";
+                containerProduct.innerHTML = `
+                    <h1>ALL OF PRODUCTS</h1>
+                `;
+                productContainer.appendChild(containerProduct);
+                var productDiv = document.createElement('div');
+                productDiv.className = 'container__product';
+                productDiv.id = 'container__product';
+                productContainer.appendChild(productDiv);
+                var productContainerElement = document.getElementById("container__product")
+                productContainerElement.innerHTML = ""
+                var i = 0;
+                data.result.forEach(product => {
+                    var product__element = document.createElement("div");
+                    product__element.className = "viewshop_product";
+                    
+                    product__element.innerHTML = `
+                        <div class="all_product">
+                            <a href="#" class="product product__one">
+                                <img src="${product.img}" alt="">
+                                <div class="product__one--name">
+                                    <p>${product.nameProduct}</p>
+                                </div>
+                                <div class="product__one--price">
+                                    <span>$3,200</span>
+                                </div>
+                            </a>
+                        </div>
+                    `;
+                    i++;
+                    productContainerElement.appendChild(product__element);
+                });
+                var quantity = document.getElementById("product_quantity");
+                quantity.innerHTML = i;
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
 
   

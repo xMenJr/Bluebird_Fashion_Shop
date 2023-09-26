@@ -1,11 +1,11 @@
-const follow_text = document.getElementById('follow--text')
-const follower = document.getElementById('product_follower')
-
-var tmp = parseInt(follower.textContent)
 
 var check = 1;
-
 function follow() {
+    const follow_text = document.getElementById('follow--text')
+    const follower = document.getElementById('product_follower')
+
+    var tmp = parseInt(follower.textContent)
+
     if(check === 1) {
         follow_text.innerHTML = 'Following';
         follow_text.style.color = 'red';

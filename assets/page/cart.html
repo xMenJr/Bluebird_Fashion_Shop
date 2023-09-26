@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/CallApi.js"></script>
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
@@ -36,8 +37,8 @@
                                     <ul class="show_cart">
                                         <a href="">
                                             <li>
-                                                <div class="show_product">
-                                                    <a href="#" class="product_cart">
+                                                <div class="show_product" id="show_product">
+                                                    <a href="#" class="product_cart" id="product_cart">
                                                         <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
                                                         <span>The Seag Bag</span>
                                                         <span>$3200</span>
@@ -82,8 +83,8 @@
                                 </li>
                             </div>
                         </div>
-                        <div class="col l-1">
-                            <div class="header__login">
+                        <div class="col l-1" id="div__login">
+                            <!-- <div class="header__login">
                                 <li class="login">
                                     <a href="./login.html">Login</a>
                                     <ul class="select_option">
@@ -95,7 +96,7 @@
                                         </a>
                                     </ul>
                                 </li>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -191,7 +192,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="my_cart">
+                <div class="my_cart" id="my_cart">
                     <div class="cart">
                         <div class="shop">
                             <div class="check">
@@ -373,6 +374,7 @@
                 dataContainer.appendChild(CreateLoutOut);
             }
             GetAllCart(1, 100," ");  
+            GetAllCartHover(1, 100,' ');
     </script>
 </body>
 </html>
