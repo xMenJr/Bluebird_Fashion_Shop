@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 body {
     margin: 0;
 }
 
+=======
+>>>>>>> 7056e6ae1390158a248fd07cb0989a2d1e7e3c44
 /* header */
 .header__logo{
     text-align: center;
 }
 .header__logo img{
+<<<<<<< HEAD
     width: 62%;
+=======
+    width: 42%;
+>>>>>>> 7056e6ae1390158a248fd07cb0989a2d1e7e3c44
     height: 40%;
     object-fit: cover;
     object-position: top center;
@@ -26,10 +33,16 @@ body {
     width: 100%;
     height: 100%;
 }
+.header__search--icon{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+}
 .header__cart{
     display: flex;
     justify-content: left;
-    padding-left: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
     margin-top: 30px;
     list-style: none;
 }
@@ -46,10 +59,11 @@ body {
 }
 .header__search i{
     position: absolute;
-    top: 4%;
-    right: 18%;
+    top: 10%;
+    right: 10%;
 }
 
+<<<<<<< HEAD
 .header__search i:hover, .header__cart:hover {
     cursor: pointer;
 }
@@ -125,6 +139,8 @@ body {
 /* / drop-cart / */
 
 
+=======
+>>>>>>> 7056e6ae1390158a248fd07cb0989a2d1e7e3c44
 /* drd */
 
 .header__login a{
@@ -163,8 +179,31 @@ body {
     display: none;
 }
 
+<<<<<<< HEAD
 .header__login li:hover ul.select_option {
+=======
+/* .select_option::before {
+    position: absolute;
+    left: 0;
+    top: -13px;
+    width: 100%;
+    height: 20px;
+    content: "";
+>>>>>>> 7056e6ae1390158a248fd07cb0989a2d1e7e3c44
     display: block;
+} */
+
+.div__login .header__login a:hover .select_option {
+    display: block ;
+}
+
+li:hover .select_option {
+    display: block; /* Hiển thị khi hover vào li */
+}
+
+.header__login li {
+    padding-bottom: 10px;
+    list-style: none;
 }
 
 
@@ -196,7 +235,7 @@ body {
     transition: box-shadow 0.3s ease;
     position: relative;
 }
-.nav_item--blog:hover,
+.nav_item--intro:hover,
 .nav_item--home:hover,
 .nav_item--service:hover,
 .nav_item--product:hover,
@@ -260,6 +299,9 @@ body {
 .content_img img{
     width: 100%;
 }
+.content_img{
+    position: relative;
+}
 .see_more {
     text-align: center;
     margin-top: 60px;
@@ -313,9 +355,132 @@ body {
 .shop_now--campaign,
 .shop_now--bag,
 .shop_now--shoe {
-    bottom: -27.6%;
+    bottom: 7.6%;
 }
 
+<<<<<<< HEAD
+=======
+/* content */
+.product_bag--item,
+.product_shoe--item,
+.product_campaign--item,
+.product_vest--item {
+    position: relative;
+    margin-bottom: 20%;
+}
+.bag_item--icon,
+.shoe_item--icon,
+.campaign_item--icon,
+.vest_item--icon {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    font-size: 60px;
+    color: #FFD230;
+}
+.bag_content--discount,
+.shoe_content--discount,
+.campaign_content--discount,
+.vest_content--discount {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+}
+.bag_content--discount p,
+.shoe_content--discount p,
+.campaign_content--discount p,
+.vest_content--discount p {
+    margin: 0;
+    color: #fff;
+}
+.bag_content--discount span,
+.shoe_content--discount span,
+.campaign_content--discount span,
+.vest_content--discount span {
+    margin: 0;
+    color: red;
+}
+.bag_item--img,
+.shoe_item--img,
+.campaign_item--img,
+.vest_item--img {
+    border: 2px solid #000;
+}
+.bag_item--img::before,
+.shoe_item--img::before,
+.campaign_item--img::before,
+.vest_item--img::before {
+    content: "Yêu thích";
+    display: block;
+    width: 35%;
+    height: 6%;
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    top: 8%;
+    left: 1%;
+    text-align: center;
+}
+
+.bag_content--name,
+.shoe_content--name,
+.campaign_content--name,
+.vest_content--name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.bag_content--price,
+.shoe_content--price,
+.campaign_content--price,
+.vest_content--price {
+    font-weight: bold;
+    color: red;
+}
+
+.content_product--shoe{
+
+}
+.product_shoe--item {
+    width: 100%;
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 70%;
+    font-size: 40px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.next {
+    right: 0;
+    margin-right: 160px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.product__item {
+    list-style: none;
+    z-index: 2;
+}
+
+.product_vest--item:hover,
+.product_campaign--item:hover,
+.product_shoe--item:hover,
+.product_bag--item:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* / content */
+>>>>>>> 7056e6ae1390158a248fd07cb0989a2d1e7e3c44
 
 /* footer */
 .footer{
@@ -403,4 +568,29 @@ body {
     }
 }
 
+<<<<<<< HEAD
 /*  */
+=======
+/* Table */
+@media (min-width: 740px) and (max-width: 1113px){
+    .header__logo{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header__logo img{
+        height: 60%;
+    }
+    .header__login{
+        margin-top: 40%;
+    }
+    #vestProduct,
+    #campaignProduct,
+    #shoeProduct,
+    #bagProduct{
+        padding-left: 8%;
+    }
+}
+>>>>>>> 7056e6ae1390158a248fd07cb0989a2d1e7e3c44
