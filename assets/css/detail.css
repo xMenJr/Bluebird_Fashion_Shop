@@ -9,7 +9,7 @@ body {
     width: 100%;
     height: 150px;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 .product_img--item img{
     position: relative; 
@@ -22,11 +22,13 @@ body {
 .product_img--main{
     width: 100%;
 }
+.list_product--img {
+    padding-top: 7%;
+}
 .main_img{
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
+    width: 80%;
     margin-top: 10%;
+    margin-left: 5%;
 }
 
 .product_img--main img{
@@ -38,11 +40,16 @@ body {
     margin: 15px 0;
 }
 .product_button--buy,
-.product_button--add{
+.product_button--add {
     padding: 15px;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: black;
     color: #fff;
+}
+
+.product_button--buy:hover,
+.product_button--add:hover {
+    cursor: pointer;
 }
 
 table {
@@ -60,16 +67,17 @@ th, td {
 th {
     background-color: #f2f2f2; 
 }
-.choose_payment_method,
-.choose_color,
-.choose_size{
+
+/* .choose_color,
+.choose_size */
+/* .choose_payment_method{
     margin-top: 5%;
     border: 2px solid black;
     padding: 10px;
     display: flex;
     justify-content: space-between;
-}
-.payment_method,
+} */
+/* .payment_method,
 .detail_color,
 .detail_size{
     width: 100%;
@@ -85,29 +93,59 @@ th {
 .list_size li{
     margin-top: 2px;
     list-style: none;
-    border: 1px solid #ccc; /* Tạo gạch đầu dòng */
+    border: 1px solid #ccc;
     padding: 10px;
     display: flex;
-    justify-content: space-between; /* Canh giữa dọc cho biểu đồ và văn bản */
-    align-items: center; /* Canh ngang giữa cho biểu đồ và văn bản */
-}
-.product_infor--action{
-    display: flex;
-}
-.product_infor--quantity{
-    display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
-    margin-top: 5%;
+} */
+
+.product_infor--quantity {
+    display: flex;
+    padding: 3% 0;
 }
-#decrease,
-#quantity,
-#increment{
-    padding: 5px 10px;
-    border: 1px solid #000;
+
+.product_quantity {
+    display: flex;
 }
-.product_desc--review,
-.product_desc--text,
+
+
+.product_quantity button {
+    background-color: white;
+    border: 1px solid gray;
+    width: 25px;
+    height: 25px;
+}
+
+.product_quantity button:hover {
+    cursor: pointer;
+}
+
+.product_quantity span {
+    margin-right: 57%;
+    font-size: 18px;
+    padding-top: 1%;
+}
+
+.product_infor--total {
+    margin-left: 52%;
+    padding-top: 1% ;
+}
+
+#quantity {
+    width: 30px;
+    border: 1px solid gray;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+}
+
+.choose_payment_method label {
+    font-size: 18px;
+    padding-top: 1%;
+}
+
+
 .product_desc--logo{
     width: 92%;
     display: flex;
@@ -115,12 +153,30 @@ th {
     margin: auto;
     margin-top: 50px;
     border: 1px solid gray;
-    padding: 20px;
+    padding-bottom: 30px;
 }
-.product_desc--review,
-.product_desc--text{
-    flex-direction: column;
+
+.product_desc--text {
+    margin: 4% 0 1% 4%;
+    font-size: 25px;
+    font-weight: bold;
 }
+
+.product_desc--info{
+    border: 1px solid black;
+    width: 92%;
+    height: 100%;
+    margin-left: 4%;
+}
+
+.product_desc--info p{
+    margin-left: 2%;
+}
+
+.product_desc--review h2 {
+    margin: 2%;
+}
+
 .product_logo{
     width: 20%;
     display: flex;
@@ -131,6 +187,27 @@ th {
 .product_logo--img{
     flex: 0.7;
 }
+
+.product_logo--img {
+    width: 100%;
+    height: 100%;
+    border: 5px solid lightgray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 10px 20px;
+    position: relative;
+    background-color: white;
+}
+
+.product_logo--img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
 .product_logo--shop{
     flex: 0.8;
 }
@@ -140,65 +217,90 @@ th {
     padding: 5px 20px;
     border: 2px solid black;
 }
+
+.product_logo--shop p {
+    margin-bottom: 40%;
+    font-size: 20px;
+}
 .product_about{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-right: 2%;
 }
 
-.review_item--text{
-    width: 85%;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 15px;
+.product_desc--review {
+    border: 1px solid black;
+    margin: 10% 4%;
 }
-.review_item--img {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border: solid 2px black;
+
+.cunrrent_content--img {
+    width: 80px;
+    height: 80px;
+    border: 5px solid lightgray;
     border-radius: 50%;
-    left: 16%;
-}
-.review_item--img img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    clip-path: circle(50%);
-}
-.product_review--item{
-    margin: 30px 0;
-
-}
-.product_review--item input{
-    width: 100%;
-    height: 50px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-}
-
-.product_review--item{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 10px 20px;
+    position: relative;
+    background-color: white;
 }
-.product_review--avata{
-    width: 15%;
+
+.cunrrent_content--img img {
+    max-width: 100%;
+    max-height: 100%;
 }
-.current_comment{
-    height: 150px;
+
+.product_review--content {
+    display: flex;
+    margin-left: 3%;
+    margin-bottom: 2%;
 }
-.review_post {
-    text-align: right;
-    margin-top: 4%;
+
+.current_content--text {
+    margin-left: 1%;
+    margin-top: 0.5%;
+    position: relative;
 }
-.review_post a{
-    text-decoration: none;
-    color:#fff;
-    padding: 10px 20px;
-    border-radius: 8px;
+
+.current_content textarea {
+    height: 100px;
+    resize: none;
+    width: 430%;
+}
+
+.current_post {
+    position: absolute;
+    top: 70%;
+    right: -328%;
+}
+
+.current_post button {
     background-color: red;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 3px;
 }
+
+.current_post button:hover {
+    background-color: rgb(209, 30, 30);
+    cursor: pointer;
+}
+
+.current_name {
+    margin-bottom: 3%;
+}
+
+.product_img--item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/*  */
 .overlay{
     top: 0;
     bottom: 0;
@@ -271,6 +373,59 @@ th {
 .close_icon{
     text-align: right;
 }
+
+.choose_size, .choose_color, .choose_discount{
+    padding: 3% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.choose_size label, .choose_color label, .choose_discount label {
+    font-size: 18px;
+    padding-top: 1%;
+}
+
+.product_infor {
+    margin-left: 5%;
+}
+
+.product_infor--heading h2 {
+    font-size: 35px;
+}
+
+.product_infor--price p {
+    font-size: 20px;
+}
+
+.choose_color select, .choose_size select, .choose_discount select{
+    width: 30%;
+    height: 30px;
+    margin-right: 40%;
+}
+
+.choose_payment_method select {
+    height: 30px;
+    width: 70%;
+}
+
+.choose_payment_method {
+    padding: 3% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disscount {
+    padding: 3% 0;
+    font-size: 18px;
+}
+
+.disscount input {
+    height: 25px;
+    margin-left: 8%;
+}
+
+
+/* ------------------------ */
 
 body {
     margin: 0;
@@ -512,4 +667,87 @@ body {
     background-color: lightgray;
 }
 
+.date_submit {
+    color: gray;
+    position: absolute;
+    right: -320%;
+}
+
 /* ------- */
+
+/* footer */
+.footer{
+    color: #fff;
+    background-color: #000;
+    margin-top: 200px;
+}
+.footer_about--container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+}
+.footer_follow,
+.footer_office,
+.footer_contact,
+.footer_about{
+    margin: 50px 0px;
+}
+
+.footer_follow h2,
+.footer_contact h2,
+.footer_about h2{
+    text-align: center;
+}
+
+.footer_contact--item,
+.footer_about--item{
+    list-style: none;
+    padding: 5px ;
+}
+
+.footer_about--item a{
+    text-decoration: none;
+    color: #fff;
+}
+.footer_contact--container{
+    padding-left: 10px;
+}
+.footer_icon--address,
+.footer_icon--phone,
+.footer_icon--email,
+.footer_icon--right{
+    padding-right: 20px;
+    margin-left: 15px;
+}
+.footer_office h2,
+.time_open{
+    text-align: center;
+}
+.footer_follow--item{
+    list-style: none;
+    padding: 5px 0px;
+}
+.footer_follow--container{
+    padding-left: 23%;
+}
+
+.footer_follow--container li:hover {
+    cursor: pointer;
+}
+
+.footer_follow--item i{
+    margin-left: 10px;
+    padding-right: 15px;
+}
+
+.footer_contact--item {
+    display: flex;
+}
+
+.footer_icon--address {
+    padding-right: 23px;
+}
+
+.fa-square-instagram {
+    margin-right: 2px;
+}

@@ -9,22 +9,24 @@ function showInfor(elementId){
 }
 
 // Tăng, giảm số lượng
-const decrementButton = document.getElementById("decrease");
-const incrementButton = document.getElementById("increment");
-const quantitySpan = document.getElementById("quantity");
+// const decrementButton = document.getElementById("decrease");
+// const incrementButton = document.getElementById("increment");
+// const quantitySpan = document.getElementById("quantity");
 
-// Số lượng ban đầu
-let quantity = 1;
-incrementButton.addEventListener("click", function() {
-    quantity++;
-    quantitySpan.textContent = quantity;
-});
-decrementButton.addEventListener("click", function() {
-    if (quantity > 1) {
-        quantity--;
-        quantitySpan.textContent = quantity;
-    }
-});
+// // Số lượng ban đầu
+// let quantity = 1;
+// incrementButton.addEventListener("click", function() {
+//     quantity++;
+//     quantitySpan.textContent = quantity;
+// });
+// decrementButton.addEventListener("click", function() {
+//     if (quantity > 1) {
+//         quantity--;
+//         quantitySpan.textContent = quantity;
+//     }
+// });
+
+
 
 let displayOverlay = document.getElementById('overlay');
 let displayPaymentForm = document.getElementById('product_payment--form');
@@ -44,4 +46,46 @@ function showPayment(){
 
 function showPaymentInfor(){
     displayPaymentInfor.style.display = "block";
+}
+
+// Tăng, giảm
+
+const amountElement = document.getElementById('quantity')
+const amount = amountElement.value
+
+const render = (amount) => {
+    amountElement.value = amount
+}
+
+var quantity = 1
+
+function increase() {
+    quantity = parseInt(quantity)
+    quantity++
+    render(quantity)
+}
+
+function reduce() {
+    quantity = parseInt(quantity)
+    if(quantity > 1) {
+        quantity--
+        render(quantity)
+    }
+}
+
+// Thay đổi ảnh
+
+const big_img = document.getElementById('big_img')
+
+function changeImg1() {
+    big_img.src = '../img/Bag/Bag1/bag1.1.jpg'
+}
+function changeImg2() {
+    big_img.src = '../img/Bag/Bag1/bag1.2.jpg'
+}
+function changeImg3() {
+    big_img.src = '../img/Bag/Bag1/bag1.3.jpg'
+}
+function changeImg4() {
+    big_img.src = '../img/Bag/Bag1/bag1.4.jpg'
 }

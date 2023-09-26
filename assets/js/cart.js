@@ -5,6 +5,7 @@ const plus = document.querySelector('.plus')
 const minus = document.querySelector('.minus')
 const total = document.querySelector('.price_total')
 const totalPayment = document.querySelector('.total_payment')
+
 const check = document.querySelector('.select_check')
 
 
@@ -15,7 +16,7 @@ const render = (amount) => {
 var quantity = 1;
 var totalprice
 
-plus.addEventListener('click', function() {
+function increase() {
     quantity++
     render(quantity)
     totalprice = price * quantity
@@ -24,9 +25,9 @@ plus.addEventListener('click', function() {
     if(check.checked) {
         totalPayment.innerHTML = totalprice
     }
-})
+}
 
-minus.addEventListener('click', function() {
+function reduce() {
     if(quantity > 1) {
         quantity--
         render(quantity)
@@ -37,23 +38,34 @@ minus.addEventListener('click', function() {
             totalPayment.innerHTML = totalprice
         }
     }
-})
+}
 
-check.addEventListener('click', function() {
-    if (this.checked && amount === '1') {
+function selectOne() {
+    if (check.checked && amount === '1') {
         totalPayment.innerHTML = total.innerHTML
         console.log(total.innerHTML)
     }
-    else if (this.checked) {
+    else if (check.checked) {
         totalPayment.innerHTML = totalprice
     }
-    else if (!this.check) {
+    else if (!check.check) {
         totalPayment.innerHTML = 0
     }
     else {
         totalPayment.innerHTML = 0
     }
-})
+}
+
+
+// function inputQuantity() {
+//     var tmp = amountElement.value
+//     quantity = parseInt(tmp)
+//     totalprice = price * quantity
+//     total.innerHTML = totalprice
+//     if(check.checked) {
+//         totalPayment.innerHTML = totalprice
+//     }
+// }
 
 
 amountElement.addEventListener('input', () => {

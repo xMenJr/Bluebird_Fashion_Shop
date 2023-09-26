@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/grid.css">
-    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/fixproduct.css">
     <!-- <link rel="stylesheet" href="../css/main.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Document</title>
+    <title>FIX</title>
 </head>
 <body>
     <div class="bleubird_fashion">
@@ -158,7 +158,7 @@
                     <div class="col l-2">
                         <div class="product_imgs">
                             <ul class="list_product--img">
-                                <li class="product_img--item" id="choose_img">
+                                <li class="product_img--item">
                                     <img src="../img/Bag/Bag1/bag1.1.jpg" onclick="changeImg1()" alt="">
                                 </li>
                                 <li class="product_img--item">
@@ -182,84 +182,98 @@
                     </div>
                     <div class="col l-4">
                         <div class="product_infor">
-                            <div class="product_infor--heading">
-                                <h2>The Seal Bag in Black</h2>
+                            <div class="product_infor--heading" id="product_infor--heading" contenteditable="true">
+                                <h2 id="product_name">The Seal Bag in Black</h2>
                             </div>
-                            <div class="product_infor--price">
-                                <p>$ 3,200</p>
-                            </div>
-                            <div class="product_infor--button">
-                                <div class="product_button--buy">BUY NOW</div>
-                                <div class="product_button--add">ADD TO BAG</div>
+                            <div class="product_infor--price" id="product_infor--price">
+                                <span>$
+                                    <span id="product_price" contenteditable="true">3200</span>
+                                </span>
                             </div>
                             <div class="product_infor--size">
                                 <table>
                                     <tr>
                                       <th></th>
-                                      <th>M</th>
-                                      <th>L</th>
+                                      <th contenteditable="true">M</th>
+                                      <th contenteditable="true">L</th>
                                     </tr>
                                     <tr>
                                       <td>Heigh</td>
-                                      <td>30</td>
-                                      <td>36</td>
+                                      <td contenteditable="true">30</td>
+                                      <td contenteditable="true">36</td>
                                     </tr>
                                     <tr>
                                       <td>Long</td>
-                                      <td>25</td>
-                                      <td>30</td>
+                                      <td contenteditable="true">25</td>
+                                      <td contenteditable="true">30</td>
                                     </tr>
                                   </table>
                             </div>
-                            <div class="choose_size"  onclick="showInfor('detail_size')">
+                            <div class="choose_category">
+                                <label for="" class="">Category</label>
+                                <select name="" id="">
+                                    <option style="display: none;"></option>
+                                    <option value="bag">Bag</option>
+                                    <option value="vest">Vest</option>
+                                    <option value="campaign">Campaign</option>
+                                    <option value="shoe">Shoe</option>
+                                </select>
+                            </div>
+                            <div class="choose_size">
                                 <label for="" class="">Select size</label>
                                 <select name="" id="">
+                                    <option style="display: none;"></option>
                                     <option value="S">S</option>
                                     <option value="M">M</option>
                                     <option value="L">L</option>
                                     <option value="XL">XL</option>
                                 </select>
                             </div>
-                            <div class="choose_color"  onclick="showInfor('detail_color')">
+                            <div class="choose_color">
                                 <label for="" class="">Select color</label>
                                 <select name="" id="">
-                                    <option value="Black">Black</option>
+                                    <option style="display: none;"></option>
                                     <option value="White">White</option>
+                                    <option value="Black">Black</option>
                                     <option value="Green">Green</option>
                                     <option value="Yellow">Yellow</option>
                                 </select>
                             </div>
-                            <div class="product_infor--quantity">
-                                <div class="product_quantity">
-                                    <span>Quantity</span>
-                                    <button id="minus" onclick="reduce()"><i class="fa-solid fa-minus"></i></button>
-                                    <input id="quantity" type="text" value="1">
-                                    <button id="plus" onclick="increase()"><i class="fa-solid fa-plus"></i></button>
+                            <div class="product_info--quantity">
+                                <table class="table_quantity">
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Total</th>
+                                        <th>Sold</th>
+                                        <th>Remaining</th>
+                                        <th>Option</th>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td contenteditable="true"></td>
+                                        <td contenteditable="true"></td>
+                                        <td contenteditable="true"></td>
+                                        <td><i class="fa-regular fa-trash-can delete--icon"></i></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="product_info--img">
+                                <div class="info_img">
+                                    <label for="">Image 1</label>
+                                    <input type="text">
                                 </div>
-                                <div class="product_infor--total"><span>10</span> Available</div>
-                            </div>
-                            <div class="choose_payment_method"  onclick="showInfor('payment_method')">
-                                <label for="" class="">Pay</label>
-                                <select name="" id="">
-                                    <option style="display: none;">Select a payment method</option>
-                                    <option value="">Payment upon receipt of goods</option>
-                                    <option value="">Pay by account wallet</option>
-                                </select>
-                            </div>
-                                <!-- <div class="choose_payment_method--text">Select payment_method</div>
-                                <div class="choose_payment_method--icon"><i class="fa-solid fa-chevron-down"></i></div>
-                            <div class="payment_method" id="payment_method">
-                                <ul class="list_color">
-                                    <li class="cash_method">Payment upon receipt of goods</li>
-                                    <li class="credit_card_method" onclick="showPayment()">Pay by account wallet</li>
-                                </ul>
-                            </div> -->
-                            <div class="choose_discount">
-                                <label for="" class="">Discount code</label>
-                                <select name="" id="">
-                                    <option value="5%">SALE5</option>
-                                    <option value="10%">SALE10</option>
-                                </select>
+                                <div class="info_img">
+                                    <label for="">Image 2</label>
+                                    <input type="text">
+                                </div>
+                                <div class="info_img">
+                                    <label for="">Image 3</label>
+                                    <input type="text">
+                                </div>
+                                <div class="info_img">
+                                    <label for="">Image 4</label>
+                                    <input type="text">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -270,28 +284,8 @@
             <div class="grid ">
                 <div class="row">
                     <div class="col l-12">
-                        <div class="product_desc--logo">
-                            <div class="product_logo">
-                                <div class="product_logo--img">
-                                    <img src="../img/Logo/imglogo.png" alt="logo">
-                                </div>
-                                <div class="product_logo--shop">
-                                    <p>BlueBird</p>
-                                    <a href="#">
-                                        <i class="fa-solid fa-shop"></i>
-                                        See shop
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product_about">
-                                <div class="product_about--rate">Đánh giá: 15k</div>
-                                <div class="product_about--total">Sản phẩm: 72</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col l-12">
-                        <div class="product_desc--text"><span>Product Description</span></div>
-                        <div class="product_desc--info">
+                        <div class="product_desc--text"><h1>Product Description</h1></div>
+                        <div class="product_desc--info" id="myDiv" contenteditable="true">
                             <!-- <h2>Product Description</h2> -->
                             <p>Black Seal bag handcrafted from padded lambskin leather, featuring an exploded Seal logo and a gold-finished cut out metal Seal closure.
                                 The Seal bag plays with curves and rounded edges. This bag can be worn over the shoulder using its woven metal chain strap.</p>
@@ -307,125 +301,12 @@
                             <p> Material: 100% Lambskin</p>
                         </div>
                     </div>
-                    <div class="col l-12">
-                        <div class="product_desc--review">
-                            <h2>Product Review</h2>
-                            <div class="product_review--content">
-                                <div class="cunrrent_content--img">
-                                    <img src="../img/Reviewer/user.png" alt="">
-                                </div>
-                                <div class="current_content--text">
-                                    <div class="current_name">
-                                        <span>Username</span>
-                                    </div>
-                                    <div class="current_content">
-                                        <textarea name="" id="" cols="30" rows="10" placeholder="Write a comment..."></textarea>
-                                    </div>
-                                    <div class="current_post">
-                                        <button>POST</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product_review--content">
-                                <div class="cunrrent_content--img">
-                                    <img src="../img/Reviewer/ronaldo.jpg" alt="">
-                                </div>
-                                <div class="current_content--text">
-                                    <div class="current_name">
-                                        <span>Ronaldo Ả Rập</span>
-                                        <span class="date_submit">
-                                            <span>Date Submited: </span>
-                                            7 July 2022
-                                        </span>
-                                    </div>
-                                    <div class="current_content">
-                                        <textarea readonly name="" id="" cols="30" rows="10" placeholder="Write a comment...">Hàng đẹp quá Xốp ! Bên Ả Rập không có bán nhưng mà hên quá vì đã gặp được Xốp, mãi ủng hộ Siuuuuuuu</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product_review--content">
-                                <div class="cunrrent_content--img">
-                                    <img src="../img/Reviewer/messi.jpg" alt="">
-                                </div>
-                                <div class="current_content--text">
-                                    <div class="current_name">
-                                        <span>Messi A me ri cần</span>
-                                        <span class="date_submit">
-                                            <span>Date Submited: </span>
-                                            7 July 2022
-                                        </span>
-                                    </div>
-                                    <div class="current_content">
-                                        <textarea readonly name="" id="" cols="30" rows="10" placeholder="Write a comment...">Bên Mỹ toàn bán hàng fake thôi, bà An lướt thấy shop này hàng real múc luôn 5 đôi cho cả nhà, bữa sau đi nhận Quả Bóng Vàng phải flex giày mới được
-                                        </textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="container_product_payment">
-            <div class="overlay" id="overlay">
-                <div class="product_payment--form" id="product_payment--form">
-                    <div class="close_icon" onclick="showPayment()">
-                        <i class="fa-solid fa-xmark "></i>
-                    </div>
-                    <div class="payment_form--heading">Enter Information</div>
-                    <div class="payment_form--infor" id="payment_form--infor">
-                        <div class="payment_infor--card_number">
-                            <span>Card number</span>
-                            <input type="text">
-                        </div>
-                        <div class="payment_infor--time">
-                            <span>Experied time</span>
-                            <input type="date">
-                        </div>
-                        <div class="payment_infor--cvc_number">
-                            <span>CVC number</span>
-                            <input type="text">
-                        </div>
-                    </div>
-                    <div class="payment_infor--bank">
-                        <div class="gird">
-                            <div class="row no-gutters">
-                                <div class="col l-4">
-                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
-                                </div>
-                                <div class="col l-4">
-                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
-                                </div>
-                                <div class="col l-4">
-                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
-                                </div>
-                                <div class="col l-4">
-                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
-                                </div>
-                                <div class="col l-4">
-                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
-                                </div>
-                                <div class="col l-4">
-                                    <img src="../img/Bank/acbbank.png" onclick="showPaymentInfor()" alt="">
-                                </div>
-                                <div class="col l-12">
-                                    <div class="payment_bank--confirm"  onclick="showPaymentInfor()">
-                                        <a href="#">CONFIRM</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="payment_bank--item"></div>
-                        <!-- <div class="payment_bank--item"></div>
-                        <div class="payment_bank--item"></div>
-                        <div class="payment_bank--item"></div>
-                        <div class="payment_bank--item"></div>
-                        <div class="payment_bank--item"></div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="confirm_info">
+        <button>CONFIRM</button>
     </div>
     <div class="footer">
         <div class="grid wide">

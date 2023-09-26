@@ -199,9 +199,21 @@
                                 <input type="text" class="productname_input">
                             </div>
                             <div class="body body__productimg">
-                                <label for="productimg" class="productimg_label">Image product</label>
-                                <input type="text" class="productimg_input">
+                                <label for="productimg" class="productimg_label" id="productimg_label">Image product</label>
+                                <table id="table_img">
+                                    <tr>
+                                        <td contenteditable="true"></td>
+                                    </tr>
+                                </table>
+                                <span><button class="plus" id="img_plus" onclick="addImg()"><i class="fa-solid fa-plus"></i></button></span>
+                                <span><button class="minus" id="img_minus" onclick="deleteImg()"><i class="fa-solid fa-minus"></i></button></span>
                             </div>
+                            <!-- <div class="body__productimg">
+                                <label for="productimg" class="productimg_label" id="productimg_label">Image product</label>
+                                <input type="text" class="productimg_input" id="productimg_input">
+                                <span><button class="plus img_plus"><i class="fa-solid fa-plus" onclick="addImg()"></i></button></span>
+                                <span><button class="minus img_minus"><i class="fa-solid fa-minus"></i></button></span>
+                            </div> -->
                             <div class="body body__productinfo">
                                 <label for="productinfo" class="productinfo_label">Product infomation</label>
                                 <textarea name="" class="productinfo_input" cols="30" rows="10"></textarea>
@@ -236,18 +248,6 @@
                                         <td onclick="editCell(this)"></td>
                                         <td onclick="editCell(this)"></td>
                                     </tr>
-                                </table>
-                                <span><button class="plus size_plus"><i class="fa-solid fa-plus"></i></button></span>
-                                <span><button class="minus size_minus"><i class="fa-solid fa-minus"></i></button></span>
-                            </div>
-                            <div class="body body__productparameter">
-                                <label for="productparameter" class="productparameter_label">Product parameter</label>
-                                <table id="table_parameter">
-                                    <tr id="header_parameter">
-                                        <th >Size</th>
-                                        <th onclick="editCell(this)">M</th>
-                                        <th onclick="editCell(this)">L</th>
-                                    </tr>
                                     <tr id="header_color">
                                         <td>Color</td>
                                         <td onclick="editCell(this)"></td>
@@ -259,12 +259,13 @@
                                         <td onclick="editCell(this)"></td>
                                     </tr>
                                 </table>
-                                <span><button class="plus parameter_plus"><i class="fa-solid fa-plus"></i></button></span>
-                                <span><button class="minus parameter_minus"><i class="fa-solid fa-minus"></i></button></span>
+                                <span><button class="plus size_plus"><i class="fa-solid fa-plus"></i></button></span>
+                                <span><button class="minus size_minus"><i class="fa-solid fa-minus"></i></button></span>
                             </div>
                             <div class="body body__productcategory">
                                 <label for="productcategory" class="productcategory_label">Category</label>
                                 <select name="" id="">
+                                    <option style="display: none;"></option>
                                     <option value="">Vest</option>
                                     <option value="">Campaign</option>
                                     <option value="">Bag</option>

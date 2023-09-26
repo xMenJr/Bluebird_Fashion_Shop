@@ -371,6 +371,10 @@ table, th, td {
     cursor: pointer;
 }
 
+.function__item--shop > a {
+    color: red;
+}
+
 /* / my_shop / */
 
 /* footer */

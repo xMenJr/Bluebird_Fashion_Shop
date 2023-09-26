@@ -316,7 +316,6 @@ body {
 .body__productprice,
 .body__productmaterial,
 .body__productsize,
-.body__productparameter,
 .body__productinfo,
 .body__productdetails,
 .body__productcategory {
@@ -331,7 +330,7 @@ body {
 .productimg_input,
 .productprice_input,
 .productmaterial_input {
-    height: 25px;
+    height: 35px;
     width: 620px;
 }
 
@@ -390,6 +389,15 @@ td {
     border-left: none;
     border-right: none;
 }
+
+#table_img tbody {
+    margin-bottom: 2%;
+}
+
+#table_img td{
+    width: 39rem;
+}
+
 
 /* / my_product / */
 

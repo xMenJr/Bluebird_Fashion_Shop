@@ -1,13 +1,13 @@
-/* header */
 body {
     margin: 0;
 }
 
+/* header */
 .header__logo{
     text-align: center;
 }
 .header__logo img{
-    width: 60%;
+    width: 62%;
     height: 40%;
     object-fit: cover;
     object-position: top center;
@@ -31,6 +31,7 @@ body {
     justify-content: left;
     padding-left: 20px;
     margin-top: 30px;
+    list-style: none;
 }
 .header__search{
     display: flex;
@@ -49,6 +50,79 @@ body {
     right: 18%;
 }
 
+.header__search i:hover, .header__cart:hover {
+    cursor: pointer;
+}
+/*  */
+
+/* drop-cart */
+
+.header__cart i {
+    color: black;
+    position: relative;
+    padding-right: 10px;
+}
+
+.show_cart {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    border: 1px solid lightgray;
+    width: 220px;
+    margin-top: 8px;
+    display: none;
+}
+
+.header__cart li:hover ul.show_cart {
+    display: block;
+}
+
+.show_cart a {
+    text-decoration: none;
+}
+
+.product_cart {
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+.show_product {
+    background-color: white;
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.product_cart img {
+    width: 30px;
+    border: 1px solid lightgray;
+}
+
+.product_cart span:last-child {
+    margin-left: 20px;
+}
+
+.product_cart:hover {
+    background-color: lightgray;
+}
+
+.show_product::-webkit-scrollbar {
+    width: 10px;
+}
+
+.show_product::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey; 
+    border-radius: 10px;
+}
+
+.show_product::-webkit-scrollbar-thumb {
+    background: gray; 
+    border-radius: 5px;
+}
+
+
+/* / drop-cart / */
 
 
 /* drd */
@@ -56,12 +130,24 @@ body {
 .header__login a{
     color: #000;
     text-decoration: none;
+    padding-bottom: 10px ;
 }
 
 .header__login {
     margin-top: 30px;
 }
 
+
+.header__login li {
+    padding-bottom: 10px;
+    list-style: none;
+}
+
+.login {
+    padding-bottom: 10px;
+    list-style: none;
+    margin-right: 80px;
+}
 
 .select_option a{
     list-style: none;
@@ -72,14 +158,15 @@ body {
     position: absolute;
     background-color: white;
     border: 1px solid lightgray;
-    margin-top: 5px;
+    margin-top: 8px;
     padding: 0;
     display: none;
 }
 
-.header__login a:hover ul.select_option {
+.header__login li:hover ul.select_option {
     display: block;
 }
+
 
 .select_option > a {
     padding-bottom: 5px;
@@ -113,7 +200,8 @@ body {
 .nav_item--home:hover,
 .nav_item--service:hover,
 .nav_item--product:hover,
-.nav_item--contact:hover {
+.nav_item--contact:hover,
+.nav_item--login:hover {
     box-shadow: 0px 2px 0px red;
     font-weight: bold;
 }
@@ -143,10 +231,16 @@ body {
 .product__item li {
     padding: 15px 60px 15px 10px;
     border-bottom: 1px solid lightgray;
+    list-style: none;
 }
 
 .product__item li:hover {
     background-color: lightgray;
+}
+
+.nav_item--home {
+    font-weight: bold;
+    box-shadow: 0px 2px 0px red;
 }
 
 /* ------- */
@@ -222,126 +316,6 @@ body {
     bottom: -27.6%;
 }
 
-/* content */
-.product_bag--item,
-.product_shoe--item,
-.product_campaign--item,
-.product_vest--item {
-    position: relative;
-}
-.bag_item--icon,
-.shoe_item--icon,
-.campaign_item--icon,
-.vest_item--icon {
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    font-size: 60px;
-    color: #FFD230;
-}
-.bag_content--discount,
-.shoe_content--discount,
-.campaign_content--discount,
-.vest_content--discount {
-    position: absolute;
-    top: 2%;
-    right: 3%;
-}
-.bag_content--discount p,
-.shoe_content--discount p,
-.campaign_content--discount p,
-.vest_content--discount p {
-    margin: 0;
-    color: #fff;
-}
-.bag_content--discount span,
-.shoe_content--discount span,
-.campaign_content--discount span,
-.vest_content--discount span {
-    margin: 0;
-    color: red;
-}
-.bag_item--img,
-.shoe_item--img,
-.campaign_item--img,
-.vest_item--img {
-    border: 2px solid #000;
-}
-.bag_item--img::before,
-.shoe_item--img::before,
-.campaign_item--img::before,
-.vest_item--img::before {
-    content: "Yêu thích";
-    display: block;
-    width: 35%;
-    height: 6%;
-    background-color: red;
-    color: #fff;
-    position: absolute;
-    top: 8%;
-    left: 1%;
-    text-align: center;
-}
-
-.bag_content--name,
-.shoe_content--name,
-.campaign_content--name,
-.vest_content--name {
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-.bag_content--price,
-.shoe_content--price,
-.campaign_content--price,
-.vest_content--price {
-    font-weight: bold;
-    color: red;
-}
-
-.shoe_item--img {
-    height: 295px;
-}
-
-.content_img img{
-    width: 100%;
-    height: 700px;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 70%;
-    font-size: 40px;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.next {
-    right: 0;
-    margin-right: 160px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-
-.product__item {
-    list-style: none;
-    z-index: 2;
-}
-
-.product_vest--item:hover,
-.product_campaign--item:hover,
-.product_shoe--item:hover,
-.product_bag--item:hover {
-    transform: scale(1.02);
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-/* / content */
 
 /* footer */
 .footer{
@@ -430,8 +404,3 @@ body {
 }
 
 /*  */
-
-.nav_item--home {
-    font-weight: bold;
-    box-shadow: 0px 2px 0px red;
-}

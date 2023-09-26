@@ -32,6 +32,8 @@ function themCotSize() {
     var header_size = document.getElementById("header_size");
     var header_long = document.getElementById("header_long");
     var header_height = document.getElementById("header_height");
+    var header_color = document.getElementById("header_color");
+    var header_quantity = document.getElementById("header_quantity");
 
     header_size.innerHTML += `
         <th onclick="editCell(this)"></th>
@@ -40,6 +42,12 @@ function themCotSize() {
         <td onclick="editCell(this)"></td>
     `;
     header_height.innerHTML += `
+        <td onclick="editCell(this)"></td>
+    `;
+    header_color.innerHTML += `
+        <td onclick="editCell(this)"></td>
+    `;
+    header_quantity.innerHTML += `
         <td onclick="editCell(this)"></td>
     `;
 }
@@ -59,40 +67,71 @@ sizeMinus.addEventListener('click', function() {
 })
 
 
-const parameterPlus = document.querySelector('.parameter_plus')
+// const parameterPlus = document.querySelector('.parameter_plus')
 
-parameterPlus.addEventListener('click', function() {
-    themCotParameter()
-})
+// parameterPlus.addEventListener('click', function() {
+//     themCotParameter()
+// })
 
-const table_parameter = document.getElementById("table_parameter");
+// const table_parameter = document.getElementById("table_parameter");
 
-function themCotParameter() {
-    var header_parameter = document.getElementById("header_parameter");
-    var header_color = document.getElementById("header_color");
-    var header_quantity = document.getElementById("header_quantity");
+// function themCotParameter() {
+//     var header_parameter = document.getElementById("header_parameter");
+//     var header_color = document.getElementById("header_color");
+//     var header_quantity = document.getElementById("header_quantity");
 
-    header_parameter.innerHTML += `
-        <th onclick="editCell(this)"></th>
-    `;
-    header_color.innerHTML += `
-        <td onclick="editCell(this)"></td>
-    `;
-    header_quantity.innerHTML += `
-        <td onclick="editCell(this)"></td>
-    `;
+//     header_parameter.innerHTML += `
+//         <th onclick="editCell(this)"></th>
+//     `;
+//     header_color.innerHTML += `
+//         <td onclick="editCell(this)"></td>
+//     `;
+//     header_quantity.innerHTML += `
+//         <td onclick="editCell(this)"></td>
+//     `;
+// }
+
+// const parameterMinus = document.querySelector('.parameter_minus')
+
+// parameterMinus.addEventListener('click', function() {
+
+//     const columnCount = table_parameter.rows[0].cells.length;
+
+//     if (columnCount >= 3) {
+//       // Duyệt qua tất cả các hàng của bảng và xóa cột cuối cùng (thứ columnCount - 1)
+//       for (let i = 0; i < table_parameter.rows.length; i++) {
+//         table_parameter.rows[i].deleteCell(columnCount - 1);
+//       }
+//     }
+// })
+
+// function addImg() {
+//     var add = document.getElementById('productimg_label')
+//     add.innerHTML += `
+//         <input type="text" class="productimg_input">
+//     `
+//     console.log(123)
+// }
+
+function addImg() {
+    var add = document.getElementById('table_img')
+    add.innerHTML += `
+        <tr>
+            <td contenteditable="true"></td>
+        </tr>
+    `
 }
 
-const parameterMinus = document.querySelector('.parameter_minus')
+function deleteImg() {
+    var del = document.getElementById('table_img')
+    var rowCount = del.rows.length;
 
-parameterMinus.addEventListener('click', function() {
-
-    const columnCount = table_parameter.rows[0].cells.length;
-
-    if (columnCount >= 3) {
-      // Duyệt qua tất cả các hàng của bảng và xóa cột cuối cùng (thứ columnCount - 1)
-      for (let i = 0; i < table_parameter.rows.length; i++) {
-        table_parameter.rows[i].deleteCell(columnCount - 1);
-      }
+    // Kiểm tra xem bảng có ít nhất một dòng không
+    if (rowCount > 1) {
+        // Xóa dòng cuối cùng (dòng có chỉ số rowCount - 1)
+        del.deleteRow(rowCount - 1);
     }
-})
+    else {
+        alert("Not delete")
+    }
+}
