@@ -1,12 +1,12 @@
-function showInfor(elementId){
-    let element = document.getElementById(elementId)
-    if(element.style.display === "none"){
-        element.style.display = "block";
-    }
-    else{
-        element.style.display = "none";
-    }
-}
+// function showInfor(elementId){
+//     let element = document.getElementById(elementId)
+//     if(element.style.display === "none"){
+//         element.style.display = "block";
+//     }
+//     else{
+//         element.style.display = "none";
+//     }
+// }
 
 // Tăng, giảm số lượng
 // const decrementButton = document.getElementById("decrease");
@@ -33,7 +33,6 @@ let displayPaymentForm = document.getElementById('product_payment--form');
 let displayPaymentInfor = document.getElementById('payment_form--infor');
 
 function showPayment(){
-    
     if(displayOverlay.style.display === "none" && displayPaymentForm.style.display === "none" ){
         displayOverlay.style.display = "block";
         displayPaymentForm.style.display = "block";
@@ -48,28 +47,34 @@ function showPaymentInfor(){
     displayPaymentInfor.style.display = "block";
 }
 
-// Tăng, giảm
-
-const amountElement = document.getElementById('quantity')
-const amount = amountElement.value
-
-const render = (amount) => {
-    amountElement.value = amount
+function handlePaymentMethodChange() {
+    var selectElement = document.getElementById('pay__selected');
+    var selectedValue = selectElement.value;
+    
+    if (selectedValue === '2') {
+        showPayment();
+    }
 }
+
+// Tăng, giảm
 
 var quantity = 1
 
 function increase() {
-    quantity = parseInt(quantity)
+    const amountElement = document.getElementById('quantity')
+    const amount = amountElement.value
+    let quantity = parseInt(amount)
     quantity++
-    render(quantity)
+    amountElement.value = quantity
 }
 
 function reduce() {
-    quantity = parseInt(quantity)
+    const amountElement = document.getElementById('quantity')
+    const amount = amountElement.value
+    let quantity = parseInt(amount)
     if(quantity > 1) {
         quantity--
-        render(quantity)
+        amountElement.value = quantity;
     }
 }
 

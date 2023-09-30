@@ -166,7 +166,7 @@ async function displayProductByProductType(pageIndex, productType, IdClass, Name
                 productDiv.className = 'col l-2-4';
                 let sales = Math.floor(Math.random() * 50);
                 productDiv.innerHTML = `
-                    <div class="product_shoe--item">
+                    <div class="product_shoe--item"  onclick="InsertIdProductFromShopLocal('${product.id}')">
                         <div class="shoe_item--img">
                             <i class="fa-sharp fa-solid fa-bookmark shoe_item--icon"></i>
                             <img src="${product.images[0].img || ''}" alt="${product.name}">
@@ -214,16 +214,58 @@ async function displayPageBagByProductType(pageIndex, productType, IdClass, Name
                 
                 const productDiv = document.createElement('div');
                 productDiv.className = 'product product__one';
-
                 productDiv.innerHTML = `
-
-                    <img src="${product.images[0].img || ''}" alt="${product.name}">
+                    <div onclick="InsertIdProductFromShopLocal('${product.id}')">
+                        <img src="${product.images[0].img || ''}" alt="${product.name}">
                         <div class="product__one--name">
                             <p>${product.name}</p>
                         </div>
                         <div class="product__one--price">
                             <span>$${product.price}</span>
                         </div>
+                    </div>
+                    
+                `;
+
+                productContainer.appendChild(productDiv);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+
+async function FindByProductType( IdClass, NameProduct) {
+    var search = document.getElementById("input__search").value;
+    try {
+        const getClassUrl = `https://localhost:7029/api/Product/Search?search=${search}&pageIndex=1&pageSize=20`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById(IdClass);
+        productContainer.innerHTML = '';
+
+        if (!Array.isArray(data.result) || data.result.length === 0) {
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            data.result.forEach(product => {
+
+                
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product product__one';
+                productDiv.innerHTML = `
+                    <div onclick="InsertIdProductFromShopLocal('${product.id}')">
+                        <img src="${product.images[0].img || ''}" alt="${product.name}">
+                        <div class="product__one--name">
+                            <p>${product.name}</p>
+                        </div>
+                        <div class="product__one--price">
+                            <span>$${product.price}</span>
+                        </div>
+                    </div>
+                    
                 `;
 
                 productContainer.appendChild(productDiv);
@@ -316,10 +358,10 @@ async function ShowHistoryOrders(pageIndex, IdClass) {
                             <span>${ShipStatus}</span>
                         </div>
                         <div class="option">
-                            <div class="feedback">
+                            <div class="feedback" onclick="InsertIdProductFromShopLocal('${product.idProduct}')">
                                 <button>Feedback</button>
                             </div>
-                            <div class="buyback">
+                            <div class="buyback" onclick="InsertIdProductFromShopLocal('${product.idProduct}')">
                                 <button>Buy back</button>
                             </div>
                         </div>
@@ -486,7 +528,7 @@ async function GetAllProductMyShop(search) {
                 </td>
                 <td class="option">
                     <div class="select_option--detail">
-                        <i class="fa-regular fa-trash-can delete--icon" ></i>
+                        <i class="fa-regular fa-trash-can delete--icon" style="cursor: pointer;" onclick="DeleteProduct('${product.id}')" ></i>
                         <a href="">
                             <i class="fa-solid fa-screwdriver-wrench"></i>
                         </a>
@@ -739,7 +781,7 @@ async function GetAllCart(pageIndex, pageSize,search) {
                         <div class="shop_name">
                             <p>${product.brandName}</p>
                         </div>
-                        <div class="viewstore" onclick="InsertIdProductLocal(${product.idProduct})">
+                        <div class="viewstore" onclick="InsertIdProductLocal('${product.id}')">
                             <i class="fa-solid fa-shop"></i>
                             <a href="#" >View store</a>
                         </div>
@@ -821,6 +863,10 @@ async function GetAllCartHover(pageIndex, pageSize,search) {
             data.result.forEach(product => {
                 var productDiv = document.createElement('a');
                 productDiv.className = 'product_cart';
+                productDiv.onclick = function() {
+                    // InsertIdProductFromShopLocal(product.id) 
+                    window.location.href = "cart.html";
+                };
                 productDiv.innerHTML = `
                     <img src="${product.img}" alt="">
                     <span>${product.nameProduct}</span>
@@ -917,21 +963,26 @@ function InsertIdProductLocal(IdProduct) {
     window.location.href = "viewshop.html";
 }
 
+function InsertIdProductFromShopLocal(IdProduct) {
+    localStorage.setItem("IdProduct1", IdProduct);
+    window.location.href = "productDetail.html";
+}
+
 // View Shop
-async function GetAllProductViewShop(IdProduct) {
+async function GetAllProductViewShop() {
     try {
-        var token = localStorage.getItem("login");
+        var IdProduct = localStorage.getItem("IdProduct");
         const getClassUrl = `https://localhost:7029/api/Shop?IdProduct=${IdProduct}`;
         const response = await fetch(getClassUrl);
         const data = await response.json();
-
         const productContainer = document.getElementById("content_shop");
         productContainer.innerHTML = '';
 
         if (!Array.isArray(data.result) || data.result.length === 0) {
             productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
         } else {
-            const table = document.createElement('div');
+            
+                const table = document.createElement('div');
                 table.id = "shop_information"
                 table.className = "shop_information";
                 let avataShop;
@@ -991,7 +1042,7 @@ async function GetAllProductViewShop(IdProduct) {
                     product__element.className = "viewshop_product";
                     
                     product__element.innerHTML = `
-                        <div class="all_product">
+                        <div class="all_product" onclick="InsertIdProductFromShopLocal('${product.id}')">
                             <a href="#" class="product product__one">
                                 <img src="${product.img}" alt="">
                                 <div class="product__one--name">
@@ -1015,4 +1066,512 @@ async function GetAllProductViewShop(IdProduct) {
     }
 }
 
-  
+// Product Detail
+async function GetProductDetail() {
+    try {
+        var IdProduct = localStorage.getItem("IdProduct1")
+        
+        const getClassUrl = `https://localhost:7029/api/Product/Id?Id=${IdProduct}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+        const productContainer = document.getElementById("product_imgs");
+        productContainer.innerHTML = ''
+
+        if (data.statusCode === 400) {
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            const imgContainer = document.createElement("ul");
+            imgContainer.className = "imgContainer";
+            data.result.images.forEach(imgs => {
+                const imgContainer__element = document.createElement("li");
+                imgContainer__element.className = "product_img--item";
+                imgContainer__element.innerHTML = `
+                    <img src="${imgs.img}" onclick="changeImg1()" alt="">
+                `;
+                imgContainer.appendChild(imgContainer__element);
+            });
+            productContainer.appendChild(imgContainer)
+            const imgContainer__main = document.getElementById("product_img--main");
+            imgContainer__main.innerHTML = "";
+            const imgElement__main = document.createElement("div");
+            imgElement__main.className = "main_img";
+            imgElement__main.innerHTML = `
+                <img id="big_img" src="${data.result.images[1].img}" alt="">
+            `; 
+            imgContainer__main.appendChild(imgElement__main);
+
+            const product__infor = document.getElementById("product_infor");
+            product__infor.innerHTML = '';
+            const product__info__title = document.createElement("div");    
+            product__info__title.className = "product_infor"
+            product__info__title.id = "product__info__title"
+            let checkQuantity = "";
+            let checkQuantityNumber = 0;
+            data.result.products.forEach(product => {
+                checkQuantityNumber += product.number
+            });
+            if(checkQuantityNumber <= 0) checkQuantity = "Hết hàng"
+            else checkQuantity =  "$" + data.result.price;
+            product__info__title.innerHTML = `
+                <div class="product_infor--heading">
+                    <h2>${data.result.name}</h2>
+                </div>
+                <div class="product_infor--price">
+                    <p>${checkQuantity}</p>
+                </div>
+                <div class="product_infor--button">
+                    <div class="product_button--buy" id="product_button--buy" onclick="AddToOrder()">BUY NOW</div>
+                    <div class="product_button--add" id="product_button--add" onclick= "AddToCart()">ADD TO BAG</div>
+                </div>
+                <div class="product_infor--size">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>L</th>
+                        </tr>
+                        <tr>
+                            <td>Heigh</td>
+                            <td>30</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td>Long</td>
+                            <td>25</td>
+                            <td>30</td>
+                        </tr>
+                    </table>
+                </div>
+            `;
+            
+            product__infor.appendChild(product__info__title);
+            if(checkQuantityNumber <= 0) {
+                var buyButton = document.getElementById('product_button--buy');
+                var addButton = document.getElementById('product_button--add');
+                buyButton.onclick = null;
+                addButton.onclick = null;
+            }
+            let totalNumber = 0;
+            const productInforTitle = document.getElementById("product__info__title");
+            const div__size = document.createElement('div');
+            div__size.className = "choose_size";
+            div__size.id = "choose_size";
+            productInforTitle.appendChild(div__size);
+            var div__size__element = document.getElementById("choose_size")
+            var productSelect__title = document.createElement("label");
+            productSelect__title.className = "productcategory_label"
+            productSelect__title.textContent = "Select Size";
+            div__size__element.appendChild(productSelect__title)
+
+            var productSelect = document.createElement('select');
+            productSelect.id = "select__type"
+            data.result.products.forEach(product => {
+                var option = document.createElement('option');
+                option.value = product.id;
+                option.textContent = product.size;
+                productSelect.appendChild(option);
+                totalNumber += product.number
+            });
+            div__size__element.appendChild(productSelect);
+            productInforTitle.appendChild(div__size__element);
+
+            // Color
+            
+            const div__color = document.createElement('div');
+            div__color.className = "choose_color";
+            div__color.id = "choose_color";
+            productInforTitle.appendChild(div__color);
+            var div__color__element = document.getElementById("choose_color")
+            var productSelect__title = document.createElement("label");
+            productSelect__title.className = "productcategory_label"
+            productSelect__title.textContent = "Select color";
+            div__color__element.appendChild(productSelect__title)
+
+            var productSelect = document.createElement('select');
+            productSelect.id = "select__type"
+            data.result.products.forEach(product => {
+                var option = document.createElement('option');
+                option.value = product.id;
+                option.textContent = product.color;
+                productSelect.appendChild(option);
+            });
+            div__color__element.appendChild(productSelect);
+            productInforTitle.appendChild(div__color__element);
+
+            // Quantity
+
+            const div_quantity = document.createElement("div");
+            div_quantity.className = "product_infor--quantity"
+            div_quantity.id = "product_infor--quantity"
+            productInforTitle.appendChild(div_quantity);
+            var div__quantity__element = document.getElementById("product_infor--quantity");
+            var productQuantity =document.createElement("div");
+            productQuantity.className = "product_quantity";
+            productQuantity.innerHTML = `
+                <span>Quantity</span>
+                <button id="minus" onclick="reduce()"><i class="fa-solid fa-minus"></i></button>
+                <input id="quantity" type="text" value="1">
+                <button id="plus" onclick="increase()"><i class="fa-solid fa-plus"></i></button>
+            `;
+            div__quantity__element.appendChild(productQuantity)
+            const numberAvalible = document.createElement("div");
+            numberAvalible.className = "product_infor--total";
+            numberAvalible.innerHTML = `
+                <span>${totalNumber}</span> Available
+            `;
+            div__quantity__element.appendChild(numberAvalible);
+            // Pay
+            const div_pay = document.createElement("div");
+            div_pay.className = "choose_payment_method";
+            // div_pay.onclick = function() {
+            //     showInfor('payment_method');
+            // };
+            div_pay.innerHTML = `
+                <label for="" class="">Pay</label>
+                <select name="" id="pay__selected" onchange="handlePaymentMethodChange()">
+                    <option id="" >Select a payment method</option>
+                    <option value="1">Payment upon receipt of goods</option>
+                    <option value="2" >Pay by account wallet</option>
+                </select>
+            `;
+            productInforTitle.appendChild(div_pay);
+            // Discount
+            if(data.result.nameDiscount.length != 0) {
+                const DiscountCode = document.createElement("div");
+                DiscountCode.className = "choose_discount";
+                DiscountCode.id = "choose_discount";
+                productInforTitle.appendChild(DiscountCode);
+                const div_discount = document.getElementById("choose_discount");
+                div_discount.innerHTML = "";
+                const discount__title = document.createElement("label");
+                discount__title.innerHTML = `
+                    <label for="" class="">Discount code</label>
+                `;
+                div_discount.appendChild(discount__title);
+                var saleSelect = document.createElement('select');
+                saleSelect.id = "select__discount"
+                div_discount.appendChild(saleSelect);
+                var div__discount__element = document.getElementById("select__discount");
+                var option = document.createElement('option');
+                option.value = data.result.idDiscount;
+                option.textContent = data.result.nameDiscount;
+                div__discount__element.appendChild(option);
+            }
+            // Information shop
+            var product_desc__logo = document.getElementById("product_desc--logo");
+            product_desc__logo.innerHTML = '';
+            var product_logo = document.createElement("div");
+            product_logo.className = "product_logo";
+            product_logo.id = "product_logo";
+            let avataSHop = data.result.avataShop
+            if(avataSHop === "string")  avataSHop = "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+            
+            product_logo.innerHTML = `
+                <div class="product_logo--img">
+                    <img src="${avataSHop}" alt="logo">
+                </div>
+                <div class="product_logo--shop">
+                    <p>${data.result.brandName}</p>
+                    <a href="#" onclick="InsertIdProductLocal('${IdProduct}')">
+                        <i class="fa-solid fa-shop"></i>
+                        See shop
+                    </a>
+                </div>
+            `;
+            product_desc__logo.appendChild(product_logo)
+
+            var product_about = document.createElement("div");
+            product_about.className = "product_about";
+            product_about.innerHTML = '';
+            product_about.innerHTML = `
+                <div class="product_about--rate">Đánh giá: 15k</div>
+                <div class="product_about--total">Sản phẩm: 72</div>
+            `; 
+            product_desc__logo.appendChild(product_about);
+            var product_desc__text = document.getElementById("product_desc--text");
+            product_desc__text.innerHTML = "";
+            var product_desc__text__title = document.createElement("div");
+            product_desc__text__title.className = "product_desc--text";
+            product_desc__text__title.innerHTML = '';
+            product_desc__text__title.innerHTML = `
+                <span>Product Description</span>
+            `;
+            product_desc__text.appendChild(product_desc__text__title);
+            var product_desc__info = document.createElement("div")
+            product_desc__info.className = "product_desc--info";
+            product_desc__info.innerHTML = '';
+            product_desc__info.innerHTML = `
+                <p>${data.result.description}</p>
+            <p>${data.result.products[1].description}</p>
+            `;
+            product_desc__text.appendChild(product_desc__info);
+
+            var product_review__content = document.getElementById("current_content--text");
+            product_review__content.innerHTML = '';
+            product_review__content.innerHTML = `
+                <div class="current_name">
+                    <span>${localStorage.getItem("fullname")}</span>
+                </div>
+                <div class="current_content">
+                    <textarea name="" id="description" cols="30" rows="10" placeholder="Write a comment..."></textarea>
+                </div>
+                <div class="current_post" onclick="PostFeedBack('${IdProduct}')">
+                    <button>POST</button>
+                </div>
+            `;
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+async function PostFeedBack(IdProduct) {
+    var description = document.getElementById("description").value
+    var token = localStorage.getItem("login");
+    const loginUrl = `https://localhost:7029/api/FeedBack?token=${token}&IdProduct=${IdProduct}`;
+    fetch(loginUrl, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            description: description
+        }),
+    })
+    .then((response) => {
+        if (!response.ok) {
+          alert("Đánh giá không thành công");
+        throw new Error("Đánh giá không thành công");
+        }
+        return response.json();
+    })
+    .then((data) => {
+          alert(data.result);
+          location.reload(true);
+    })
+    .catch((error) => {
+        // Xử lý lỗi
+        console.error(error);
+    });
+}
+async function GetAllFeedBack( pageIndex, pageSize) {
+    try {
+        var IdProduct = localStorage.getItem("IdProduct1");
+        localStorage.removeItem("IdProduct");
+        const getClassUrl = `https://localhost:7029/api/FeedBack?IdProduct=${IdProduct}&pageIndex=${pageIndex}&pageSize=${pageSize}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById("div__feedback");
+        productContainer.innerHTML = '';
+
+        if (!Array.isArray(data.result) || data.result.length === 0) {
+            // productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            data.result.forEach(product => {
+                var product__element = document.createElement("div");
+                product__element.className = "product_review--content";
+                const ngayGoc = product.dateCreate;
+
+                // Tạo một đối tượng ngày từ chuỗi ngày ban đầu
+                const ngay = new Date(ngayGoc);
+
+                // Lấy ngày, tháng và năm từ đối tượng ngày
+                const ngayNum = ngay.getDate();
+                const thangNum = ngay.getMonth() + 1; // Tháng bắt đầu từ 0 nên cần cộng thêm 1
+                const namNum = ngay.getFullYear();
+
+                // Chuyển đổi thành chuỗi định dạng dd/mm/yyyy
+                const ngayChinhSua = `${ngayNum.toString().padStart(2, '0')}/${thangNum.toString().padStart(2, '0')}/${namNum}`;
+                product__element.innerHTML = `
+                    <div class="cunrrent_content--img">
+                        <img src="${product.avata}" alt="">
+                    </div>
+                    <div class="current_content--text">
+                        <div class="current_name">
+                            <span>${product.fullName}</span>
+                            <span class="date_submit">
+                                <span>Date Submited: </span>
+                                ${ngayChinhSua}
+                            </span>
+                        </div>
+                        <div class="current_content">
+                            <textarea readonly name="" id="" cols="30" rows="10" placeholder="Write a comment...">${product.description}</textarea>
+                        </div>
+                    </div>
+                `;
+                productContainer.appendChild(product__element);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+async function AddToCart() {
+    var token = localStorage.getItem("login");
+    var number = document.getElementById("quantity").value;
+    var IdProductDetail = document.getElementById("select__type").value;
+    if(number === 0){
+        alert("Vui lòng chọn số lượng sản phẩm");
+        return;
+    }
+    try {
+        const loginUrl = `https://localhost:7029/api/Cart?token=${token}`
+        fetch(loginUrl, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify([{
+                idProduct: IdProductDetail,
+                number: number
+            }]),
+        })
+        .then((response) => {
+            if (!response.ok) {
+              alert("Thêm vào giỏ hàng không thành công");
+            throw new Error("Thêm vào giỏ hàng không thành công.");
+            }
+            return response.json();
+        })
+        .then((data) => {
+          alert(data.result);
+        })
+        .catch((error) => {
+            // Xử lý lỗi
+            console.error(error);
+        });
+    }
+    catch(error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+
+async function AddToOrder() {
+    var token = localStorage.getItem("login");
+    var number = document.getElementById("quantity").value;
+    var IdProductDetail = document.getElementById("select__type").value;
+    if(number === 0){
+        alert("Vui lòng chọn số lượng sản phẩm");
+        return;
+    }
+    var pay__selected = document.getElementById("pay__selected").value
+    if(pay__selected === 2) {
+        var Card_Number = document.getElementById("Card_Number").value;
+        var Experied_Time = document.getElementById("Experied_Time").value;
+        var CVC_Number = document.getElementById("CVC_Number").value;
+
+        if(Card_Number===null || Experied_Time === null || CVC_Number=== null || Card_Number===undefined || Experied_Time === undefined || CVC_Number=== undefined ) alert("Vui lòng nhật thông tin thẻ")
+        else {
+            try {
+                const loginUrl = `https://localhost:7029/api/Orders?token=${token}`
+                fetch(loginUrl, {
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        idProduct: IdProductDetail,
+                        idDiscount: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                        number: number,
+                        shipPrice: 0,
+                        description: "Đơn hàng mặc định"
+                    }),
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                      alert("Mua sản phẩm không thành công");
+                    throw new Error("Mua sản phẩm không thành công.");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                  alert(data.result);
+                })
+                .catch((error) => {
+                    // Xử lý lỗi
+                    console.error(error);
+                });
+            }
+            catch(error) {
+                console.error('Error fetching data:', error);
+                alert(error);
+            }
+        }
+    }
+    try {
+        const loginUrl = `https://localhost:7029/api/Orders?token=${token}`
+        fetch(loginUrl, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                idProduct: IdProductDetail,
+                idDiscount: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                number: number,
+                shipPrice: 0,
+                description: "Đơn hàng mặc định"
+            }),
+        })
+        .then((response) => {
+            if (!response.ok) {
+              alert("Mua sản phẩm không thành công");
+            throw new Error("Mua sản phẩm không thành công.");
+            }
+            return response.json();
+        })
+        .then((data) => {
+          alert(data.result);
+        })
+        .catch((error) => {
+            // Xử lý lỗi
+            console.error(error);
+        });
+    }
+    catch(error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+async function DeleteProduct(IdProduct) {
+    if(confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?")) {
+        try {
+            const loginUrl = `https://localhost:7029/api/Product?Id=${IdProduct}`
+            fetch(loginUrl, {
+                method: "DELETE",
+                headers: {
+                "Content-Type": "application/json",
+                }
+            })
+            .then((response) => {
+                if (!response.ok) {
+                  alert("Xóa sản phẩm không thành công");
+                throw new Error("Xóa sản phẩm không thành công.");
+                }
+                return response.json();
+            })
+            .then((data) => {
+              alert(data.result);
+            })
+            .catch((error) => {
+                // Xử lý lỗi
+                console.error(error);
+            });
+        }
+        catch(error) {
+            console.error('Error fetching data:', error);
+            alert(error);
+        }
+    }
+    else 
+    alert("Hành động đã bị hủy");
+}

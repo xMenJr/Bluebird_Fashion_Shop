@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/CallApi.js"></script>
     <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
@@ -33,7 +34,52 @@
                         </div>
                         <div class="col l-1 m-1">
                             <div class="header__cart">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                <li>
+                                    <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <ul class="show_cart">
+                                        <a href="">
+                                            <li>
+                                                <div class="show_product" id="show_product"> 
+                                                    <a href="./productDetail.html" class="product_cart" id="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </a>
+                                    </ul>
+                                </li>
                             </div>
                         </div>
                         <div class="col l-1 m-1" id="div__login">
@@ -49,14 +95,9 @@
                         <div class="col l-12 m-12">  
                             <ul class="nav_list">
                                 <li class="nav_item">
-                                    <a class="nav_item--intro" href="./myshop.html">Introduce</a>
-                                </li>
-                                <li class="nav_item">
                                     <a class="nav_item--home" href="./index.html">HomePage</a>
                                 </li>
-                                <li class="nav_item">
-                                    <a class="nav_item--service" href="./address.html">Service</a>
-                                </li>
+                                
                                 <li class="nav_item">
                                     <a class="nav_item--product" href="#">Product</a>
                                     <ul class="product__item">
@@ -81,6 +122,12 @@
                                             </li>
                                         </a>
                                     </ul>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="./service.html">Service</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="./blog.html">Blog</a>
                                 </li>
                                 <li class="nav_item">
                                     <a class="nav_item--contact" href="#">Contact</a>
@@ -273,7 +320,6 @@
             <!-- footer -->
         </div>
     </div>
-    <script src="../js/profile.js"></script>
     <script>
         var fullname = localStorage.getItem("fullname");
             if(fullname != null) {
@@ -304,6 +350,7 @@
                 `;
                 dataContainer.appendChild(CreateLoutOut);
             }
+            GetAllCartHover(1, 100,' ')
     </script>
 </body>
 </html>

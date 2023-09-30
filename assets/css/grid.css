@@ -91,10 +91,10 @@
     max-width: 91.66667%;
 }
 
-.c-12 {
+/* .c-12 {
     flex: 0 0 100%;
     max-width: 100%;
-}
+} */
 
 .c-o-1 {
     margin-left: 8.33333%;
@@ -197,7 +197,7 @@
     }
 
     .m-6 {
-        flex: 0 0 50%;
+        /* flex: 0 0 50%; */
         max-width: 50%;
     }
 
@@ -289,8 +289,8 @@
     }
 
     .col {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .row.sm-gutter .col {

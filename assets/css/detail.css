@@ -125,7 +125,7 @@ th {
 }
 
 .product_infor--total {
-    margin-left: 52%;
+    margin-left: 46%;
     padding-top: 1% ;
 }
 
@@ -187,7 +187,7 @@ th {
 
 .product_logo--img {
     width: 100%;
-    height: 100%;
+    height: 90%;
     border: 5px solid lightgray;
     border-radius: 50%;
     display: flex;

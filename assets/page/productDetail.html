@@ -10,13 +10,142 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="bleubird_fashion">
+        <div class="container_bleubird_fashion">
+            <!-- header -->
+            <div class="header">
+                <div class="gird wide">
+                    <div class="row no-gutters">
+                        <div class="col l-2 l-o-5">
+                            <div class="header__logo">
+                                <a href="./index.html">
+                                    <img src="../img/Logo/imglogo.png" alt="logo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col l-3 ">
+                            <div class="header__search">
+                                <input type="text">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                        </div>
+                        <div class="col l-1 ">
+                            <div class="header__cart">
+                                <li>
+                                    <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <ul class="show_cart">
+                                        <a href="">
+                                            <li>
+                                                <div class="show_product" id="show_product">
+                                                    <a href="#" class="product_cart" id="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                    <a href="#" class="product_cart">
+                                                        <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
+                                                        <span>The Seag Bag</span>
+                                                        <span>$3200</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </a>
+                                        <a href="">
+                                            <li></li>
+                                        </a>
+                                    </ul>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="col l-1 m-1" id="div__login">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / header / -->
+            <!-- navigation -->
+            <div class="navigation">
+                <div class="grid wide">
+                    <div class="row">
+                        <div class="col l-12">  
+                            <ul class="nav_list">
+                                <li class="nav_item">
+                                    <a class="nav_item--home" href="./index.html">HomePage</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--product" href="#">Product</a>
+                                    <ul class="product__item">
+                                        <a href="./vest.html">
+                                            <li class="product__item--vest">
+                                                <span>Vest</span>
+                                            </li>
+                                        </a>
+                                        <a href="./bag.html">
+                                            <li class="product__item--bag">
+                                                <span>Bag</span>
+                                            </li>
+                                        </a>
+                                        <a href="./campaign.html">
+                                            <li class="product__item--campaign">
+                                                <span>Campaign</span>
+                                            </li>
+                                        </a>
+                                        <a href="./shoe.html">
+                                            <li class="product__item--shoe">
+                                                <span>Shoe</span>
+                                            </li>
+                                        </a>
+                                    </ul>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="#">Service</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--blog" href="#">Blog</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--contact" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <!-- / navigation / -->
+        </div>
     <div class="product_detail">
         <div class="container_product_detail">
             <div class="grid ">
                 <div class="row ">
                     <div class="col l-2">
-                        <div class="product_imgs">
-                            <ul class="list_product--img">
+                        <div class="product_imgs" id="product_imgs">
+                            <ul class="list_product--img" id="list_product--img">
                                 <li class="product_img--item" id="choose_img">
                                     <img src="../img/Bag/Bag1/bag1.1.jpg" onclick="changeImg1()" alt="">
                                 </li>
@@ -33,14 +162,14 @@
                         </div>
                     </div>
                     <div class="col l-5">
-                        <div class="product_img--main">
+                        <div class="product_img--main" id="product_img--main">
                             <div class="main_img">
                                 <img id="big_img" src="../img/Bag/Bag1/bag1.4.jpg" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col l-4">
-                        <div class="product_infor">
+                    <div class="col l-4" id="product_infor">
+                        <div class="product_infor" id="product__info__title">
                             <div class="product_infor--heading">
                                 <h2>The Seal Bag in Black</h2>
                             </div>
@@ -76,7 +205,7 @@
                                     <option value="S">S</option>
                                     <option value="M">M</option>
                                     <option value="L">L</option>
-                                    <option value="XL">XL</option>
+                                    <option value="XL">33</option>
                                 </select>
                             </div>
                             <div class="choose_color"  onclick="showInfor('detail_color')">
@@ -101,7 +230,7 @@
                                 <label for="" class="">Pay</label>
                                 <select name="" id="">
                                     <option style="display: none;">Select a payment method</option>
-                                    <option value="">Payment upon receipt of goods</option>
+                                    <option  value="">Payment upon receipt of goods</option>
                                     <option value="">Pay by account wallet</option>
                                 </select>
                             </div>
@@ -115,7 +244,7 @@
                             </div> -->
                             <div class="choose_discount">
                                 <label for="" class="">Discount code</label>
-                                <select name="" id="">
+                                <select name="" id="select__discount">
                                     <option value="5%">SALE5</option>
                                     <option value="10%">SALE10</option>
                                 </select>
@@ -129,8 +258,8 @@
             <div class="grid ">
                 <div class="row">
                     <div class="col l-12">
-                        <div class="product_desc--logo">
-                            <div class="product_logo">
+                        <div class="product_desc--logo" id="product_desc--logo">
+                            <div class="product_logo" id="product_logo">
                                 <div class="product_logo--img">
                                     <img src="../img/Logo/imglogo.png" alt="logo">
                                 </div>
@@ -148,9 +277,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col l-12">
+                    <div class="col l-12" id="product_desc--text">
                         <div class="product_desc--text"><span>Product Description</span></div>
-                        <div class="product_desc--info">
+                        <div class="product_desc--info" id="product_desc--info">
                             <!-- <h2>Product Description</h2> -->
                             <p>Black Seal bag handcrafted from padded lambskin leather, featuring an exploded Seal logo and a gold-finished cut out metal Seal closure.
                                 The Seal bag plays with curves and rounded edges. This bag can be worn over the shoulder using its woven metal chain strap.</p>
@@ -167,56 +296,58 @@
                         </div>
                     </div>
                     <div class="col l-12">
-                        <div class="product_desc--review">
+                        <div class="product_desc--review" id="product_desc--review">
                             <h2>Product Review</h2>
-                            <div class="product_review--content">
+                            <div class="product_review--content" id="product_review--content">
                                 <div class="cunrrent_content--img">
                                     <img src="../img/Reviewer/user.png" alt="">
                                 </div>
-                                <div class="current_content--text">
+                                <div class="current_content--text" id="current_content--text">
                                     <div class="current_name">
                                         <span>Username</span>
                                     </div>
                                     <div class="current_content">
-                                        <textarea name="" id="" cols="30" rows="10" placeholder="Write a comment..."></textarea>
+                                        <textarea name="" id="description" cols="30" rows="10" placeholder="Write a comment..."></textarea>
                                     </div>
                                     <div class="current_post">
                                         <button>POST</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="product_review--content">
-                                <div class="cunrrent_content--img">
-                                    <img src="../img/Reviewer/ronaldo.jpg" alt="">
-                                </div>
-                                <div class="current_content--text">
-                                    <div class="current_name">
-                                        <span>Ronaldo Ả Rập</span>
-                                        <span class="date_submit">
-                                            <span>Date Submited: </span>
-                                            7 July 2022
-                                        </span>
+                            <div id="div__feedback">
+                                <div class="product_review--content" >
+                                    <div class="cunrrent_content--img">
+                                        <img src="../img/Reviewer/ronaldo.jpg" alt="">
                                     </div>
-                                    <div class="current_content">
-                                        <textarea readonly name="" id="" cols="30" rows="10" placeholder="Write a comment...">Hàng đẹp quá Xốp ! Bên Ả Rập không có bán nhưng mà hên quá vì đã gặp được Xốp, mãi ủng hộ Siuuuuuuu</textarea>
+                                    <div class="current_content--text">
+                                        <div class="current_name">
+                                            <span>Ronaldo Ả Rập</span>
+                                            <span class="date_submit">
+                                                <span>Date Submited: </span>
+                                                7 July 2022
+                                            </span>
+                                        </div>
+                                        <div class="current_content">
+                                            <textarea readonly name="" id="" cols="30" rows="10" placeholder="Write a comment...">Hàng đẹp quá Xốp ! Bên Ả Rập không có bán nhưng mà hên quá vì đã gặp được Xốp, mãi ủng hộ Siuuuuuuu</textarea>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="product_review--content">
-                                <div class="cunrrent_content--img">
-                                    <img src="../img/Reviewer/messi.jpg" alt="">
-                                </div>
-                                <div class="current_content--text">
-                                    <div class="current_name">
-                                        <span>Messi A me ri cần</span>
-                                        <span class="date_submit">
-                                            <span>Date Submited: </span>
-                                            7 July 2022
-                                        </span>
+                                <div class="product_review--content">
+                                    <div class="cunrrent_content--img">
+                                        <img src="../img/Reviewer/messi.jpg" alt="">
                                     </div>
-                                    <div class="current_content">
-                                        <textarea readonly name="" id="" cols="30" rows="10" placeholder="Write a comment...">Bên Mỹ toàn bán hàng fake thôi, bà An lướt thấy shop này hàng real múc luôn 5 đôi cho cả nhà, bữa sau đi nhận Quả Bóng Vàng phải flex giày mới được
-                                        </textarea>
+                                    <div class="current_content--text">
+                                        <div class="current_name">
+                                            <span>Messi A me ri cần</span>
+                                            <span class="date_submit">
+                                                <span>Date Submited: </span>
+                                                7 July 2022
+                                            </span>
+                                        </div>
+                                        <div class="current_content">
+                                            <textarea readonly name="" id="" cols="30" rows="10" placeholder="Write a comment...">Bên Mỹ toàn bán hàng fake thôi, bà An lướt thấy shop này hàng real múc luôn 5 đôi cho cả nhà, bữa sau đi nhận Quả Bóng Vàng phải flex giày mới được
+                                            </textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -236,15 +367,15 @@
                     <div class="payment_form--infor" id="payment_form--infor">
                         <div class="payment_infor--card_number">
                             <span>Card number</span>
-                            <input type="text">
+                            <input type="text" id="Card_Number">
                         </div>
                         <div class="payment_infor--time">
                             <span>Experied time</span>
-                            <input type="date">
+                            <input type="date" id="Experied_Time">
                         </div>
                         <div class="payment_infor--cvc_number">
                             <span>CVC number</span>
-                            <input type="text">
+                            <input type="text" id="CVC_Number">
                         </div>
                     </div>
                     <div class="payment_infor--bank">
@@ -372,5 +503,41 @@
         </div>
     </div>
     <script src="../js/detail.js"></script>
+
+    <script src="../js/CallApi.js"></script>
+    <script>
+        var fullname = localStorage.getItem("fullname");
+        if(fullname != null) {
+            var dataContainer = document.getElementById("div__login");
+            var CreateLoutOut = document.createElement("div")
+            CreateLoutOut.className = "header__login";
+            CreateLoutOut.innerHTML = `
+                <li>
+                    <a href="#" id="fullName">${fullname}</a>
+                    <ul class="select_option">
+                        <a href="./profile.html">
+                            <li class="account_management">Account management</li>
+                        </a>
+                        <a href="./login.html">
+                            <li class="log_out">Log out</li>
+                        </a>
+                    </ul>
+                </li>
+            `;
+            dataContainer.appendChild(CreateLoutOut);
+        }
+        else {
+            var dataContainer = document.getElementById("div__login");
+            var CreateLoutOut = document.createElement("div")
+            CreateLoutOut.className = "header__login";
+            CreateLoutOut.innerHTML = `
+                <a href="./login.html" id="fullName">Login</a>
+            `;
+            dataContainer.appendChild(CreateLoutOut);
+        }
+        GetAllCartHover(1, 100,' ')
+        GetProductDetail()
+        GetAllFeedBack(1,10)
+    </script>
 </body>
 </html>

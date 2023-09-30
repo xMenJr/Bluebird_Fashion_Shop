@@ -42,8 +42,8 @@
                                     <ul class="show_cart">
                                         <a href="">
                                             <li>
-                                                <div class="show_product">
-                                                    <a href="#" class="product_cart">
+                                                <div class="show_product" id="show_product">
+                                                    <a href="#" class="product_cart" id="product_cart">
                                                         <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
                                                         <span>The Seag Bag</span>
                                                         <span>$3200</span>
@@ -88,20 +88,8 @@
                                 </li>
                             </div>
                         </div>
-                        <div class="col l-1">
-                            <div class="header__login">
-                                <li class="login">
-                                    <a href="./login.html">Login</a>
-                                    <ul class="select_option">
-                                        <a href="./profile.html">
-                                            <li class="account_management">Account management</li>
-                                        </a>
-                                        <a href="./login.html">
-                                            <li class="log_out">Log out</li>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </div>
+                        <div class="col l-1" id="div__login">
+                            
                         </div>
                     </div>
                 </div>
@@ -114,14 +102,9 @@
                         <div class="col l-12 m-12">  
                             <ul class="nav_list">
                                 <li class="nav_item">
-                                    <a class="nav_item--intro" href="./myshop.html">Introduce</a>
-                                </li>
-                                <li class="nav_item">
                                     <a class="nav_item--home" href="./index.html">HomePage</a>
                                 </li>
-                                <li class="nav_item">
-                                    <a class="nav_item--service" href="./address.html">Service</a>
-                                </li>
+                                
                                 <li class="nav_item">
                                     <a class="nav_item--product" href="#">Product</a>
                                     <ul class="product__item">
@@ -146,6 +129,12 @@
                                             </li>
                                         </a>
                                     </ul>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="./service.html">Service</a>
+                                </li>
+                                <li class="nav_item">
+                                    <a class="nav_item--service" href="./blog.html">Blog</a>
                                 </li>
                                 <li class="nav_item">
                                     <a class="nav_item--contact" href="#">Contact</a>
@@ -385,7 +374,7 @@
                 `;
                 dataContainer.appendChild(CreateLoutOut);
             }
-        
+        GetAllCartHover(1, 100,' ')
         displayProductByProductType(1, 'Bag', 'bagProduct', 'BAG');
         displayProductByProductType(1, 'Shoe', 'shoeProduct','SHOE');
         displayProductByProductType(1, 'CAMPAIGN', 'campaignProduct','CAMPAIGN');
