@@ -75,17 +75,13 @@ function reduce() {
 
 // Thay đổi ảnh
 
-const big_img = document.getElementById('big_img')
+const chooses = document.querySelectorAll('.choose_img')
+const img_main = document.getElementById('big_img')
 
-function changeImg1() {
-    big_img.src = '../img/Bag/Bag1/bag1.1.jpg'
-}
-function changeImg2() {
-    big_img.src = '../img/Bag/Bag1/bag1.2.jpg'
-}
-function changeImg3() {
-    big_img.src = '../img/Bag/Bag1/bag1.3.jpg'
-}
-function changeImg4() {
-    big_img.src = '../img/Bag/Bag1/bag1.4.jpg'
-}
+chooses.forEach((choose) => {
+    choose.onclick = function() {
+        document.querySelector('.choose_img.main').classList.remove('main')
+        this.classList.add('main')
+        img_main.src = this.src
+    }
+})
