@@ -61,6 +61,7 @@ body {
     color: black;
     position: relative;
     padding-right: 10px;
+    left: 0;
 }
 
 .show_cart {
@@ -236,6 +237,11 @@ body {
 
 .product__item li:hover {
     background-color: lightgray;
+}
+
+.nav_item--home {
+    font-weight: normal;
+    box-shadow: 0 0 0;
 }
 
 /* ------- */

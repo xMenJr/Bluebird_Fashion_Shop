@@ -487,6 +487,7 @@ body {
     color: black;
     position: relative;
     padding-right: 10px;
+    left: 0;
 }
 
 .show_cart {

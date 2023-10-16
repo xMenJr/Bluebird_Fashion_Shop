@@ -2,7 +2,7 @@
 const update = document.querySelector('.update')
 const show = document.querySelector('.add_update')
 const addressUpdate = document.querySelector('.address_update')
-const overlay = document.querySelector('.overlay')
+const overlay = document.querySelector('.overlay_address')
 
 update.addEventListener('click', function() {
     updateAddress.innerHTML = 'Update address'
@@ -34,3 +34,19 @@ addnewAddress.addEventListener('click', function() {
     overlay.style.display = 'block'
     show.style.display = 'block'
 })
+
+// Contact
+
+function openContact() {
+    var overlay = document.getElementById('overlay')
+    var contact = document.getElementById('contact');
+    overlay.style.display = 'block';
+    contact.style.display = 'block';
+  }
+  
+  function closeContact() {
+    var overlay = document.getElementById('overlay')
+    var contact = document.getElementById('contact');
+    overlay.style.display = 'none';
+    contact.style.display = 'none';
+  }

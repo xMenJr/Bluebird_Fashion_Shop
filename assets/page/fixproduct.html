@@ -3,41 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix product</title>
     <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/fixproduct.css">
-    <!-- <link rel="stylesheet" href="../css/main.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>FIX</title>
+    <script src="../js/CallApi.js"></script>
+    <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
 </head>
 <body>
-    <div class="bleubird_fashion">
-        <div class="container_bleubird_fashion">
+    <div class="bluebird_fashion">
+        <div class="container_blue_fashion">
             <!-- header -->
             <div class="header">
                 <div class="gird wide">
                     <div class="row no-gutters">
-                        <div class="col l-2 l-o-5">
+                        <div class="col l-2 l-o-5 m-2 m-o-5">
                             <div class="header__logo">
-                                <a href="./index.html">
-                                    <img src="../img/Logo/imglogo.png" alt="logo">
-                                </a>
+                                <img src="../img/Logo/imglogo.png" alt="logo">
                             </div>
                         </div>
-                        <div class="col l-3 ">
+                        <div class="col l-3 m-3 ">
                             <div class="header__search">
                                 <input type="text">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <div class="header__search--icon">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                                
                             </div>
                         </div>
-                        <div class="col l-1 ">
+                        <div class="col l-1 m-1">
                             <div class="header__cart">
                                 <li>
-                                    <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="./cart.html" class="cart__icon--title"><i class="fa-solid fa-cart-shopping cart__icon"></i></a>
                                     <ul class="show_cart">
                                         <a href="">
                                             <li>
-                                                <div class="show_product">
-                                                    <a href="#" class="product_cart">
+                                                <div class="show_product" id="show_product">
+                                                    <a href="#" class="product_cart" id="product_cart">
                                                         <img src="../img/Bag/Bag1/bag1.1.jpg" alt="">
                                                         <span>The Seag Bag</span>
                                                         <span>$3200</span>
@@ -75,27 +78,12 @@
                                                 </div>
                                             </li>
                                         </a>
-                                        <a href="">
-                                            <li></li>
-                                        </a>
                                     </ul>
                                 </li>
                             </div>
                         </div>
-                        <div class="col l-1">
-                            <div class="header__login">
-                                <li class="login">
-                                    <a href="./login.html">Login</a>
-                                    <ul class="select_option">
-                                        <a href="./profile.html">
-                                            <li class="account_management">Account management</li>
-                                        </a>
-                                        <a href="./login.html">
-                                            <li class="log_out">Log out</li>
-                                        </a>
-                                    </ul>
-                                </li>
-                            </div>
+                        <div class="col l-1" id="div__login">
+                        
                         </div>
                     </div>
                 </div>
@@ -105,11 +93,12 @@
             <div class="navigation">
                 <div class="grid wide">
                     <div class="row">
-                        <div class="col l-12">  
+                        <div class="col l-12 m-12">  
                             <ul class="nav_list">
                                 <li class="nav_item">
                                     <a class="nav_item--home" href="./index.html">HomePage</a>
                                 </li>
+                                
                                 <li class="nav_item">
                                     <a class="nav_item--product" href="#">Product</a>
                                     <ul class="product__item">
@@ -136,14 +125,17 @@
                                     </ul>
                                 </li>
                                 <li class="nav_item">
-                                    <a class="nav_item--service" href="#">Service</a>
+                                    <a class="nav_item--service" href="./service.html">Service</a>
                                 </li>
                                 <li class="nav_item">
-                                    <a class="nav_item--blog" href="#">Blog</a>
+                                    <a class="nav_item--service" href="./blog.html">Blog</a>
                                 </li>
                                 <li class="nav_item">
-                                    <a class="nav_item--contact" href="#">Contact</a>
+                                    <a class="nav_item--contact" href="#" onclick="openContact()">Contact</a>
                                 </li>
+                                <!-- <li class="nav_item">
+                                    <a class="nav_item--login" id="nav_item--login" href="./login.html">Login</a>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -151,247 +143,249 @@
                 <hr>
             </div>
             <!-- / navigation / -->
-    <div class="product_detail">
-        <div class="container_product_detail">
-            <div class="grid ">
-                <div class="row ">
-                    <div class="col l-2">
-                        <div class="product_imgs">
-                            <ul class="list_product--img">
-                                <li class="product_img--item">
-                                    <img src="../img/Bag/Bag1/bag1.1.jpg" onclick="changeImg1()" alt="">
-                                </li>
-                                <li class="product_img--item">
-                                    <img src="../img/Bag/Bag1/bag1.2.jpg" onclick="changeImg2()" alt="">
-                                </li>
-                                <li class="product_img--item">
-                                    <img src="../img/Bag/Bag1/bag1.3.jpg" onclick="changeImg3()" alt="">
-                                </li>
-                                <li class="product_img--item">
-                                    <img src="../img/Bag/Bag1/bag1.4.jpg" onclick="changeImg4()" alt="">
-                                </li>
-                            </ul>
+            <!-- content -->
+            <div class="content">
+                <div class="grid">
+                    <div class="row no-gutters">
+                        <div class="col l-9 m-8">
+                            <div class="my_product">
+                                <div class="product" id="product">
+                                    <div class="product_heading">
+                                        <h1>Fix product</h1>
+                                    </div>
+                                    <div class="product_body">
+                                        <div class="body body__productname">
+                                            <label for="productname" class="productname_label">Product's name</label>
+                                            <input type="text" class="productname_input" id="productname_input">
+                                        </div>
+                                        <div class="body body__productimg">
+                                            <label for="productimg" class="productimg_label">Image product</label>
+                                            <input type="text" class="productimg_input productimg_input--img__main" id="productimg_input--img__main" placeholder="Pictrure 1">
+                                            <div>
+                                                <div>
+                                                    <input type="text" class="productimg_input productimg_input--img__1" id="productimg_input--img__1" placeholder="Pictrure 2">
+                                                    <input type="text" class="productimg_input productimg_input--img__2" id="productimg_input--img__2" placeholder="Pictrure 3">
+                                                </div>
+                                                <div>
+                                                    <input type="text" class="productimg_input productimg_input--img__3" id="productimg_input--img__3" placeholder="Pictrure 4">
+                                                    <input type="text" class="productimg_input productimg_input--img__4" id="productimg_input--img__4" placeholder="Pictrure 5">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body body__productinfo">
+                                            <label for="productinfo" class="productinfo_label">Product infomation</label>
+                                            <textarea name="" class="productinfo_input" id="productinfo_input" cols="30" rows="10"></textarea>
+                                        </div>
+                                        <div class="body body__productdetails">
+                                            <label for="productdetails" class="productdetails_label">Product details</label>
+                                            <textarea name="" class="productdetails_input" id="productdetails_input" cols="30" rows="10"></textarea>
+                                        </div>
+                                        <div class="body body__productprice">
+                                            <label for="productprice" class="productprice_label">Price</label>
+                                            <input type="float" class="productprice_input" id="productprice_input">
+                                        </div>
+                                        <div class="body body__productmaterial">
+                                            <label for="productmaterial" class="productmaterial_label">Material</label>
+                                            <input type="text" class="productmaterial_input" id="productmaterial_input">
+                                        </div>
+                                        <div class="body body__productsize">
+                                            <label for="productsize" class="productsize_label">Product size</label>
+                                            <table id="table_size">
+                                                <tr id="header_size">
+                                                    <th>Size</th>
+                                                    <!-- <th onclick="editCell(this)">M</th>
+                                                    <th onclick="editCell(this)">L</th> -->
+                                                </tr>
+                                                <tr id="header_long">
+                                                    <td>Color</td>
+                                                    <!-- <td onclick="editCell(this)">
+                                                    </td>
+                                                    <td onclick="editCell(this)">
+                                                    </td> -->
+                                                </tr>
+                                                <tr id="header_height">
+                                                    <td>Quantity</td>
+                                                    <!-- <td onclick="editCell(this)"></td>
+                                                    <td onclick="editCell(this)"></td> -->
+                                                </tr>
+                                            </table>
+                                            <span><button class="plus size_plus"><i class="fa-solid fa-plus"></i></button></span>
+                                            <span><button class="minus size_minus"><i class="fa-solid fa-minus"></i></button></span>
+                                        </div>
+                                        <div class="body body__productcategory" id="body__productcategory">
+                                        </div>
+                                        <div class="body body__confirm">
+                                            <button onclick="FixProduct()">CONFIRM</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col l-5">
-                        <div class="product_img--main">
-                            <div class="main_img">
-                                <img id="big_img" src="../img/Bag/Bag1/bag1.4.jpg" alt="">
-                            </div>
-                        </div>
+                </div>
+                <div id="overlay"></div>
+                <div class="contact" id="contact">
+                    <div class="contact__heading">      
+                        <span><i class="fa-solid fa-x" id="close" onclick="closeContact()"></i></span>
+                        <span>Contact</span>
                     </div>
-                    <div class="col l-4">
-                        <div class="product_infor">
-                            <div class="product_infor--heading" id="product_infor--heading" contenteditable="true">
-                                <h2 id="product_name">The Seal Bag in Black</h2>
-                            </div>
-                            <div class="product_infor--price" id="product_infor--price">
-                                <span>$
-                                    <span id="product_price" contenteditable="true">3200</span>
-                                </span>
-                            </div>
-                            <div class="product_infor--size">
-                                <table>
-                                    <tr>
-                                      <th></th>
-                                      <th contenteditable="true">M</th>
-                                      <th contenteditable="true">L</th>
-                                    </tr>
-                                    <tr>
-                                      <td>Heigh</td>
-                                      <td contenteditable="true">30</td>
-                                      <td contenteditable="true">36</td>
-                                    </tr>
-                                    <tr>
-                                      <td>Long</td>
-                                      <td contenteditable="true">25</td>
-                                      <td contenteditable="true">30</td>
-                                    </tr>
-                                  </table>
-                            </div>
-                            <div class="choose_category">
-                                <label for="" class="">Category</label>
-                                <select name="" id="">
-                                    <option style="display: none;"></option>
-                                    <option value="bag">Bag</option>
-                                    <option value="vest">Vest</option>
-                                    <option value="campaign">Campaign</option>
-                                    <option value="shoe">Shoe</option>
-                                </select>
-                            </div>
-                            <div class="choose_size">
-                                <label for="" class="">Select size</label>
-                                <select name="" id="">
-                                    <option style="display: none;"></option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-                                </select>
-                            </div>
-                            <div class="choose_color">
-                                <label for="" class="">Select color</label>
-                                <select name="" id="">
-                                    <option style="display: none;"></option>
-                                    <option value="White">White</option>
-                                    <option value="Black">Black</option>
-                                    <option value="Green">Green</option>
-                                    <option value="Yellow">Yellow</option>
-                                </select>
-                            </div>
-                            <div class="product_info--quantity">
-                                <table class="table_quantity">
-                                    <tr>
-                                        <th>Size</th>
-                                        <th>Total</th>
-                                        <th>Sold</th>
-                                        <th>Remaining</th>
-                                        <th>Option</th>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td contenteditable="true"></td>
-                                        <td contenteditable="true"></td>
-                                        <td contenteditable="true"></td>
-                                        <td><i class="fa-regular fa-trash-can delete--icon"></i></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="product_info--img">
-                                <div class="info_img">
-                                    <label for="">Image 1</label>
-                                    <input type="text">
-                                </div>
-                                <div class="info_img">
-                                    <label for="">Image 2</label>
-                                    <input type="text">
-                                </div>
-                                <div class="info_img">
-                                    <label for="">Image 3</label>
-                                    <input type="text">
-                                </div>
-                                <div class="info_img">
-                                    <label for="">Image 4</label>
-                                    <input type="text">
-                                </div>
-                            </div>
+                    <!-- <div class="contact__map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8168145559566!2d105.7393833750007!3d21.040014487392355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135096b31fa7abb%3A0xff645782804911af!2zVHLGsOG7nW5nIMSR4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgxJDDtG5nIMOB!5e0!3m2!1svi!2s!4v1696929226263!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div> -->
+                    <div class="contact__info">
+                        <div class="contact__info--address">
+                            <span><i class="fa-sharp fa-solid fa-location-dot"></i><span>
+                            <span>Address: Bellevue, Washington, United States</span>
+                        </div>
+                        <div class="contact__info--phone">
+                            <span><i class="fa-solid fa-phone"></i></span>
+                            <span>Phone number: 0123456789</span>
+                        </div>
+                        <div class="contact__info--email">
+                            <span><i class="fa-solid fa-envelope"></i></span>
+                            <span>Email: bluebird@gmail.com</span>
+                        </div>
+                        <div class="contact__info-hour">
+                            <p>Office Hours</p>
+                            <p>Monday - Friday</p>
+                            <p>8:00 - 17:30</p>
+                            <p>Saturday - Sunday</p>
+                            <p>8:30 - 17:00</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container_product_desc">
-            <div class="grid ">
-                <div class="row">
-                    <div class="col l-12">
-                        <div class="product_desc--text"><h1>Product Description</h1></div>
-                        <div class="product_desc--info" id="myDiv" contenteditable="true">
-                            <!-- <h2>Product Description</h2> -->
-                            <p>Black Seal bag handcrafted from padded lambskin leather, featuring an exploded Seal logo and a gold-finished cut out metal Seal closure.
-                                The Seal bag plays with curves and rounded edges. This bag can be worn over the shoulder using its woven metal chain strap.</p>
-                            <p>Product Details:</p>
-                            <p>• Dimensions: 30 x 20 x 9 cm / 11.8 x 7.8 x 3.5 inches</p>
-                            <p>• Strap drop: 30cm / 11.8 inches</p>
-                            <p>• Metal Seal fastening</p>
-                            <p>• One central compartment and one card slot</p>
-                            <p>• One internal zipped pocket</p>
-                            <p>• One flat pocket at the back</p>
-                            <p>• Tonal leather lining</p>
-                            <p>• Antique gold-finished chain strap</p>
-                            <p> Material: 100% Lambskin</p>
+            <!-- / content / -->
+            <!-- footer -->
+            <div class="footer">
+                <div class="grid wide">
+                    <div class="row no-gutters">
+                        <div class="col l-3 m-5">
+                            <div class="footer_about">
+                                <h2>Abour Us</h2>
+                                <ul class="footer_about--container">
+                                    <li class="footer_about--item ">
+                                        <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                        <a href="#">Introduce</a>
+                                    </li>
+                                    <li class="footer_about--item ">
+                                        <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                        <a href="#">Product</a>
+                                    </li>
+                                    <li class="footer_about--item ">
+                                        <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                        <a href="#">Service</a>
+                                    </li>
+                                    <li class="footer_about--item ">
+                                        <i class="fa-solid fa-chevron-right footer_icon--right"></i>
+                                        <a href="#"> Anti Counterfeiting</a>
+                                    </li>
+                                </ul>
+                            </div>  
+                        </div>
+                        <div class="col l-3 m-5">
+                            <div class="footer_contact">
+                                <h2>Contact</h2>
+                                <ul class="footer_contact--container">
+                                    <li class="footer_contact--item">
+                                        <i class="fa-sharp fa-solid fa-location-dot footer_icon--address"></i>
+                                        <span>Address:Bellevue,  Washington, United States</span>
+                                    </li>
+                                    <li class="footer_contact--item">
+                                        <i class="fa-solid fa-phone footer_icon--phone"></i>
+                                        <span>Phone number: 0123456789</span>
+                                    </li>
+                                    <li class="footer_contact--item">
+                                        <i class="fa-solid fa-envelope footer_icon--email"></i>
+                                        <span>Email: bluebird@gmail.com</span> 
+                                    </li>
+                                </ul>
+                            </div>  
+                        </div>
+                        <div class="col l-3 m-5">
+                            <div class="footer_office">
+                                <h2>Office Hours</h2>
+                                <div class="time_open">
+                                    <span>Monday - Friday </span><br>
+                                    <span>8:00 - 17:30</span>
+                                </div>
+                                <div class="time_open">
+                                    <span>Saturday - Sunday </span><br>
+                                    <span>8:30 - 17:00</span>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="col l-3 m-5">
+                            <div class="footer_follow">
+                                <h2>Follow Us</h2>
+                                <ul class="footer_follow--container">
+                                    <li class="footer_follow--item">
+                                        <i class="fa-brands fa-facebook"></i>
+                                        <span>Facebook</span>
+                                    </li>
+                                    <li class="footer_follow--item">
+                                        <i class="fa-brands fa-square-instagram"></i>
+                                        <span>Instagram</span>
+                                    </li>
+                                    <li class="footer_follow--item">
+                                        <i class="fa-brands fa-youtube"></i>
+                                        <span>Youtube</span>
+                                    </li>
+                                    <li class="footer_follow--item">
+                                        <i class="fa-brands fa-twitter"></i>
+                                        <span>Twitter</span>
+                                    </li>
+                                </ul>
+                            </div>  
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- footer -->
         </div>
     </div>
-    <div class="confirm_info">
-        <button>CONFIRM</button>
-    </div>
-    <div class="footer">
-        <div class="grid wide">
-            <div class="row no-gutters">
-                <div class="col l-3">
-                    <div class="footer_about">
-                        <h2>Abour Us</h2>
-                        <ul class="footer_about--container">
-                            <li class="footer_about--item ">
-                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                <a href="#">HomePage</a>
-                            </li>
-                            <li class="footer_about--item ">
-                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                <a href="#">Service</a>
-                            </li>
-                            <li class="footer_about--item ">
-                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                <a href="#">Blog</a>
-                            </li>
-                            <li class="footer_about--item ">
-                                <i class="fa-solid fa-chevron-right footer_icon--right"></i>
-                                <a href="#">Contact</a>
-                            </li>
+    <script src="../js/addproduct.js"></script>
+    <script>
+        GetProductFix();
+        var fullname = localStorage.getItem("fullname");
+            if(fullname != null) {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <li>
+                        <a href="#" id="fullName">${fullname}</a>
+                        <ul class="select_option">
+                            <a href="./profile.html">
+                                <li class="account_management">Account management</li>
+                            </a>
+                            <a href="./login.html">
+                                <li class="log_out">Log out</li>
+                            </a>
                         </ul>
-                    </div>  
-                </div>
-                <div class="col l-3">
-                    <div class="footer_contact">
-                        <h2>Contact</h2>
-                        <ul class="footer_contact--container">
-                            <li class="footer_contact--item">
-                                <i class="fa-sharp fa-solid fa-location-dot footer_icon--address"></i>
-                                <span>Address:Bellevue,  Washington, United States</span>
-                            </li>
-                            <li class="footer_contact--item">
-                                <i class="fa-solid fa-phone footer_icon--phone"></i>
-                                <span>Phone number: 0123456789</span>
-                            </li>
-                            <li class="footer_contact--item">
-                                <i class="fa-solid fa-envelope footer_icon--email"></i>
-                                <span>Email: bluebird@gmail.com</span> 
-                            </li>
-                        </ul>
-                    </div>  
-                </div>
-                <div class="col l-3">
-                    <div class="footer_office">
-                        <h2>Office Hours</h2>
-                        <div class="time_open">
-                            <span>Monday - Friday </span><br>
-                            <span>8:00 - 17:30</span>
-                        </div>
-                        <div class="time_open">
-                            <span>Saturday - Sunday </span><br>
-                            <span>8:30 - 17:00</span>
-                        </div>
-                    </div>  
-                </div>
-                <div class="col l-3">
-                    <div class="footer_follow">
-                        <h2>Follow Us</h2>
-                        <ul class="footer_follow--container">
-                            <li class="footer_follow--item">
-                                <i class="fa-brands fa-facebook"></i>
-                                <span>Facebook</span>
-                            </li>
-                            <li class="footer_follow--item">
-                                <i class="fa-brands fa-square-instagram"></i>
-                                <span>Instagram</span>
-                            </li>
-                            <li class="footer_follow--item">
-                                <i class="fa-brands fa-youtube"></i>
-                                <span>Youtube</span>
-                            </li>
-                            <li class="footer_follow--item">
-                                <i class="fa-brands fa-twitter"></i>
-                                <span>Twitter</span>
-                            </li>
-                        </ul>
-                    </div>  
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="../js/detail.js"></script>
+                    </li>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+            else {
+                var dataContainer = document.getElementById("div__login");
+                var CreateLoutOut = document.createElement("div")
+                CreateLoutOut.className = "header__login";
+                CreateLoutOut.innerHTML = `
+                    <a href="./login.html" id="fullName">Login</a>
+                `;
+                dataContainer.appendChild(CreateLoutOut);
+            }
+        GetAllCartHover(1, 100,' ');
+        // Kiểm tra token mỗi 1 phút (hoặc bất kỳ khoảng thời gian nào bạn muốn)
+        let lastScrollTime = Date.now();
+        window.addEventListener('scroll', function() {
+                lastScrollTime = Date.now()
+        });
+        setInterval(function() {
+            // Kiểm tra token liên tục
+            checkTokenExpiration(lastScrollTime);
+        }, 60000);
+    </script>
 </body>
 </html>

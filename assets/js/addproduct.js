@@ -30,20 +30,13 @@ const table_size = document.getElementById("table_size");
 
 function themCotSize() {
     var header_size = document.getElementById("header_size");
-    var header_long = document.getElementById("header_long");
-    var header_height = document.getElementById("header_height");
-    var header_color = document.getElementById("header_color");
-    var header_quantity = document.getElementById("header_quantity");
+    var header_color = document.getElementById("header_long");
+    var header_quantity = document.getElementById("header_height");
 
     header_size.innerHTML += `
         <th onclick="editCell(this)"></th>
     `;
-    header_long.innerHTML += `
-        <td onclick="editCell(this)"></td>
-    `;
-    header_height.innerHTML += `
-        <td onclick="editCell(this)"></td>
-    `;
+    
     header_color.innerHTML += `
         <td onclick="editCell(this)"></td>
     `;

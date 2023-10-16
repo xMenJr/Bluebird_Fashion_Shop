@@ -7,7 +7,7 @@ body {
     text-align: center;
 }
 .header__logo img{
-    width: 42%;
+    width: 62%;
     height: 40%;
     object-fit: cover;
     object-position: top center;
@@ -45,8 +45,12 @@ body {
 }
 .header__search i{
     position: absolute;
-    top: 4%;
-    right: 18%;
+    top: 13%;
+    right: 13%;
+}
+
+.header__cart i {
+    left: 0;
 }
 
 .header__search i:hover, .header__cart:hover {
@@ -158,6 +162,10 @@ body {
     background-color: lightgray;
 }
 
+.nav_item--home {
+    font-weight: normal;
+    box-shadow: 0 0 0;
+}
 /* ------- */
 
 /* content */
@@ -208,7 +216,7 @@ body {
     color: red;
 }
 
-.function__item--cart a {
+.function__item--profile a {
     color: red;
 }
 /* / function / */
@@ -217,8 +225,7 @@ body {
 .profile {
     border: 1px solid gray;
     width: 90%;
-    /* margin-left: 5%; */
-    margin-top: 30px;
+    margin-top: 5%;
 }
 
 .profile_heading {
@@ -226,7 +233,7 @@ body {
 }
 
 .profile_body {
-    margin-left: 5%;
+    margin-left: 12%;
     margin-right: 5%;
 }
 

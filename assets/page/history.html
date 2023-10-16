@@ -134,7 +134,7 @@
                                     <a class="nav_item--service" href="./blog.html">Blog</a>
                                 </li>
                                 <li class="nav_item">
-                                    <a class="nav_item--contact" href="#">Contact</a>
+                                    <a class="nav_item--contact" href="#" onclick="openContact()">Contact</a>
                                 </li>
                                 <!-- <li class="nav_item">
                                     <a class="nav_item--login" id="nav_item--login" href="./login.html">Login</a>
@@ -176,14 +176,14 @@
                                     </li>
                                     <li class="function__item--cart">
                                         <i class="fa-solid fa-cart-shopping"></i>
-                                        <a>Cart</a>
+                                        <a href="./cart.html">Cart</a>
                                     </li>
                                     <li class="function__item--shop">
                                         <i class="fa-solid fa-shop"></i>
-                                        <a>My shop</a>
+                                        <a href="./myshop.html">My shop</a>
                                         <ul class="function__shop">
                                             <li class="function__shop--add">
-                                                <a href="">Add product</a>
+                                                <a href="./addproduct.html">Add product</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -237,6 +237,37 @@
                                     </div> -->
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="overlay"></div>
+                <div class="contact" id="contact">
+                    <div class="contact__heading">      
+                        <span><i class="fa-solid fa-x" id="close" onclick="closeContact()"></i></span>
+                        <span>Contact</span>
+                    </div>
+                    <div class="contact__map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8168145559566!2d105.7393833750007!3d21.040014487392355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135096b31fa7abb%3A0xff645782804911af!2zVHLGsOG7nW5nIMSR4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgxJDDtG5nIMOB!5e0!3m2!1svi!2s!4v1696929226263!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="contact__info">
+                        <div class="contact__info--address">
+                            <span><i class="fa-sharp fa-solid fa-location-dot"></i><span>
+                            <span>Address: Bellevue, Washington, United States</span>
+                        </div>
+                        <div class="contact__info--phone">
+                            <span><i class="fa-solid fa-phone"></i></span>
+                            <span>Phone number: 0123456789</span>
+                        </div>
+                        <div class="contact__info--email">
+                            <span><i class="fa-solid fa-envelope"></i></span>
+                            <span>Email: bluebird@gmail.com</span>
+                        </div>
+                        <div class="contact__info-hour">
+                            <p>Office Hours</p>
+                            <p>Monday - Friday</p>
+                            <p>8:00 - 17:30</p>
+                            <p>Saturday - Sunday</p>
+                            <p>8:30 - 17:00</p>
                         </div>
                     </div>
                 </div>
@@ -330,6 +361,7 @@
             <!-- footer -->
         </div>
     </div>
+    <script src="../js/main.js"></script>
     <script>
         var fullname = localStorage.getItem("fullname");
             if(fullname != null) {
@@ -361,7 +393,16 @@
                 dataContainer.appendChild(CreateLoutOut);
             }
         GetAllCartHover(1, 100,' ')
-        ShowHistoryOrders(1, "history")
+        ShowHistoryOrders(1, "history");
+        // Kiểm tra token mỗi 1 phút (hoặc bất kỳ khoảng thời gian nào bạn muốn)
+        let lastScrollTime = Date.now();
+        window.addEventListener('scroll', function() {
+                lastScrollTime = Date.now()
+        });
+        setInterval(function() {
+            // Kiểm tra token liên tục
+            checkTokenExpiration(lastScrollTime);
+        }, 60000);
     </script>
 </body>
 </html>

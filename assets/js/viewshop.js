@@ -23,3 +23,18 @@ function follow() {
     }
 }
 
+// Contact
+
+function openContact() {
+    var overlay = document.getElementById('overlay')
+    var contact = document.getElementById('contact');
+    overlay.style.display = 'block';
+    contact.style.display = 'block';
+  }
+  
+  function closeContact() {
+    var overlay = document.getElementById('overlay')
+    var contact = document.getElementById('contact');
+    overlay.style.display = 'none';
+    contact.style.display = 'none';
+  }

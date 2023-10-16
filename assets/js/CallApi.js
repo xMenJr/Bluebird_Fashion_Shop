@@ -163,13 +163,13 @@ async function displayProductByProductType(pageIndex, productType, IdClass, Name
             data.result.forEach(product => {
                 
                 const productDiv = document.createElement('div');
-                productDiv.className = 'col l-2-4';
+                productDiv.className = 'col l-2-4 fix_padding';
                 let sales = Math.floor(Math.random() * 50);
                 productDiv.innerHTML = `
                     <div class="product_shoe--item"  onclick="InsertIdProductFromShopLocal('${product.id}')">
                         <div class="shoe_item--img">
                             <i class="fa-sharp fa-solid fa-bookmark shoe_item--icon"></i>
-                            <img src="${product.images[0].img || ''}" alt="${product.name}">
+                            <img src="${product.images[0].img || ''}" alt="${product.name}" class="fix__height--img">
                         </div>
                         <div class="shoe_item--content">
                             <div class="bag_content--discount">
@@ -523,13 +523,13 @@ async function GetAllProductMyShop(search) {
                 <td>${product.category}</td>
                 <td>${product.quantity}</td>
                 <td>${product.sold}</td>
-                <td class="product_details">
-                    <a href="">Details</a>
+                <td class="product_details" onclick="InsertIdProductFromShopLocal('${product.id}')">
+                    <a href="#">Details</a>
                 </td>
                 <td class="option">
                     <div class="select_option--detail">
                         <i class="fa-regular fa-trash-can delete--icon" style="cursor: pointer;" onclick="DeleteProduct('${product.id}')" ></i>
-                        <a href="">
+                        <a href="#" onclick="FixProductNextPage('${product.id}')">
                             <i class="fa-solid fa-screwdriver-wrench"></i>
                         </a>
                     </div>
@@ -964,6 +964,7 @@ function InsertIdProductLocal(IdProduct) {
 }
 
 function InsertIdProductFromShopLocal(IdProduct) {
+    localStorage.removeItem("IdProduct1")
     localStorage.setItem("IdProduct1", IdProduct);
     window.location.href = "productDetail.html";
 }
@@ -1412,48 +1413,58 @@ async function GetAllFeedBack( pageIndex, pageSize) {
 
 async function AddToCart() {
     var token = localStorage.getItem("login");
-    var number = document.getElementById("quantity").value;
-    var IdProductDetail = document.getElementById("select__type").value;
-    if(number === 0){
-        alert("Vui lòng chọn số lượng sản phẩm");
+    if(token === null) {
+        alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng");
         return;
     }
-    try {
-        const loginUrl = `https://localhost:7029/api/Cart?token=${token}`
-        fetch(loginUrl, {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify([{
-                idProduct: IdProductDetail,
-                number: number
-            }]),
-        })
-        .then((response) => {
-            if (!response.ok) {
-              alert("Thêm vào giỏ hàng không thành công");
-            throw new Error("Thêm vào giỏ hàng không thành công.");
-            }
-            return response.json();
-        })
-        .then((data) => {
-          alert(data.result);
-        })
-        .catch((error) => {
-            // Xử lý lỗi
-            console.error(error);
-        });
-    }
-    catch(error) {
-        console.error('Error fetching data:', error);
-        alert(error);
+    else {
+        var number = document.getElementById("quantity").value;
+        var IdProductDetail = document.getElementById("select__type").value;
+        if(number === 0){
+            alert("Vui lòng chọn số lượng sản phẩm");
+            return;
+        }
+        try {
+            const loginUrl = `https://localhost:7029/api/Cart?token=${token}`
+            fetch(loginUrl, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify([{
+                    idProduct: IdProductDetail,
+                    number: number
+                }]),
+            })
+            .then((response) => {
+                if (!response.ok) {
+                alert("Thêm vào giỏ hàng không thành công");
+                throw new Error("Thêm vào giỏ hàng không thành công.");
+                }
+                return response.json();
+            })
+            .then((data) => {
+            alert(data.result);
+            })
+            .catch((error) => {
+                // Xử lý lỗi
+                console.error(error);
+            });
+        }
+        catch(error) {
+            console.error('Error fetching data:', error);
+            alert(error);
+        }
     }
 }
 
 
 async function AddToOrder() {
     var token = localStorage.getItem("login");
+    if(token === null) {
+        alert("Vui lòng đăng nhập để mua sảm phẩm");
+        return;
+    }
     var number = document.getElementById("quantity").value;
     var IdProductDetail = document.getElementById("select__type").value;
     if(number === 0){
@@ -1575,3 +1586,382 @@ async function DeleteProduct(IdProduct) {
     else 
     alert("Hành động đã bị hủy");
 }
+
+
+// Show Information
+async function showInformation() {
+    var token = localStorage.getItem("login");
+    const getClassUrl = `https://localhost:7029/api/Users?token=${token}`;
+    const response = await fetch(getClassUrl);
+    const data = await response.json();
+    var email_input = document.getElementById("email_input");
+    var firstname_input = document.getElementById("firstname_input");
+    var lastname_input = document.getElementById("lastname_input");
+    var phonenumber_input = document.getElementById("phonenumber_input");
+    var birth_input = document.getElementById("birth_input");
+    var body__gender = document.getElementById("body__gender");
+
+    // Chuyển đổi chuỗi thành đối tượng Date
+    var originalDate = new Date(data.result.dateOfBirth);
+
+    // Lấy thông tin năm, tháng, và ngày
+    var year = originalDate.getFullYear();
+    var month = ('0' + (originalDate.getMonth() + 1)).slice(-2); // Tháng bắt đầu từ 0
+    var day = ('0' + originalDate.getDate()).slice(-2);
+
+    // Định dạng ngày theo yêu cầu 'yyyy-MM-dd'
+    var formattedDate = year + '-' + month + '-' + day;
+
+    email_input.value = data.result.email;
+    firstname_input.value = data.result.first_Name;
+    lastname_input.value = data.result.last_Name;
+    phonenumber_input.value = data.result.phone;
+    birth_input.value = formattedDate;
+}
+
+
+//  Fix Product
+
+async function FixProductNextPage(IdProduct) {
+    localStorage.setItem("IdProductFix", IdProduct);
+    window.location.href = "FixProduct.html";
+}
+
+async function GetProductFix() {
+    try {
+        var IdProduct = localStorage.getItem("IdProductFix")
+        const getClassUrl = `https://localhost:7029/api/Product/Id?Id=${IdProduct}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+        const productContainer = document.getElementById("product");
+
+        if (data.statusCode === 400) {
+        productContainer.innerHTML = ''
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            var productname_input = document.getElementById("productname_input");
+            var productimg_input__img__main = document.getElementById("productimg_input--img__main");
+            var productimg_input__img__1 = document.getElementById("productimg_input--img__1");
+            var productimg_input__img__2 = document.getElementById("productimg_input--img__2");
+            var productimg_input__img__3 = document.getElementById("productimg_input--img__3");
+            var productimg_input__img__4 = document.getElementById("productimg_input--img__4");
+            var productinfo_input = document.getElementById("productinfo_input");
+            var productdetails_input = document.getElementById("productdetails_input");
+            var productprice_input = document.getElementById("productprice_input");
+            var productmaterial_input = document.getElementById("productmaterial_input");
+            //
+            localStorage.setItem("type", data.result.idProductType);
+            localStorage.setItem("producer", data.result.idProducer);
+            //
+            productname_input.value = data.result.name;
+            data.result.images.forEach(product => {
+                productimg_input__img__main.value = product.img;
+                productimg_input__img__1.value = product.img;
+                productimg_input__img__2.value = product.img;
+                productimg_input__img__3.value = product.img;
+                productimg_input__img__4.value = product.img;
+            });
+            productinfo_input.value = data.result.description;
+            productdetails_input.value = data.result.products[1].description;
+            productprice_input.value = data.result.price;
+            productmaterial_input.value = data.result.material;
+
+            // Lấy bảng và các dòng trong bảng
+            var table = document.getElementById("table_size");
+            var sizeRow = table.rows[0]; // Dòng chứa thông tin size
+            var colorRow = table.rows[1]; // Dòng chứa thông tin color
+            var quantityRow = table.rows[2]; // Dòng chứa thông tin quantity
+
+            // Đổ dữ liệu vào bảng
+            data.result.products.forEach(function(product) {
+                // Đổ dữ liệu size
+                var sizeCell = document.createElement("td");
+                sizeCell.textContent = product.size;
+                sizeCell.onclick = function() {
+                    editCell(this);
+                };
+                sizeRow.appendChild(sizeCell);
+
+                // Đổ dữ liệu color
+                var colorCell = document.createElement("td");
+                colorCell.textContent = product.color;
+                colorCell.onclick = function() {
+                    editCell(this);
+                };
+                colorRow.appendChild(colorCell);
+
+                // Đổ dữ liệu quantity
+                var quantityCell = document.createElement("td");
+                quantityCell.textContent = product.number;
+                quantityCell.onclick = function() {
+                    editCell(this);
+                };
+                quantityRow.appendChild(quantityCell);
+            });
+
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+
+}
+
+
+async function FixProduct() {
+    const token = localStorage.getItem("login");
+    var IdProduct = localStorage.getItem("IdProductFix");
+    let type = localStorage.getItem("type");
+    let producer = localStorage.getItem("producer");
+    if(producer === null || producer === undefined) producer = "43C20E1F-2C4B-47FF-BAB4-14F7142B3030";
+    if(type === null || type === undefined) type = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
+
+    const name_product = document.getElementById("productname_input").value;
+    const img_main = document.getElementById("productimg_input--img__main").value;
+    const img_1 = document.getElementById("productimg_input--img__1").value;
+    const img_2 = document.getElementById("productimg_input--img__2").value;
+    const img_3 = document.getElementById("productimg_input--img__3").value;
+    const img_4 = document.getElementById("productimg_input--img__4").value;
+    const product_information = document.getElementById("productinfo_input").value;
+    const product_detail = document.getElementById("productdetails_input").value;
+    const price = document.getElementById("productprice_input").value;
+    const Material = document.getElementById("productmaterial_input").value;
+    const colors = getTableData().color;
+    const sizes = getTableData().size;
+    const numbers = getTableData().number;
+
+    const loginUrl = `https://localhost:7029/api/Product?Id=${IdProduct}&token=${token}`;
+    fetch(loginUrl, {
+        method: "PUT",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name: name_product,
+            idProducer: producer,
+            idProductType: type,
+            material: Material,
+            price: price,
+            description: product_information,
+            idDiscount: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            images: [
+                {
+                    img: img_main,
+                    usedStatus: 1
+                },
+                {
+                    img: img_1,
+                    usedStatus: 2
+                },
+                {
+                    img: img_2,
+                    usedStatus: 2
+                },
+                {
+                    img: img_3,
+                    usedStatus: 2
+                },
+                {
+                    img: img_4,
+                    usedStatus: 2
+                }
+            ],
+            product_Detail: generateProductDetail( sizes, colors, product_detail,numbers ),
+        }),
+    })
+    .then((response) => {
+        if (!response.ok) {
+          alert("Sửa sản phẩm không thành công");
+        throw new Error("Sửa sản phẩm không thành công");
+        }
+        return response.json();
+    })
+    .then((data) => {
+          alert(data.result);
+          location.reload(true);
+          location.href = "myshop.html";
+    })
+    .catch((error) => {
+        // Xử lý lỗi
+        console.error(error);
+    });
+}
+
+// function generateProductDetailFix(colors, sizes, productDetail, numbers) {
+//     const productDetailArray = [];
+
+//     for (let i = 0; i < sizes.length; i++) {
+//         const size = sizes[i];
+//         const color = colors[i % colors.length]; // Lấy màu tương ứng với kích thước hiện tại
+//         const number = numbers[i % numbers.length]; 
+
+//         productDetailArray.push({
+//             number: number,
+//             description: productDetail,
+//             color: color,
+//             size: size,
+//         });
+//     }
+
+//     return productDetailArray;
+// }
+
+
+
+// function getTableDataFix() {
+//     const table = document.getElementById("table_size_fix");
+//     const sizeRow = table.querySelector("#header_size_fix ");
+//     const colorRow = table.querySelector("#header_long_fix ");
+//     const numberRow = table.querySelector("#header_height_fix");
+
+//     const sizeData = getSizeDataFix(sizeRow);
+//     const colorData = getColorDataFix(colorRow);
+//     const numberData = getNumberDataFix(numberRow);
+//     return {
+//         size: sizeData,
+//         color: colorData,
+//         number: numberData
+//     };
+//     }
+
+// function getSizeDataFix(row) {
+//     const cells = row.getElementsByTagName("td");
+//     const sizeData = [];
+
+//     for (let i = 1; i < cells.length; i++) {
+//         sizeData.push(cells[i].textContent);
+//     }
+
+//     return sizeData;
+// }
+
+// function getColorDataFix(row) {
+//     const cells = row.getElementsByTagName("td");
+//     const colorData = [];
+
+//     for (let i = 1; i < cells.length; i++) {
+//         colorData.push(cells[i].textContent);
+//     }
+
+//     return colorData;
+// }
+
+// function getNumberDataFix(row) {
+//     const cells = row.getElementsByTagName("td");
+//     const numberData = [];
+
+//     for (let i = 1; i < cells.length; i++) {
+//         numberData.push(cells[i].textContent);
+//     }
+
+//     return numberData;
+// }
+
+
+
+// Contact
+
+function openContact() {
+    var overlay = document.getElementById('overlay')
+    var contact = document.getElementById('contact');
+    overlay.style.display = 'block';
+    contact.style.display = 'block';
+  }
+  
+  function closeContact() {
+    var overlay = document.getElementById('overlay')
+    var contact = document.getElementById('contact');
+    overlay.style.display = 'none';
+    contact.style.display = 'none';
+}
+
+// Search
+async function displayProductSearch(search, pageIndex, productType, IdClass) {
+    try {
+        const getClassUrl = `https://localhost:7029/api/Product/Search?search=${search}&pageIndex=${pageIndex}&pageSize=20&ProductType=${productType}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById(IdClass);
+        productContainer.innerHTML = '';
+
+        if (!Array.isArray(data.result) || data.result.length === 0) {
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            data.result.forEach(product => {
+
+                
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product product__one';
+                productDiv.innerHTML = `
+                    <div onclick="InsertIdProductFromShopLocal('${product.id}')">
+                        <img src="${product.images[0].img || ''}" alt="${product.name}">
+                        <div class="product__one--name">
+                            <p>${product.name}</p>
+                        </div>
+                        <div class="product__one--price">
+                            <span>$${product.price}</span>
+                        </div>
+                    </div>
+                    
+                `;
+
+                productContainer.appendChild(productDiv);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+async function displayProductSearchCheck(pageIndex, productType, IdClass) {
+    var search = document.getElementById("search").value;
+    if(search === null || search === undefined || search === "") {
+        search = "";
+    }
+    displayProductSearch(search, pageIndex, productType, IdClass);
+}
+
+
+
+
+function checkTokenExpiration(lastScrollTime) {
+    const currentTime = Date.now();
+    const elapsedTime = currentTime - lastScrollTime;
+    if (elapsedTime >= 1800000) { // 30 phút = 30 * 60 * 1000 = 1800000 milliseconds
+        var token = localStorage.getItem('login');
+
+        if (token) {
+            // Giải mã token để truy cập thông tin thời gian hết hạn
+            var tokenData = JSON.parse(atob(token.split('.')[1]));
+            
+            // Lấy thời gian hết hạn từ token
+            var expirationTime = tokenData.exp * 1000; // Do token lưu thời gian dưới dạng giây
+            
+            
+            if (currentTime > expirationTime) {
+                // Token đã hết hạn, thực hiện đăng xuất người dùng ở đây
+                // Có thể thực hiện logout bằng cách xóa token và chuyển người dùng về trang đăng nhập
+                // Gọi hàm kiểm tra hạn của token ở đây
+                alert("Phiên đăng nhập đã hết hạn, vui lòng đăng nhập lại");
+                LogOut();
+            } 
+        }
+        // Reset thời gian cuộn trang
+        lastScrollTime = currentTime;
+    }
+}
+
+function LogOut() {
+    localStorage.removeItem("login");
+    localStorage.removeItem("IdProduct1");
+    localStorage.removeItem("IdProductFix");
+    localStorage.removeItem("type");
+    localStorage.removeItem("producer");
+    localStorage.removeItem("fullname");
+    localStorage.removeItem("avata");
+    localStorage.removeItem("email");
+    location.href = "login.html";
+}
+
