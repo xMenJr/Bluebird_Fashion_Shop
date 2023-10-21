@@ -152,18 +152,18 @@ async function displayProductByProductType(pageIndex, productType, IdClass, Name
         if (!Array.isArray(data.result) || data.result.length === 0) {
             productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
         } else {
-            const productTitle = document.createElement('div');
-                productTitle.className = 'col l-12'
-                productTitle.innerHTML = `
-                    <div class="product_bag--heading">
-                        <h2>${NameProduct}</h2>
-                    </div>
-                `;
-                productContainer.appendChild(productTitle);
+            // const productTitle = document.createElement('div');
+            //     productTitle.className = 'col l-12'
+            //     productTitle.innerHTML = `
+            //         <div class="product_bag--heading">
+            //             <h2>${NameProduct}</h2>
+            //         </div>
+            //     `;
+            //     productContainer.appendChild(productTitle);
             data.result.forEach(product => {
                 
                 const productDiv = document.createElement('div');
-                productDiv.className = 'col l-2-4 fix_padding';
+                productDiv.className = 'col l-2-4 m-4 c-6 fix_padding';
                 let sales = Math.floor(Math.random() * 50);
                 productDiv.innerHTML = `
                     <div class="product_shoe--item"  onclick="InsertIdProductFromShopLocal('${product.id}')">
@@ -214,6 +214,7 @@ async function displayPageBagByProductType(pageIndex, productType, IdClass, Name
                 
                 const productDiv = document.createElement('div');
                 productDiv.className = 'product product__one';
+                productDiv.style.textAlign = 'center';
                 productDiv.innerHTML = `
                     <div onclick="InsertIdProductFromShopLocal('${product.id}')">
                         <img src="${product.images[0].img || ''}" alt="${product.name}">
@@ -500,13 +501,13 @@ async function GetAllProductMyShop(search) {
                 table.innerHTML = `
                     <thead id="product__myshop--title">
                         <tr>
-                            <th>Image</th>
-                            <th>Product's name</th>
-                            <th>Caregory</th>
-                            <th>Quantity</th>
-                            <th>Sold</th>
-                            <th>Action</th>
-                            <th>Option</th>
+                            <th style="width: 10%;">Image</th>
+                            <th style="width: 30%;">Product's name</th>
+                            <th style="width: 10%;">Category</th>
+                            <th style="width: 10%;">Quantity</th>
+                            <th style="width: 10%;">Sold</th>
+                            <th style="width: 10%;">Action</th>
+                            <th style="width: 10%;">Option</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -518,15 +519,15 @@ async function GetAllProductMyShop(search) {
                 productDiv.className = 'product__myshop--body';
 
                 productDiv.innerHTML = `
-                <td><img class="td_img" src="${product.img}" alt=""></td>
-                <td class="product_name">${product.nameProduct}</td>
-                <td>${product.category}</td>
-                <td>${product.quantity}</td>
-                <td>${product.sold}</td>
-                <td class="product_details" onclick="InsertIdProductFromShopLocal('${product.id}')">
+                <td style="width: 10%;"><img class="td_img" src="${product.img}" alt=""></td>
+                <td style="width: 30%;" class="product_name">${product.nameProduct}</td>
+                <td style="width: 10%;"> ${product.category}</td>
+                <td style="width: 10%;" ${product.quantity}</td>
+                <td style="width: 10%;">${product.sold}</td>
+                <td style="width: 10%;" class="product_details" onclick="InsertIdProductFromShopLocal('${product.id}')">
                     <a href="#">Details</a>
                 </td>
-                <td class="option">
+                <td style="width: 10%;" class="option">
                     <div class="select_option--detail">
                         <i class="fa-regular fa-trash-can delete--icon" style="cursor: pointer;" onclick="DeleteProduct('${product.id}')" ></i>
                         <a href="#" onclick="FixProductNextPage('${product.id}')">
@@ -536,6 +537,54 @@ async function GetAllProductMyShop(search) {
                 </td>
                 `;
 
+                productContainer.appendChild(productDiv);
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert(error);
+    }
+}
+
+async function GetAllProductMyShopOnMobile(search) {
+    try {
+        var token = localStorage.getItem("login");
+        const getClassUrl = `https://localhost:7029/api/GetProductMyShop?token=${token}&search=${search}`;
+        const response = await fetch(getClassUrl);
+        const data = await response.json();
+
+        const productContainer = document.getElementById("product_manager--mobile");
+        productContainer.innerHTML = '';
+
+        if (!Array.isArray(data.result) || data.result.length === 0) {
+            productContainer.innerHTML = '<h1 id="Data__null">Không có dữ liệu</h1>';
+        } else {
+            data.result.forEach(product => {
+                var productDiv = document.createElement('div');
+                productDiv.className = 'col c-12';
+
+                productDiv.innerHTML = `
+                <div class="shopProdcut">
+                <div class="shopProduct__img">
+                    <img src="${product.img}" alt="">
+                    </div>
+                    <div class="shopProduct__infor">
+                        <div class="shopProduct__infor--heading">Product's name: ${product.nameProduct}</div>
+                        <div class="shopProduct__infor--category">Category:	${product.category}</div>
+                        <div class="shopProduct__infor--quantity">Quantity: ${product.quantity}</div>
+                        <div class="shopProduct__infor--sold">Sold: ${product.sold}</div>
+                        <div class="shopProdcut__infor--action product_details" onclick="InsertIdProductFromShopLocal('${product.id}')"><a href="#">Action: Details</a></div>
+                        <div class="shopProdcut__infor--option option">
+                            <div class="select_option--detail">
+                                <i class="fa-regular fa-trash-can delete--icon" style="cursor: pointer;" onclick="DeleteProduct('${product.id}')" ></i>
+                                <a href="#" onclick="FixProductNextPage('${product.id}')">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
                 productContainer.appendChild(productDiv);
             });
         }

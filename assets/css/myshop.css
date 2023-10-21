@@ -30,12 +30,10 @@ body {
     display: flex;
     justify-content: left;
     padding-left: 20px;
-    margin-top: 30px;
 }
 .header__search{
     display: flex;
     justify-content: right; 
-    margin-top: 20px;
 }
 
 .header__search input{
@@ -45,7 +43,7 @@ body {
 }
 .header__search i{
     position: absolute;
-    top: 13%;
+    top: 38%;
     right: 13%;
 }
 
@@ -62,10 +60,6 @@ body {
 .header__login a{
     color: #000;
     text-decoration: none;
-}
-
-.header__login {
-    margin-top: 30px;
 }
 
 .header__login li {
@@ -175,7 +169,7 @@ body {
 }
 
 /* function */
-.function {
+.function__user {
     border-right: 1px solid gray;
     display: block;
     width: 80%;
@@ -187,11 +181,11 @@ body {
     font-size: 15px;
 }
 
-.function i {
+.function__user i {
     padding-right: 20px;
 }
 
-.function__item li, .function__shop--add{
+.function__item li, .function__shop li{
     padding: 5px 0;
     padding-left: 30px;
 }
@@ -220,11 +214,13 @@ body {
 /* / function / */
 
 /* my_shop */
-
+.my_shop{
+    margin-top: 5%;
+}
 .shop_manager {
     border: 1px solid black;
     width: 90%;
-    margin-top: 5%;
+    margin: auto;
 }
 
 
@@ -252,7 +248,7 @@ table, th, td {
 .product_name {
     width: 20%;
 }
-
+.product_manager--mobile,
 .product_manager {
     margin: 0 30px 20px 30px;
 }
@@ -387,13 +383,10 @@ table, th, td {
     text-align: left;
     padding: 10px;
     border: 1px solid #ddd;
+    width: 100px; /* Đặt chiều rộng tương đối cho mỗi ô, ví dụ 100px */
+    padding: 5px; /* Thêm padding nếu cần */
 }
 
-.product__myshop--body td {
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #ddd;
-}
 
 .select_option--detail a {
     text-decoration: none;
@@ -426,10 +419,11 @@ table, th, td {
 }
 
 .product__myshop--body td {
-    padding: 10px;
+    padding: 3px;
     border-bottom: 1px solid #ddd;
+    text-align: left;
+    border: 1px solid #ddd;
 }
-
 .product_name {
     font-weight: bold;
 }
@@ -462,4 +456,218 @@ table, th, td {
 
 .fa-screwdriver-wrench:hover {
     color: #27ae60;
+}
+
+.function__admin {
+    border-right: 1px solid gray;
+    width: 80%;
+    display: block;
+}
+
+.function__item--account i {
+    padding-right: 20px;
+}
+.overlay_profile{
+    position: fixed;
+    background-color: rgba(105,105,105,0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+.sidebar{
+    background-color: #000;
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    display: none;
+}
+.sidebar a{
+    color: #fff;
+}
+.close_sideBar--icon{
+    text-align: right;
+}
+.close_sideBar--icon i{
+    color: #fff;
+    padding: 10px;
+
+}
+.close_profile--icon{
+    display: none;
+}
+.profile_icon{
+    padding: 10px;
+    border-radius: 30px;
+    color: #fff;
+    background-color: cadetblue;
+    margin-left: 30%;
+    text-align: center;
+}
+
+.product_manager table {
+    width: 100%; /* Đặt chiều rộng của bảng là 100% của bảng chứa nó */
+}
+
+.product_manager th, td {
+
+}
+/* Responsive */
+/* ipad pro */
+@media (min-width: 1024px) and (max-width: 1239px){
+    .header__search i {
+        top: 44%;
+    }
+    /* .body__save button{
+        margin-left: 84%;
+    } */
+}
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1113px){
+    .header__search i {
+        top: 43%;
+    }
+    .header__logo{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header__logo img{
+        height: 60%;
+    }
+
+    .header__login{
+        margin-top:25%
+    }
+    .sideBar_container{
+        display: none;
+    }
+}
+@media (max-width: 740px) {
+    .header__search {
+        display: none;
+    }
+    .nav_list{
+        display: none;
+    }
+    .fix__height--img{
+        height: 350px;
+    }
+    .shop_now--shoe p, 
+    .shop_now--bag p, 
+    .shop_now--campaign p, 
+    .shop_now--vest p {
+        font-size: 10px;
+    }
+    .prev, .next {
+        top: 30%;
+        font-size: 30px;
+    }
+    .next {
+        margin-right: 0px;
+    }
+    .sideBar_container{
+        display: none;
+        position: fixed;
+        top: 0;
+        display: none;
+    }
+    .close_profile--icon{
+        display: block;
+        text-align: right;
+    }
+    .close_profile--icon i{
+        padding: 0;
+    }
+    .function__list{
+        background-color: #fff;
+        padding-right: 5%;
+        padding: 10px;
+        border: 1px solid #000;
+    }
+    .product_manager{
+        display: none;
+    }
+    .product_manager--mobile{
+        display: block;
+    }
+    .shopProdcut{
+        display: flex;
+        margin-bottom: 5%;
+        border: 1px solid black;
+    }
+    .shopProduct__img{
+        flex: 0.5;
+    }
+    .shopProduct__infor{
+        flex: 1;
+        padding: 10px;
+    }
+    .shopProdcut img{
+        width: 100%;
+    }
+    .shopProduct__infor--heading{
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .shopProduct__infor--category,
+    .shopProduct__infor--quantity,
+    .shopProduct__infor--sold,
+    .shopProdcut__infor--action,
+    .shopProdcut__infor--option{
+        padding: 5px 0;
+    }
+    .shopProdcut__infor--option{
+        text-align: right;
+    }
+    .shop_manager--search i {
+        top: 10px;
+        left: 90%;
+    }
+    .shop_manager--search input {
+        width: 27%;
+        top: 14%;
+        left: 69%;
+        z-index: -1;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .fix__height--img{
+        height: 230px;
+    }
+    .prev, .next {
+        top: 30%;
+        font-size: 25px;
+    }
+    .next {
+        margin-right: 0px;
+    }
+    .body__save button {
+        width: 40%;
+        margin-left: 55%;
+    }
+    .option {
+        width: 100%;
+    }
+    .shop_manager--heading{
+        position: static;
+    }
+    .shop_manager--search input {
+        width: 27%;
+        top: 14%;
+        left: 69%;
+        z-index: -1;
+    }
+    .shop_manager--search i {
+        top: 14.5%;
+        left: 89%;
+    }
+    .shopProduct__img{
+        padding-top: 5%;
+    }
 }

@@ -19,7 +19,7 @@
             <div class="header">
                 <div class="gird wide">
                     <div class="row no-gutters">
-                        <div class="col l-2 l-o-5 m-2 m-o-5">
+                        <div class="col l-2 l-o-5 m-2 m-o-5 c-4 c-o-4">
                             <div class="header__logo">
                                 <a href="./index.html">
                                     <img src="../img/Logo/imglogo.png" alt="logo">
@@ -32,10 +32,9 @@
                                 <div class="header__search--icon">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
-                                
                             </div>
                         </div>
-                        <div class="col l-1 m-1">
+                        <div class="col l-1 m-1 c-1 c-o-1">
                             <div class="header__cart">
                                 <li>
                                     <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -88,8 +87,61 @@
                                 </li>
                             </div>
                         </div>
-                        <div class="col l-1" id="div__login">
+                        <div class="col l-1 m-1 c-1 c-o-1" id="div__login">
                             
+                        </div>
+                        <div class="col l-0 m-0 c-1 c-o-11">
+                            <div class="nav_icon" onclick="openSiderBar()">
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                        </div>
+                        <div class="col l-0 m-0 c-6 c-o-6">
+                            <div class="overlay"></div>
+                            <div class="sidebar">
+                                <ul class="sidebar_items">
+                                    <div class="close_sideBar--icon" onclick="closeSideBar()">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </div>
+                                    <li class="nav_item">
+                                        <a class="nav_item--home" href="./index.html">HomePage</a>
+                                    </li>
+                                    
+                                    <li class="nav_item" onclick="showPorductSideBar()">
+                                        <a class="nav_item--product" href="#" >Product</a>
+                                        <ul class="sideBar_item--product" >
+                                            <a href="./vest.html">
+                                                <li class="product__item--vest">
+                                                    <span>Vest</span>
+                                                </li>
+                                            </a>
+                                            <a href="./bag.html">
+                                                <li class="product__item--bag">
+                                                    <span>Bag</span>
+                                                </li>
+                                            </a>
+                                            <a href="./campaign.html">
+                                                <li class="product__item--campaign">
+                                                    <span>Campaign</span>
+                                                </li>
+                                            </a>
+                                            <a href="./shoe.html">
+                                                <li class="product__item--shoe">
+                                                    <span>Shoe</span>
+                                                </li>
+                                            </a>
+                                        </ul>
+                                    </li>
+                                    <li class="nav_item">
+                                        <a class="nav_item--service" href="./service.html">Service</a>
+                                    </li>
+                                    <li class="nav_item">
+                                        <a class="nav_item--service" href="./blog.html">Blog</a>
+                                    </li>
+                                    <li class="nav_item">
+                                        <a class="nav_item--contact" href="#" onclick="openContact()">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,13 +249,18 @@
                 <div class="content_product">
                     <div class="grid wide">
                         <div class="content_product--bag">
+                            <div class="row">
+                                <div class="product_bag--heading">
+                                    <h2>BAG</h2>
+                                </div>
+                            </div>
                             <div class="row" id="bagProduct" >
                                
                             </div>  
                         </div>
                         <div class="see_more">
                             <div class="row">
-                                <div class="col l-12 m-12">
+                                <div class="col l-12 m-12 c-12">
                                     <div class="bag">
                                         <a href="./bag.html">SEE MORE</a>
                                     </div>
@@ -211,13 +268,18 @@
                             </div>
                         </div>
                         <div class="content_product--shoe">
+                            <div class="row">
+                                <div class="product_bag--heading">
+                                    <h2>SHOE</h2>
+                                </div>
+                            </div>
                             <div class="row" id="shoeProduct" >
                                 
                             </div>
                         </div>
                         <div class="see_more">
                             <div class="row">
-                                <div class="col l-12 m-12">
+                                <div class="col l-12 m-12 c-12">
                                     <div class="shoe">
                                         <a href="./shoe.html">SEE MORE</a>
                                     </div>
@@ -225,12 +287,17 @@
                             </div>
                         </div>
                         <div class="content_product--campaign">
+                            <div class="row">
+                                <div class="product_bag--heading">
+                                    <h2>CAMPAIGN</h2>
+                                </div>
+                            </div>
                             <div class="row" id="campaignProduct">
                                 
                             </div>
                         <div class="see_more">
                             <div class="row">
-                                <div class="col l-12 m-12">
+                                <div class="col l-12 m-12 c-12">
                                     <div class="campaign">
                                         <a href="./campaign.html">SEE MORE</a>
                                     </div>
@@ -238,13 +305,18 @@
                             </div>
                         </div>
                         <div class="content_product--vest">
+                            <div class="row">
+                                <div class="product_bag--heading">
+                                    <h2>VEST</h2>
+                                </div>
+                            </div>
                             <div class="row" id="vestProduct">
                                 
                             </div>
                         </div>
                         <div class="see_more">
                             <div class="row">
-                                <div class="col l-12 m-12">
+                                <div class="col l-12 m-12 c-12">
                                     <div class="vest">
                                         <a href="./vest.html">SEE MORE</a>
                                     </div>
@@ -288,8 +360,8 @@
             <!-- footer -->
             <div class="footer">
                 <div class="grid wide">
-                    <div class="row no-gutters">
-                        <div class="col l-3 m-5">
+                    <div class="row ">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_about">
                                 <h2>Abour Us</h2>
                                 <ul class="footer_about--container">
@@ -313,7 +385,7 @@
 
                             </div>  
                         </div>
-                        <div class="col l-3 m-5">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_contact">
                                 <h2>Contact</h2>
                                 <ul class="footer_contact--container">
@@ -332,7 +404,7 @@
                                 </ul>
                             </div>  
                         </div>
-                        <div class="col l-3 m-5">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_office">
                                 <h2>Office Hours</h2>
                                 <div class="time_open">
@@ -345,7 +417,7 @@
                                 </div>
                             </div>  
                         </div>
-                        <div class="col l-3 m-5">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_follow">
                                 <h2>Follow Us</h2>
                                 <ul class="footer_follow--container">
@@ -374,6 +446,7 @@
             <!-- footer -->
         </div>
     </div>
+    <script src="../js/share.js"></script>
     <script src="../js/main.js"></script>
     <script>
             var fullname = localStorage.getItem("fullname");

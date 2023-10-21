@@ -30,23 +30,20 @@ body {
     display: flex;
     justify-content: left;
     padding-left: 20px;
-    margin-top: 30px;
 }
 .header__search{
     display: flex;
     justify-content: right; 
-    margin-top: 20px;
 }
 
 .header__search input{
     width: 80%;
     height: 30px;
     border-radius: 20px;
-    padding-left: 10px;
 }
 .header__search i{
     position: absolute;
-    top: 13%;
+    top: 38%;
     right: 13%;
 }
 
@@ -65,9 +62,6 @@ body {
     text-decoration: none;
 }
 
-.header__login {
-    margin-top: 30px;
-}
 
 .header__login li {
     padding-bottom: 10px;
@@ -176,7 +170,7 @@ body {
 }
 
 .product {
-    margin: 20px 40px;
+    margin: 20px 38px;
 }
 
 .product__campaign {
@@ -288,4 +282,117 @@ body {
 
 .fa-square-instagram {
     margin-right: 2px;
+}
+
+.nav_icon{
+    text-align: right;
+}
+.overlay{
+    position: fixed;
+    background-color: rgba(105,105,105,0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: none;
+}
+.sidebar{
+    background-color: #000;
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    display: none;
+}
+.sidebar a{
+    color: #fff;
+}
+.close_sideBar--icon{
+    text-align: right;
+}
+.close_sideBar--icon i{
+    color: #fff;
+    padding: 10px;
+
+}
+@media (min-width: 1024px) and (max-width: 1239px){
+    .header__search i {
+        top: 44%;
+    }
+}
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1113px){
+    .header__search i {
+        top: 43%;
+    }
+    .header__logo{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header__logo img{
+        height: 60%;
+    }
+
+    .header__login{
+        margin-top:0px
+    }
+    .header__cart{
+        margin-top: 0px;
+    }
+    .header__search{
+        margin-top: 0px;
+    }
+}
+@media (max-width: 740px) {
+    .header__search {
+        display: none;
+    }
+    .nav_list{
+        display: none;
+    }
+    .fix__height--img{
+        height: 350px;
+    }
+    .shop_now--shoe p, 
+    .shop_now--bag p, 
+    .shop_now--campaign p, 
+    .shop_now--vest p {
+        font-size: 10px;
+    }
+    .prev, .next {
+        top: 30%;
+        font-size: 30px;
+    }
+    .next {
+        margin-right: 0px;
+    }
+    .header__login{
+        margin-top:0px
+    }
+    .header__cart{
+        margin-top: 0px;
+    }
+    .header__search{
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .fix__height--img{
+        height: 230px;
+    }
+    .prev, .next {
+        top: 30%;
+        font-size: 25px;
+    }
+    .next {
+        margin-right: 0px;
+    }
+    .product{
+        margin: auto;
+    }
 }

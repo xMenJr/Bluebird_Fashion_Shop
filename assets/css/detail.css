@@ -671,6 +671,16 @@ body {
     right: -320%;
 }
 
+.date_submit i {
+    color: red;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.date_submit i:hover {
+    color: rgb(209, 30, 30);
+}
+
 /* ------- */
 
 /* footer */

@@ -30,12 +30,10 @@ body {
     display: flex;
     justify-content: left;
     padding-left: 20px;
-    margin-top: 30px;
 }
 .header__search{
     display: flex;
     justify-content: right; 
-    margin-top: 20px;
 }
 
 .header__search input{
@@ -45,7 +43,7 @@ body {
 }
 .header__search i{
     position: absolute;
-    top: 14%;
+    top: 38%;
     right: 10%;
 }
 
@@ -58,10 +56,6 @@ body {
 .header__login a{
     color: #000;
     text-decoration: none;
-}
-
-.header__login {
-    margin-top: 30px;
 }
 
 .header__login li {
@@ -171,10 +165,10 @@ body {
 }
 
 /* function */
-.function {
+.function__user {
     border-right: 1px solid gray;
     display: block;
-    padding-right: 80px;
+    width: 80%;
 }
 .function__list * {
     color: #000;
@@ -183,11 +177,11 @@ body {
     font-size: 15px;
 }
 
-.function i {
+.function__user i {
     padding-right: 20px;
 }
 
-.function__item li, .function__shop--add{
+.function__item li, .function__shop li{
     padding: 5px 0;
     padding-left: 30px;
 }
@@ -198,8 +192,7 @@ body {
 }
 
 .function__list {
-    margin-left: 5%;
-    width: 100%;
+    padding-right: 5%;
 }
 
 .function__list i {
@@ -221,13 +214,22 @@ body {
 /* / function / */
 
 /* my_product */
+.my_product{
+    margin-top: 5%;
+}
 .product {
     border: 1px solid gray;
     width: 90%;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin: auto;
 }
-
+.profile_icon {
+    padding: 10px;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    background-color: cadetblue;
+    margin-left: 30%;
+    text-align: center;
+}
 .product_heading {
     text-align: center;
 }
@@ -260,12 +262,13 @@ body {
 .productprice_input,
 .productmaterial_input {
     height: 35px;
-    width: 620px;
+    width: 65%;
 }
 
 .productimg_input {
     width: 39%;
     height: 80px;
+    margin-bottom: 5%;
 }
 
 .product_body label {
@@ -280,13 +283,13 @@ body {
     border-radius: 3px;
     color: white;
     cursor: pointer;
-    margin-left: 705px;
+    margin-left: 70%;
     margin-bottom: 20px;
 }
 
 textarea {
     resize: none;
-    width: 620px;
+    width: 65%;
 }
 
 table, th, td {
@@ -430,4 +433,152 @@ td {
 .contact__map iframe {
     width: 100%;
     height: 300px;
+}
+
+.function__user {
+    display: block;
+}
+
+.function__admin {
+    border-right: 1px solid gray;
+    width: 80%;
+    display: block;
+}
+
+.function__item--account i {
+    padding-right: 20px;
+}
+
+.nav_icon{
+    text-align: right;
+}
+.overlay_profile{
+    position: fixed;
+    background-color: rgba(105,105,105,0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+.sidebar{
+    background-color: #000;
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    display: none;
+}
+.sidebar a{
+    color: #fff;
+}
+.close_sideBar--icon{
+    text-align: right;
+}
+.close_sideBar--icon i{
+    color: #fff;
+    padding: 10px;
+
+}
+.close_profile--icon{
+    display: none;
+}
+/* Responsive */
+/* ipad pro */
+@media (min-width: 1024px) and (max-width: 1239px){
+    .header__search i {
+        top: 44%;
+    }
+    .body__save button{
+        margin-left: 84%;
+    }
+}
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1113px){
+    .header__search i {
+        top: 43%;
+    }
+    .header__logo{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header__logo img{
+        height: 60%;
+    }
+
+    .header__login{
+        margin-top:25%
+    }
+    .productname_input, 
+    .productimg_input, 
+    .productprice_input, 
+    .productmaterial_input {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
+@media (max-width: 740px) {
+    .header__search {
+        display: none;
+    }
+    .nav_list{
+        display: none;
+    }
+    .fix__height--img{
+        height: 350px;
+    }
+    .shop_now--shoe p, 
+    .shop_now--bag p, 
+    .shop_now--campaign p, 
+    .shop_now--vest p {
+        font-size: 10px;
+    }
+    .prev, .next {
+        top: 30%;
+        font-size: 30px;
+    }
+    .next {
+        margin-right: 0px;
+    }
+    .sideBar_container{
+        display: none;
+        position: fixed;
+        top: 0;
+        display: none;
+    }
+    .close_profile--icon{
+        display: block;
+        text-align: right;
+    }
+    .close_profile--icon i{
+        padding: 0;
+    }
+    .function__list{
+        background-color: #fff;
+        padding-right: 5%;
+        padding: 10px;
+        border: 1px solid #000;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .fix__height--img{
+        height: 230px;
+    }
+    .prev, .next {
+        top: 30%;
+        font-size: 25px;
+    }
+    .next {
+        margin-right: 0px;
+    }
+    .productname_input, 
+    .productimg_input, 
+    .productprice_input, 
+    .productmaterial_input {
+        width: 88%;
+    }
 }

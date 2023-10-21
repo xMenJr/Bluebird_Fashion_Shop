@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management</title>
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/campaign.css">
+    <link rel="stylesheet" href="../css/accountManager.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="../js/CallApi.js"></script>
-    <!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=650c64c238a7e370e77f9342" async="async"></script><!--End of Fchat.vn-->
-    <title>CAMPAIGN</title>
 </head>
 <body>
     <div class="bluebird_fashion">
@@ -23,10 +21,10 @@
                                 <img src="../img/Logo/imglogo.png" alt="logo">
                             </div>
                         </div>
-                        <div class="col l-3 m-3 ">
+                        <div class="col l-3 m-3">
                             <div class="header__search">
-                                <input type="text" id="search">
-                                <div class="header__search--icon" onclick="displayProductSearchCheck(1,'CAMPAIGN', 'campaignProduct')">
+                                <input type="text">
+                                <div class="header__search--icon">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
                                 
@@ -201,172 +199,215 @@
             <!-- / navigation / -->
             <!-- content -->
             <div class="content">
-                <div class="content__heading">
-                    <h1>CAMPAIGN</h1>
-                </div>
-                <div class="product__campaign" id="campaignProduct">
-                    <div class="product product__one">
-                        <a href="#123">
-                            <img src="../img/Campaign/Product1/product1.1.jpg" alt="">
-                        </a>
-                        <div class="product__one--name">
-                            <p>Patchwork Denim Jacket</p>
+                <div class="grid">
+                    <div class="row no-gutters">
+                        <div class="col l-3 m-0">
+                            <div class="overlay_profile"></div>
+                            <div class="sideBar_container">
+                                <div class="function__user">
+                                    <ul class="function__list">
+                                        <div class="close_profile--icon" onclick="closeSidebarProfile()">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div>
+                                        <li class="function__item--account">
+                                            <i class="fa-regular fa-user"></i>
+                                            <span>My account</span>
+                                        </li>
+                                        <li class="function__account-list">
+                                            <ul class="function__item">
+                                                <li class="function__item--profile">
+                                                    <a href="./profile.html">Profile</a>
+                                                </li>
+                                                <li class="function__item--address">
+                                                    <a href="./address.html">Address</a>
+                                                </li>
+                                                <li class="function__item--change">
+                                                    <a href="./changepass.html">Change password</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="function__item--history">
+                                            <i class="fa-regular fa-calendar-days"></i>
+                                            <a href="./history.html">Purchase history</a>
+                                        </li>
+                                        <li class="function__item--cart">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                            <a href="./cart.html">Cart</a>
+                                        </li>
+                                        <li class="function__item--shop">
+                                            <i class="fa-solid fa-shop"></i>
+                                            <a href="./myshop.html">My shop</a>
+                                            <ul class="function__shop">
+                                                <li class="function__shop--add">
+                                                    <a href="./addproduct.html">Add product</a>
+                                                </li>
+                                                <li class="function__shop--renevue">
+                                                    <a href="./revenue.html">Revenue</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="function__admin">
+                                    <ul class="function__list">
+                                        <li class="function__item--accountmanager">
+                                            <i class="fa-regular fa-user"></i>
+                                            <span>Management</span>
+                                        </li>
+                                        <li class="function__account-list">
+                                            <ul class="function__item">
+                                                <li class="function__item--account">
+                                                    <a href="./accountManager.html">Account Management</a>
+                                                </li>
+                                                <li class="function__item--store">
+                                                    <a href="./store.html">Store Manager</a>
+                                                </li>
+                                                <li class="function__item--censorship">
+                                                    <a href="./censorship.html">Censorship Management</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="product__one--price">
-                            <span>$1,850</span>
+                        <div class="col l-0 m-1 c-2">
+                            <div class="profile_icon" onclick="openSidebarProfile()">
+                                <i class="fa-solid fa-address-card"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product product__two">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product2/product2.1.jpg" alt="">
-                        </a>
-                        <div class="product__two--name">
-                            <p>Hybrid Bomber Jacket</p>
-                        </div>
-                        <div class="product__two--price">
-                            <span>$3,890</span>
-                        </div>
-                    </div>
-                    <div class="product product__three">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product3/product3.1.jpg" alt="">
-                        </a>
-                        <div class="product__three--name">
-                            <p>Orchid Bomber Jacket</p>
-                        </div>
-                        <div class="product__three--price">
-                            <span>$3,450</span>
-                        </div>
-                    </div>
-                    <div class="product product__four">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product4/product4.1.jpg" alt="">
-                        </a>
-                        <div class="product__four--name">
-                            <p>Patchwork Workwear Jeans</p>
-                        </div>
-                        <div class="product__four--price">
-                            <span>$1,380</span>
-                        </div>
-                    </div>
-                    <div class="product product__five">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product5/product5.1.jpg" alt="">
-                        </a>
-                        <div class="product__five--name">
-                            <p>Harness Shirt</p>
-                        </div>
-                        <div class="product__five--price">
-                            <span>$630</span>
-                        </div>
-                    </div>
-                    <div class="product product__six">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product6/product6.1.jpg" alt="">
-                        </a>
-                        <div class="product__six--name">
-                            <p>Orchid Shirt</p>
-                        </div>
-                        <div class="product__six--price">
-                            <span>$1,050</span>
-                        </div>
-                    </div>
-                    <div class="product product__seven">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product7/product7.1.jpg" alt="">
-                        </a>
-                        <div class="product__seven--name">
-                            <p>Varsity T-shirt</p>
-                        </div>
-                        <div class="product__seven--price">
-                            <span>$490</span>
-                        </div>
-                    </div>
-                    <div class="product product__eight">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product8/product8.1.jpg" alt="">
-                        </a>
-                        <div class="product__eight--name">
-                            <p>Solarised Skull T-shirt</p>
-                        </div>
-                        <div class="product__eight--price">
-                            <span>$450</span>
-                        </div>
-                    </div>
-                    <div class="product product__nine">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product9/product9.1.jpg" alt="">
-                        </a>
-                        <div class="product__nine--name">
-                            <p>Military Pocket Blouson</p>
-                        </div>
-                        <div class="product__nine--price">
-                            <span>$1,690</span>
-                        </div>
-                    </div><div class="product product__ten">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product10/product10.1.jpg" alt="">
-                        </a>
-                        <div class="product__ten--name">
-                            <p>Cotton Mesh Polo Shirt</p>
-                        </div>
-                        <div class="product__ten--price">
-                            <span>$1,150</span>
-                        </div>
-                    </div>
-                    <div class="product product__eleven">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product11/product11.1.jpg" alt="">
-                        </a>
-                        <div class="product__eleven--name">
-                            <p>Feather Jet Embroidery Tie</p>
-                        </div>
-                        <div class="product__eleven--price">
-                            <span>$350</span>
-                        </div>
-                    </div>
-                    <div class="product product__tweny">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product12/product12.1.jpg" alt="">
-                        </a>
-                        <div class="product__tweny--name">
-                            <p>Graffiti Hawaiian Shirt</p>
-                        </div>
-                        <div class="product__tweny--price">
-                            <span>$1,050</span>
-                        </div>
-                    </div>
-                    <div class="product product__thirdteen">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product13/product13.1.jpg" alt="">
-                        </a>
-                        <div class="product__thirdteen--name">
-                            <p>Graffiti Hooded Sweatshirt</p>
-                        </div>
-                        <div class="product__thirdteen--price">
-                            <span>$820</span>
-                        </div>
-                    </div>
-                    <div class="product product__fourteen">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product14/product14.1.jpg" alt="">
-                        </a>
-                        <div class="product__fourteen--name">
-                            <p>Darted Jeans<p>
-                        </div>
-                        <div class="product__fourteen--price">
-                            <span>$870</span>
-                        </div>
-                    </div>
-                    <div class="product product__fifteen">
-                        <a href="#456">
-                            <img src="../img/Campaign/Product15/product15.1.jpg" alt="">
-                        </a>    
-                        <div class="product__fifteen--name">
-                            <p>Solarised Flower Jumper</p>
-                        </div>
-                        <div class="product__fifteen--price">
-                            <span>$1270</span>
+                        <div class="col l-9 m-12 c-12">
+                            <div class="my_shop">
+                                <div class="shop_manager">
+                                    <div class="shop_manager--heading">
+                                        <div class="manager_heading">
+                                            <h1>Account Management</h1>
+                                        </div>
+                                        <div class="manager_total-search">
+                                            <div class="shop_manager--gross">
+                                                <span>Total Account: </span>
+                                                <span>2</span>
+                                            </div>
+                                            <div class="shop_manager--search">
+                                                <input type="text" id="input__search">
+                                                <i class="fa-solid fa-magnifying-glass" id="search" onclick="search()"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shop_manager--body">
+                                        <div class="product_manager" id="product_manager">
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <th>Email</th>
+                                                    <th>Account Name</th>
+                                                    <th>Account Type</th>
+                                                    <th>Quantity of goods sold</th>
+                                                    <th>Quantity Purchased</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>Minhlee2003@gmail.com</span></td>
+                                                    <td>Minh Lee</td>
+                                                    <td>Purchase Account</td>
+                                                    <td>0</td>
+                                                    <td>5</td>
+                                                    <td class="option">
+                                                        <div class="select_choose">
+                                                            <div class="check">
+                                                                <i class="fa-solid fa-lock lock main" id="lock"></i>
+                                                                <i class="fa-solid fa-unlock unlock main" id="unlock"></i>
+                                                            </div>
+                                                            <i class="fa-regular fa-trash-can delete--icon"></i>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>Hieu2003@gmail.com</span></td>
+                                                    <td>Hieu</td>
+                                                    <td>Sale Account</td>
+                                                    <td>3</td>
+                                                    <td>1</td>
+                                                    <td class="option">
+                                                        <div class="select_choose">
+                                                            <div class="check">
+                                                                <i class="fa-solid fa-lock lock" id="lock"></i>
+                                                                <i class="fa-solid fa-unlock unlock" id="unlock"></i>
+                                                            </div>
+                                                            <i class="fa-regular fa-trash-can delete--icon"></i>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>                   
+                                        </div>
+                                        <div class="product_manager--mobile">
+                                            <div class="row">
+                                                <div class="col l-0 m-0 c-12 ">
+                                                    <div class="accManager">
+                                                        <div class="accManager_infor">
+                                                            <div class="accManager_email">
+                                                                <p>Email: Minhlee2003@gmail.com</p>
+                                                            </div>
+                                                            <div class="accManager_name">
+                                                                <p>Account Name	</p>
+                                                            </div>
+                                                            <div class="accManager_type">
+                                                                <p>Account Type</p>
+                                                            </div>
+                                                            <div class="accManager_sold">
+                                                                <p>Quantity of goods sold</p>
+                                                            </div>
+                                                            <div class="accManager_quantity">
+                                                                <p>Quantity Purchased</p>
+                                                            </div>
+                                                            <div class="accManager_action option ">
+                                                                <p>Action</p>
+                                                                <div class="check select_choose">
+                                                                    <i class="fa-solid fa-lock lock" id="lock"></i>
+                                                                    <i class="fa-solid fa-unlock unlock" id="unlock"></i>
+                                                                    <i class="fa-regular fa-trash-can delete--icon"></i>
+                                                                </div>
+                                                                
+        
+
+                                                            </div>
+                                                        </div> 
+                                                        <div class="accManager_infor">
+                                                            <div class="accManager_email">
+                                                                <p>Email: Minhlee2003@gmail.com</p>
+                                                            </div>
+                                                            <div class="accManager_name">
+                                                                <p>Account Name	</p>
+                                                            </div>
+                                                            <div class="accManager_type">
+                                                                <p>Account Type</p>
+                                                            </div>
+                                                            <div class="accManager_sold">
+                                                                <p>Quantity of goods sold</p>
+                                                            </div>
+                                                            <div class="accManager_quantity">
+                                                                <p>Quantity Purchased</p>
+                                                            </div>
+                                                            <div class="accManager_action option ">
+                                                                <p>Action</p>
+                                                                <div class="check select_choose">
+                                                                    <i class="fa-solid fa-lock lock" id="lock"></i>
+                                                                    <i class="fa-solid fa-unlock unlock" id="unlock"></i>
+                                                                    <i class="fa-regular fa-trash-can delete--icon"></i>
+                                                                </div>                                                        
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="action">
+                                            <button onclick="unLockAll()">UNLOCK ALL</button>
+                                            <button onclick="lockAll()">LOCK IT ALL</button>
+                                            <button>DELETE ALL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -402,7 +443,7 @@
                     </div>
                 </div>
             </div>
-            <!-- /content/ -->
+            <!-- / content / -->
             <!-- footer -->
             <div class="footer">
                 <div class="grid wide">
@@ -491,53 +532,50 @@
             </div>
             <!-- footer -->
         </div>
+        <script src="../js/share.js"></script>
+        <script src="../js/accountManager.js"></script>
+        <script>
+            var fullname = localStorage.getItem("fullname");
+                if(fullname != null) {
+                    var dataContainer = document.getElementById("div__login");
+                    var CreateLoutOut = document.createElement("div")
+                    CreateLoutOut.className = "header__login";
+                    CreateLoutOut.innerHTML = `
+                        <li>
+                            <a href="#" id="fullName">${fullname}</a>
+                            <ul class="select_option">
+                                <a href="./profile.html">
+                                    <li class="account_management">Account management</li>
+                                </a>
+                                <a href="./login.html">
+                                    <li class="log_out">Log out</li>
+                                </a>
+                            </ul>
+                        </li>
+                    `;
+                    dataContainer.appendChild(CreateLoutOut);
+                }
+                else {
+                    var dataContainer = document.getElementById("div__login");
+                    var CreateLoutOut = document.createElement("div")
+                    CreateLoutOut.className = "header__login";
+                    CreateLoutOut.innerHTML = `
+                        <a href="./login.html" id="fullName">Login</a>
+                    `;
+                    dataContainer.appendChild(CreateLoutOut);
+                }
+                GetAllCartHover(1, 100,' ');
+                showInformation();
+            // Kiểm tra token mỗi 1 phút (hoặc bất kỳ khoảng thời gian nào bạn muốn)
+            let lastScrollTime = Date.now();
+            window.addEventListener('scroll', function() {
+                    lastScrollTime = Date.now()
+            });
+            setInterval(function() {
+                // Kiểm tra token liên tục
+                checkTokenExpiration(lastScrollTime);
+            }, 60000);
+        </script>
     </div>
-    <script src="../js/share.js"></script>
-    <script>
-        //Đổi tên 
-        var fullname = localStorage.getItem("fullname");
-            if(fullname != null) {
-                var dataContainer = document.getElementById("div__login");
-                var CreateLoutOut = document.createElement("div")
-                CreateLoutOut.className = "header__login";
-                CreateLoutOut.innerHTML = `
-                    <li>
-                        <a href="#" id="fullName">${fullname}</a>
-                        <ul class="select_option">
-                            <a href="./profile.html">
-                                <li class="account_management">Account management</li>
-                            </a>
-                            <a href="./login.html">
-                                <li class="log_out">Log out</li>
-                            </a>
-                        </ul>
-                    </li>
-                `;
-                dataContainer.appendChild(CreateLoutOut);
-            }
-            else {
-                var dataContainer = document.getElementById("div__login");
-                var CreateLoutOut = document.createElement("div")
-                CreateLoutOut.className = "header__login";
-                CreateLoutOut.innerHTML = `
-                    <a href="./login.html" id="fullName">Login</a>
-                `;
-                dataContainer.appendChild(CreateLoutOut);
-            }
-        // Hiển thị Bags
-        displayPageBagByProductType(1, 'CAMPAIGN', 'campaignProduct', 'CAMPAIGN');
-        if(localStorage.getItem("login") != null || localStorage.getItem("login") != undefined) {
-            GetAllCartHover(1, 100,' ')
-        }
-        // Kiểm tra token mỗi 1 phút (hoặc bất kỳ khoảng thời gian nào bạn muốn)
-        let lastScrollTime = Date.now();
-        window.addEventListener('scroll', function() {
-                lastScrollTime = Date.now()
-        });
-        setInterval(function() {
-            // Kiểm tra token liên tục
-            checkTokenExpiration(lastScrollTime);
-        }, 60000);
-    </script>
 </body>
 </html>

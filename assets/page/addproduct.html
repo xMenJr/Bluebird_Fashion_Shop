@@ -18,9 +18,11 @@
             <div class="header">
                 <div class="gird wide">
                     <div class="row no-gutters">
-                        <div class="col l-2 l-o-5 m-2 m-o-5">
+                        <div class="col l-2 l-o-5 m-2 m-o-5 c-4 c-o-4">
                             <div class="header__logo">
-                                <img src="../img/Logo/imglogo.png" alt="logo">
+                                <a href="./index.html">
+                                    <img src="../img/Logo/imglogo.png" alt="logo">
+                                </a>
                             </div>
                         </div>
                         <div class="col l-3 m-3 ">
@@ -32,7 +34,7 @@
                                 
                             </div>
                         </div>
-                        <div class="col l-1 m-1">
+                        <div class="col l-1 m-1 c-1 c-o-1">
                             <div class="header__cart">
                                 <li>
                                     <a href="./cart.html" class="cart__icon--title"><i class="fa-solid fa-cart-shopping cart__icon"></i></a>
@@ -82,8 +84,61 @@
                                 </li>
                             </div>
                         </div>
-                        <div class="col l-1" id="div__login">
+                        <div class="col l-1 m-1 c-1 c-o-1" id="div__login">
                         
+                        </div>
+                        <div class="col l-0 m-0 c-1 c-o-11">
+                            <div class="nav_icon" onclick="openSiderBar()">
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                        </div>
+                        <div class="col l-0 m-0 c-6 c-o-6">
+                            <div class="overlay"></div>
+                            <div class="sidebar">
+                                <ul class="sidebar_items">
+                                    <div class="close_sideBar--icon" onclick="closeSideBar()">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </div>
+                                    <li class="nav_item">
+                                        <a class="nav_item--home" href="./index.html">HomePage</a>
+                                    </li>
+                                    
+                                    <li class="nav_item" onclick="showPorductSideBar()">
+                                        <a class="nav_item--product" href="#" >Product</a>
+                                        <ul class="sideBar_item--product" >
+                                            <a href="./vest.html">
+                                                <li class="product__item--vest">
+                                                    <span>Vest</span>
+                                                </li>
+                                            </a>
+                                            <a href="./bag.html">
+                                                <li class="product__item--bag">
+                                                    <span>Bag</span>
+                                                </li>
+                                            </a>
+                                            <a href="./campaign.html">
+                                                <li class="product__item--campaign">
+                                                    <span>Campaign</span>
+                                                </li>
+                                            </a>
+                                            <a href="./shoe.html">
+                                                <li class="product__item--shoe">
+                                                    <span>Shoe</span>
+                                                </li>
+                                            </a>
+                                        </ul>
+                                    </li>
+                                    <li class="nav_item">
+                                        <a class="nav_item--service" href="./service.html">Service</a>
+                                    </li>
+                                    <li class="nav_item">
+                                        <a class="nav_item--service" href="./blog.html">Blog</a>
+                                    </li>
+                                    <li class="nav_item">
+                                        <a class="nav_item--contact" href="#" onclick="openContact()">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -148,43 +203,78 @@
                 <div class="grid">
                     <div class="row no-gutters">
                         <div class="col l-3 m-4">
-                            <div class="function">
-                                <ul class="function__list">
-                                    <li class="function__item--account">
-                                        <i class="fa-regular fa-user"></i>
-                                        <span>My account</span>
-                                    </li>
-                                    <li class="function__account-list">
-                                        <ul class="function__item">
-                                            <li class="function__item--profile">
-                                                <a href="./profile.html">Profile</a>
-                                            </li>
-                                            <li class="function__item--address">
-                                                <a href="./address.html">Address</a>
-                                            </li>
-                                            <li class="function__item--change">
-                                                <a href="./changepass.html">Change password</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="function__item--history">
-                                        <i class="fa-regular fa-calendar-days"></i>
-                                        <a href="./history.html">Purchase history</a>
-                                    </li>
-                                    <li class="function__item--cart">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                        <a href="./cart.html">Cart</a>
-                                    </li>
-                                    <li class="function__item--shop">
-                                        <i class="fa-solid fa-shop"></i>
-                                        <a href="./myshop.html">My shop</a>
-                                        <ul class="function__shop">
-                                            <li class="function__shop--add">
-                                                <a href="./addproduct.html">Add product</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <div class="overlay_profile"></div>
+                            <div class="sideBar_container">
+                                <div class="function__user">
+                                    <ul class="function__list">
+                                        <div class="close_profile--icon" onclick="closeSidebarProfile()">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div>
+                                        <li class="function__item--account">
+                                            <i class="fa-regular fa-user"></i>
+                                            <span>My account</span>
+                                        </li>
+                                        <li class="function__account-list">
+                                            <ul class="function__item">
+                                                <li class="function__item--profile">
+                                                    <a href="./profile.html">Profile</a>
+                                                </li>
+                                                <li class="function__item--address">
+                                                    <a href="./address.html">Address</a>
+                                                </li>
+                                                <li class="function__item--change">
+                                                    <a href="./changepass.html">Change password</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="function__item--history">
+                                            <i class="fa-regular fa-calendar-days"></i>
+                                            <a href="./history.html">Purchase history</a>
+                                        </li>
+                                        <li class="function__item--cart">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                            <a href="./cart.html">Cart</a>
+                                        </li>
+                                        <li class="function__item--shop">
+                                            <i class="fa-solid fa-shop"></i>
+                                            <a href="./myshop.html">My shop</a>
+                                            <ul class="function__shop">
+                                                <li class="function__shop--add">
+                                                    <a href="./addproduct.html">Add product</a>
+                                                </li>
+                                                <li class="function__shop--renevue">
+                                                    <a href="./revenue.html">Revenue</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="function__admin">
+                                    <ul class="function__list">
+                                        <li class="function__item--account">
+                                            <i class="fa-regular fa-user"></i>
+                                            <span>Management</span>
+                                        </li>
+                                        <li class="function__account-list">
+                                            <ul class="function__item">
+                                                <li class="function__item--account">
+                                                    <a href="./accountManager.html">Account Management</a>
+                                                </li>
+                                                <li class="function__item--store">
+                                                    <a href="./store.html">Store Manager</a>
+                                                </li>
+                                                <li class="function__item--censorship">
+                                                    <a href="./censorship.html">Censorship Management</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-0 m-1 c-2">
+                            <div class="profile_icon" onclick="openSidebarProfile()">
+                                <i class="fa-solid fa-address-card"></i>
                             </div>
                         </div>
                         <div class="col l-9 m-8">
@@ -328,8 +418,8 @@
             <!-- footer -->
             <div class="footer">
                 <div class="grid wide">
-                    <div class="row no-gutters">
-                        <div class="col l-3 m-5">
+                    <div class="row ">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_about">
                                 <h2>Abour Us</h2>
                                 <ul class="footer_about--container">
@@ -350,9 +440,10 @@
                                         <a href="#"> Anti Counterfeiting</a>
                                     </li>
                                 </ul>
+
                             </div>  
                         </div>
-                        <div class="col l-3 m-5">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_contact">
                                 <h2>Contact</h2>
                                 <ul class="footer_contact--container">
@@ -371,7 +462,7 @@
                                 </ul>
                             </div>  
                         </div>
-                        <div class="col l-3 m-5">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_office">
                                 <h2>Office Hours</h2>
                                 <div class="time_open">
@@ -384,7 +475,7 @@
                                 </div>
                             </div>  
                         </div>
-                        <div class="col l-3 m-5">
+                        <div class="col l-3 m-5 c-12">
                             <div class="footer_follow">
                                 <h2>Follow Us</h2>
                                 <ul class="footer_follow--container">
@@ -413,6 +504,7 @@
             <!-- footer -->
         </div>
     </div>
+    <script src="../js/share.js"></script>
     <script src="../js/addproduct.js"></script>
     <script>
         var fullname = localStorage.getItem("fullname");
